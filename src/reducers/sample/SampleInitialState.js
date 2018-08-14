@@ -1,9 +1,14 @@
-import { Record, List } from 'immutable';
+// @flow
+export type SampleState = {
+    data: any[],
+    isFetching: boolean,
+    error: { error: string } | null,
+};
 
-const InitialState = new Record({
-    data: new List([]),
+const initialState: SampleState = {
+    data: [],
     isFetching: false,
     error: null,
-});
+};
 
-export default InitialState;
+export default initialState;

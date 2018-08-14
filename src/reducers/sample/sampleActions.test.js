@@ -3,13 +3,7 @@ import thunk from 'redux-thunk';
 import { expect } from 'chai';
 import { fakeServer } from 'sinon';
 import * as actions from './sampleActions';
-import actionTypes from '../../constants/actionTypes';
 
-const {
-    GET_DATA_REQUEST,
-    GET_DATA_SUCCESS,
-    GET_DATA_FAILURE,
-} = actionTypes;
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 const serverData = [

@@ -3,6 +3,7 @@ extends:
 
 plugins:
   - react
+  - flowtype
 
 parser:
   babel-eslint

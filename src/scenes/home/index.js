@@ -1,3 +1,4 @@
-import HomePage from './HomePage';
+// @flow
+import HomePageView from './HomePageView';
 
-export default HomePage;
+export default HomePageView;

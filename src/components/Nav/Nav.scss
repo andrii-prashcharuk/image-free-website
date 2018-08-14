@@ -1,7 +1,10 @@
 .Nav {
-    padding: 10px;
+    width: 100%;
+    max-width: 800px;
 
     ul {
+        display: flex;
+        justify-content: space-around;
         margin: 0;
         padding: 0;
         display: flex;

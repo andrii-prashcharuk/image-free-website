@@ -1,12 +1,5 @@
 import { expect } from 'chai';
 import sample from './sampleReducer';
-import actionTypes from '../../constants/actionTypes';
-
-const {
-    GET_DATA_REQUEST,
-    GET_DATA_SUCCESS,
-    GET_DATA_FAILURE,
-} = actionTypes;
 
 describe('sample tests', () => {
     describe('check init values', () => {
