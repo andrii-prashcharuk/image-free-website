@@ -1,0 +1,19 @@
+@import '../../constants/variables';
+
+.FooterLinks {
+    display: flex;
+
+    a {
+        display: flex;
+        margin: 0 12px;
+
+        svg {
+            fill: $blue;
+            transition: fill 300ms;
+
+            &:hover {
+                fill: $darkBlue;
+            }
+        }
+    }
+}

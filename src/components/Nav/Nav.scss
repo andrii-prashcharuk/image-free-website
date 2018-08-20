@@ -2,17 +2,48 @@
     width: 100%;
     max-width: 800px;
 
+    .Nav-LogoPlaceholder {
+        width: 152px;
+    }
+
     ul {
         display: flex;
         justify-content: space-around;
         margin: 0;
         padding: 0;
-        display: flex;
         list-style: none;
+        align-items: center;
 
-        li {
+        li a {
             display: block;
-            padding: 5px 10px;
+            padding: 4px 12px;
+            border-radius: 16px;
+        }
+
+        li a.no-padding {
+            padding: 0;
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .Nav {
+        .Nav-LogoPlaceholder {
+            display: none;
+        }
+        ul {
+            flex-direction: column;
+
+            li {
+                width: 100%;
+                text-align: center;
+
+                a {
+                    padding: 18px 0;
+                    border-radius: 0;
+                    font-size: 24px;
+                }
+            }
         }
     }
 }

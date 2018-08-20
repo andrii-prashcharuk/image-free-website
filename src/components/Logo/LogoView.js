@@ -1,0 +1,30 @@
+// @flow
+import React from 'react';
+import './Logo.scss';
+
+const Logo = () => (
+    <svg
+        className="Logo"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlnsXlink="http://www.w3.org/1999/xlink"
+        viewBox="0 0 820 875"
+    >
+        <g id="bg">
+            <g>
+                <circle className="cls-1" cx="410" cy="437.5" r="400" />
+                <circle className="cls-2" cx="410" cy="437.5" r="400" />
+            </g>
+        </g>
+        <g id="shape">
+            <g>
+                <line className="cls-3" x1="447.5" y1="25" x2="210" y2="437.5" />
+                <line className="cls-3" x1="610" y1="437.5" x2="372.5" y2="850" />
+                <line className="cls-3" x1="465.66" y1="187.5" x2="610" y2="437.5" />
+                <line className="cls-3" x1="210" y1="438" x2="354.34" y2="688" />
+                <line className="cls-2" x1="310" y1="287.5" x2="510" y2="287.5" />
+            </g>
+        </g>
+    </svg>
+);
+
+export default Logo;

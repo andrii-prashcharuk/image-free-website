@@ -35,11 +35,11 @@ module.exports = {
                 include: APP_DIR,
             },
             {
-                test: /\.png/,
-                loader: 'url-loader?limit=100000&name=/images/[name].[ext]',
+                test: /\.png$/,
+                loader: 'url-loader?limit=10000&name=/images/[name].[ext]',
             },
             {
-                test: /\.jpg/,
+                test: /\.jpg$/,
                 loader: 'file-loader?&name=/images/[name].[ext]',
             },
             {
@@ -75,6 +75,11 @@ module.exports = {
             {
                 from: './__mocks__',
                 to: '../dst/__mocks__',
+                toType: 'dir',
+            },
+            {
+                from: './favicon',
+                to: '../dst',
                 toType: 'dir',
             },
         ]),

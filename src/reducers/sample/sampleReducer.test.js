@@ -1,19 +1,12 @@
+// @flow
 import { expect } from 'chai';
 import sample from './sampleReducer';
+import initialState from './SampleInitialState';
 
 describe('sample tests', () => {
     describe('check init values', () => {
-        let initialState = null;
-
-        beforeEach(() => {
-            const action = {
-                type: 'dummy',
-            };
-            initialState = sample(undefined, action);
-        });
-
         it('sets data to an empty List', () => {
-            expect(initialState.data.toJS()).to.deep.equal([]);
+            expect(initialState.data).to.deep.equal([]);
         });
 
         it('sets isFetching to false', () => {
@@ -28,7 +21,7 @@ describe('sample tests', () => {
     describe('GET_DATA_REQUEST', () => {
         it('sets isFetching to true and error to null', () => {
             const action = {
-                type: GET_DATA_REQUEST,
+                type: 'GET_DATA_REQUEST',
             };
             const next = sample(undefined, action);
 
@@ -45,12 +38,12 @@ describe('sample tests', () => {
                 label: 'bar2',
             }];
             const action = {
-                type: GET_DATA_SUCCESS,
+                type: 'GET_DATA_SUCCESS',
                 payload: serverData,
             };
             const next = sample(undefined, action);
 
-            expect(next.data.toJS()).to.deep.equal(serverData);
+            expect(next.data).to.deep.equal(serverData);
             expect(next.isFetching).to.equal(false);
             expect(next.error).to.equal(null);
         });
@@ -62,7 +55,7 @@ describe('sample tests', () => {
                 error: 'Some Error',
             };
             const action = {
-                type: GET_DATA_FAILURE,
+                type: 'GET_DATA_FAILURE',
                 payload: error,
             };
             const next = sample(undefined, action);

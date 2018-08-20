@@ -1,0 +1,31 @@
+@import '../../constants/variables';
+
+.Logo {
+    height: 90px;
+
+    .cls-1 {
+        fill: $blue;
+        transition: fill 300ms;
+    }
+
+    &:hover {
+        .cls-1 {
+            fill: $lightBlue;
+        }
+    }
+
+    .cls-2, .cls-3 {
+        fill: none;
+        stroke: $black;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+
+    .cls-2 {
+        stroke-width: 20px;
+    }
+
+    .cls-3 {
+        stroke-width: 50px;
+    }
+}

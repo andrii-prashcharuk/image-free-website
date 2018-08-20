@@ -14,6 +14,6 @@ export type State = {
 
 export type Action = SampleAction;
 
-export type BasisStore = Store<State, Action>;
+export type AppStore = Store<State, Action>;
 
 export type GetState = () => State;
