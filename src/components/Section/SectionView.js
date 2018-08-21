@@ -5,11 +5,12 @@ import './Section.scss';
 
 type Props = {
     id: string,
+    className?: string,
     children: Node,
 };
 
-const Section = ({ id, children }: Props) => (
-    <section className="Section" id={id}>
+const Section = ({ id, className = '', children }: Props) => (
+    <section className={`Section ${className}`} id={id}>
         {children}
     </section>
 );

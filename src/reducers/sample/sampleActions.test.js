@@ -43,9 +43,7 @@ describe('sampleActions tests', () => {
     });
 
     it('should return correct event type and data for getDataFailure', () => {
-        const error = {
-            error: 'Some Error',
-        };
+        const error = 'Some Error';
         expect(actions.getDataFailure(error)).to.deep.equal({
             type: 'GET_DATA_FAILURE',
             payload: error,

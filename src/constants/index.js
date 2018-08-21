@@ -17,3 +17,9 @@ export type Action = SampleAction;
 export type AppStore = Store<State, Action>;
 
 export type GetState = () => State;
+
+export type Error = {
+    error: string,
+};
+
+export const MOBILE_MAX_WIDTH = 600;

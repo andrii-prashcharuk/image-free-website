@@ -2,7 +2,7 @@
 export type SampleState = {
     data: any[],
     isFetching: boolean,
-    error: { error: string } | null,
+    error: string | null,
 };
 
 const initialState: SampleState = {

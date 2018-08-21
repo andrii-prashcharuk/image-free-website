@@ -1,5 +1,5 @@
-// flow-typed signature: 262b0ae506bb557b7bbea6cf8859867f
-// flow-typed version: efe563fdbd/axios_v0.17.x/flow_>=v0.25.x <=v0.74.x
+// flow-typed signature: 2fad49786d92c00e8d355aba3861d48c
+// flow-typed version: efe563fdbd/axios_v0.17.x/flow_>=v0.75.x
 
 declare module "axios" {
   declare interface ProxyConfig {
@@ -92,10 +92,10 @@ declare module "axios" {
   declare type AxiosPromise<T> = Promise<AxiosXHR<T>>;
   declare class Axios {
     constructor<T>(config?: AxiosXHRConfigBase<T>): void;
-    $call: <T>(
+    [[call]]<T>(
       config: AxiosXHRConfig<T> | string,
       config?: AxiosXHRConfig<T>
-    ) => AxiosPromise<T>;
+    ): AxiosPromise<T>;
     request<T>(config: AxiosXHRConfig<T>): AxiosPromise<T>;
     delete<T>(url: string, config?: AxiosXHRConfigBase<T>): AxiosPromise<T>;
     get<T>(url: string, config?: AxiosXHRConfigBase<T>): AxiosPromise<T>;
@@ -132,6 +132,10 @@ declare module "axios" {
   declare type $AxiosError<T> = AxiosError<T>;
 
   declare interface AxiosExport extends Axios {
+    [[call]]<T>(
+      config: AxiosXHRConfig<T> | string,
+      config?: AxiosXHRConfig<T>
+    ): AxiosPromise<T>;
     Axios: typeof Axios;
     Cancel: Class<Cancel>;
     CancelToken: Class<CancelToken>;

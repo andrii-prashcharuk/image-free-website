@@ -1,4 +1,6 @@
 // @flow
 import NavView from './NavView';
+import Nav from './Nav';
 
-export default NavView;
+export { NavView };
+export default Nav;

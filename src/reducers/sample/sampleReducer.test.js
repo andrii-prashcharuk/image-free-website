@@ -51,9 +51,7 @@ describe('sample tests', () => {
 
     describe('GET_DATA_FAILURE', () => {
         it('sets isFetching to false and saves error object to error', () => {
-            const error = {
-                error: 'Some Error',
-            };
+            const error = 'Some Error';
             const action = {
                 type: 'GET_DATA_FAILURE',
                 payload: error,
@@ -61,7 +59,7 @@ describe('sample tests', () => {
             const next = sample(undefined, action);
 
             expect(next.isFetching).to.equal(false);
-            expect(next.error).to.deep.equal(error);
+            expect(next.error).to.equal(error);
         });
     });
 });

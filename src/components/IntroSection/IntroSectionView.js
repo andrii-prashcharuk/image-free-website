@@ -4,7 +4,7 @@ import Section from '../Section';
 import './IntroSection.scss';
 
 const IntroSection = () => (
-    <Section id="intro">
+    <Section id="intro" className="IntroSection">
         <h3>Welcome</h3>
         <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.

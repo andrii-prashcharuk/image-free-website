@@ -5,7 +5,8 @@
     text-decoration: none;
     transition: background 300ms;
 
-    &:hover {
+    &:hover,
+    &.active {
         background: $lightBlue;
     }
 }

@@ -1,7 +1,7 @@
 // @flow
 import sampleAPI from '../../utils/api';
 import { getErrorFromRequest } from '../../utils';
-import type { GetState } from '../../constants';
+import type { GetState, Error } from '../../constants';
 
 type GetDataRequestAction = {
     type: 'GET_DATA_REQUEST',
@@ -27,10 +27,10 @@ export function getDataSuccess(data: any[]): GetDataSuccessAction {
 
 type GetDataFailureAction = {
     type: 'GET_DATA_FAILURE',
-    payload: { error: string },
+    payload: string,
 };
 
-export function getDataFailure(error: { error: string }): GetDataFailureAction {
+export function getDataFailure(error: string): GetDataFailureAction {
     return {
         type: 'GET_DATA_FAILURE',
         payload: error,
