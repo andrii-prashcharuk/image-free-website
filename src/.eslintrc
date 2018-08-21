@@ -2,6 +2,7 @@ extends:
   eslint-config-airbnb
 
 plugins:
+  - jest
   - react
   - flowtype
 
