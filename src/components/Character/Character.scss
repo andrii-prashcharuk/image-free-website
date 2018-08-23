@@ -1,0 +1,134 @@
+@import '../../constants/variables';
+
+$hairColor: #5d4341;
+$eyesColor: #644831;
+$noseColor: #f9bba5;
+$mouthColor: #d48694;
+$skinColor: #fccfbd;
+$tShirtColor: #227aa7;
+$pantsColor: #a63c23;
+$shoesColor: #6d6d6d;
+
+.Character {
+    width: 180px;
+    position: relative;
+
+    .Character-Body {
+        display: block;
+
+        .cls-1 {
+            fill: $pantsColor;
+        }
+
+        .cls-2 {
+            fill: $black;
+        }
+
+        .cls-3 {
+            fill: $shoesColor;
+        }
+
+        .cls-4 {
+            fill: none;
+            stroke: $skinColor;
+            stroke-linecap: round;
+            stroke-miterlimit: 10;
+            stroke-width: 14.02px;
+        }
+
+        .cls-5 {
+            fill: $tShirtColor;
+        }
+
+        .cls-6 {
+            fill: $skinColor;
+        }
+    }
+
+    .Character-Head {
+        display: block;
+        position: absolute;
+        top: -56%;
+        left: -13%;
+        transform-origin: bottom center;
+        animation: HeadShaking 2s infinite;
+
+        .cls-1 {
+            fill: $skinColor;
+        }
+
+        .cls-2, .cls-6 {
+            fill: $hairColor;
+        }
+
+        .cls-2 {
+            opacity: 0.2;
+        }
+
+        .cls-3, .cls-5 {
+            fill: none;
+            stroke-linecap: round;
+        }
+
+        .cls-3 {
+            stroke: $noseColor;
+            stroke-miterlimit: 10;
+            stroke-width: 4.67px;
+        }
+
+        .cls-4 {
+            fill: $eyesColor;
+        }
+
+        .cls-5 {
+            stroke: $mouthColor;
+            stroke-linejoin: round;
+            stroke-width: 2.8px;
+        }
+    }
+
+    .Character-Hand {
+        display: block;
+        position: absolute;
+        top: -48.5%;
+        left: 52%;
+        transform-origin: bottom left;
+        animation: HandWaving 2s infinite;
+
+        .cls-1 {
+            fill: none;
+            stroke: $skinColor;
+            stroke-linecap: round;
+            stroke-miterlimit: 10;
+            stroke-width: 14.02px;
+        }
+
+        .cls-2 {
+            fill: $tShirtColor;
+        }
+    }
+}
+
+@keyframes HandWaving {
+    0% {
+        transform: rotate3d(0, 0, 1, 0deg);
+    }
+    50% {
+        transform: rotate3d(0, 0, 1, 8deg);
+    }
+    100% {
+        transform: rotate3d(0, 0, 1, 0deg);
+    }
+}
+
+@keyframes HeadShaking {
+    0% {
+        transform: rotate3d(0, 0, 1, 0.75deg);
+    }
+    50% {
+        transform: rotate3d(0, 0, 1, -0.75deg);
+    }
+    100% {
+        transform: rotate3d(0, 0, 1, 0.75deg);
+    }
+}

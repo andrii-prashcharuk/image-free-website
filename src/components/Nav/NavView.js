@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import type { RouterHistory, LocationShape } from 'react-router';
-import { debounce } from 'debounce';
+import { debounce } from 'throttle-debounce';
 import NavItem from '../NavItem';
 import './Nav.scss';
 
@@ -60,11 +60,14 @@ export default class Nav extends React.Component<Props> {
 
         return (activeSection && activeSection.id) || '';
     };
-    handleScrollResize = debounce(() => {
-        this.props.history.push({
-            hash: this.getActiveSection(),
-        });
-    }, 300);
+    handleScrollResize = debounce(
+        300,
+        () => {
+            this.props.history.push({
+                hash: this.getActiveSection(),
+            });
+        },
+    );
     props: Props;
     renderNav = (item: NavItemData) => (item.id ? (
         <li key={item.id}>

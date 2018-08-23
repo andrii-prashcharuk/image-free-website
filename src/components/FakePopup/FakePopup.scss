@@ -1,0 +1,46 @@
+@import '../../constants/variables';
+@import '../../utils/mixins';
+
+.FakePopup {
+    width: 50%;
+    background: $white;
+    overflow: hidden;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    @include box-shadow(0, 22px, 70px, 4px, rgba(0, 0, 0, 0.56));
+
+    .FakePopup-Header {
+        position: relative;
+        flex: 0 0 32px;
+        padding: 0 16px;
+        background: #e2e0e2;
+        line-height: 32px;
+        text-align: center;
+        @include gradient-vertical(#eeecee, #cfcdcf);
+
+        .FakePopup-HeaderButtons {
+            position: absolute;
+            top: 0;
+            width: 70px;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .FakePopup-Button {
+                width: 16px;
+                height: 16px;
+                border: 1px solid #c1c0c1;
+                border-radius: 8px;
+                box-sizing: border-box;
+                background: #d0d0d0;
+            }
+        }
+    }
+
+    .FakePopup-Body {
+        flex: 1 1 100%;
+        padding: 16px;
+    }
+}

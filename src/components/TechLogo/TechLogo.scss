@@ -1,0 +1,175 @@
+@import '../../constants/variables';
+
+.TechLogo {
+    position: relative;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    figcaption {
+        position: absolute;
+        top: -25px;
+        opacity: 0;
+        transition: opacity 500ms;
+        color: $white;
+        background: $black;
+        padding: 0 8px;
+        border-radius: 12px;
+        font-size: 14px;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 0;
+            height: 0;
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-top: 4px solid $black;
+        }
+    }
+
+    svg {
+        width: 48px;
+        height: 48px;
+    }
+
+    &:hover {
+        figcaption {
+            opacity: 1;
+        }
+    }
+
+    &.react {
+        .cls-1 {
+            fill: #61dafb;
+        }
+    }
+
+    &.flow {
+        .cls-1 {
+            fill: #ffca20;
+        }
+
+        .cls-1, .cls-3, .cls-6, .cls-7 {
+            opacity: 0.7;
+        }
+
+        .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7 {
+            isolation: isolate;
+        }
+
+        .cls-2 {
+            fill: #ffcf39;
+        }
+
+        .cls-2, .cls-4 {
+            opacity: 0.9;
+        }
+
+        .cls-3 {
+            fill: #ffe490;
+        }
+
+        .cls-4 {
+            fill: #fcbc7c;
+        }
+
+        .cls-5, .cls-6 {
+            fill: #f9a040;
+        }
+
+        .cls-5 {
+            opacity: 0.8;
+        }
+
+        .cls-7 {
+            fill: #ffc737;
+        }
+    }
+
+    &.redux {
+        .cls-1 {
+            fill: #764abc;
+        }
+    }
+
+    &.html5 {
+        .cls-1 {
+            fill: #e44d26;
+        }
+
+        .cls-2 {
+            fill: #f16529;
+        }
+
+        .cls-3 {
+            fill: #ebebeb;
+        }
+
+        .cls-4 {
+            fill: #fff;
+        }
+    }
+
+    &.css3 {
+        .cls-1 {
+            fill: #0170ba;
+        }
+
+        .cls-2 {
+            fill: #29a9df;
+        }
+
+        .cls-3 {
+            fill: #cfcfcf;
+        }
+
+        .cls-4 {
+            fill: #fff;
+        }
+    }
+
+    &.js {
+        .cls-1 {
+            fill: #f7df1e;
+        }
+    }
+
+    &.webpack {
+        .cls-1 {
+            fill: #fff;
+        }
+
+        .cls-2 {
+            fill: #8ed6fb;
+        }
+
+        .cls-3 {
+            fill: #1c78c0;
+        }
+    }
+
+    &.sass {
+        .cls-1 {
+            fill: #cd6799;
+        }
+    }
+
+    &.git {
+        .cls-1 {
+            fill: #f05133;
+        }
+    }
+
+    &.babel {
+        .cls-1 {
+            fill: #f9dc3e;
+        }
+    }
+}

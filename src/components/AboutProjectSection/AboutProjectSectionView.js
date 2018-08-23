@@ -1,23 +1,35 @@
 // @flow
 import React from 'react';
 import Section from '../Section';
+import TechLogo from '../TechLogo';
 import './AboutProjectSection.scss';
 
 const AboutProjectSection = () => (
     <Section id="about-project" className="AboutProjectSection">
-        <h3>About Project</h3>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Donec ex sem, auctor vel magna et, ullamcorper sodales tortor.
-            Etiam augue ligula, rutrum at augue quis, tincidunt vestibulum diam.
-            Nulla viverra ipsum sed scelerisque tempor. Nullam non euismod sapien.
-            Nunc at suscipit augue. Suspendisse fringilla, neque iaculis maximus porta,
-            libero dolor imperdiet nulla, a mollis est ipsum vel metus. Morbi aliquam tellus
-            eu sem bibendum hendrerit. Vestibulum hendrerit nibh in augue posuere,
-            a euismod metus facilisis. Cras non justo pharetra diam faucibus laoreet.
-            Pellentesque mattis imperdiet lorem nec varius.
-            Aliquam justo neque, malesuada id arcu id, semper fermentum risus. Sed ac auctor nunc.
-        </p>
+        <div className="AboutProjectSection-TechLogos">
+            <TechLogo type="html5" />
+            <TechLogo type="css3" />
+            <TechLogo type="js" />
+            <TechLogo type="react" />
+            <TechLogo type="redux" />
+        </div>
+        <div className="AboutProjectSection-Content">
+            <h3>About Project</h3>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Donec ex sem, auctor vel magna et, ullamcorper sodales tortor.
+                Etiam augue ligula, rutrum at augue quis, tincidunt vestibulum diam.
+                Nulla viverra ipsum sed scelerisque tempor. Nullam non euismod sapien.
+                Nunc at suscipit augue.
+            </p>
+        </div>
+        <div className="AboutProjectSection-TechLogos">
+            <TechLogo type="git" />
+            <TechLogo type="webpack" />
+            <TechLogo type="flow" />
+            <TechLogo type="sass" />
+            <TechLogo type="babel" />
+        </div>
     </Section>
 );
 

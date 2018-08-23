@@ -52,6 +52,10 @@ module.exports = (env, argv) => {
                         'sass-loader',
                     ],
                 },
+                {
+                    test: /\.txt$/,
+                    use: 'raw-loader',
+                },
             ],
         },
         resolve: {

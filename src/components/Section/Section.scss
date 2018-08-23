@@ -1,9 +1,10 @@
 .Section {
-    width: 100%;
+    position: relative;
+    width: 100vw;
     height: 100vh;
     min-width: 320px;
     min-height: 568px;
-    padding: 42px 24px 24px;
+    padding: 42px 24px;
     box-sizing: border-box;
 
     & > h3 {

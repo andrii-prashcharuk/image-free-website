@@ -1,0 +1,16 @@
+@import '../../constants/variables';
+
+.AboutProjectSection {
+    overflow: hidden;
+    z-index: 1;
+    background: $white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+
+    .AboutProjectSection-TechLogos {
+        display: flex;
+        justify-content: space-around;
+    }
+}

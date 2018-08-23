@@ -1,6 +1,7 @@
 @import '../../constants/variables';
 
 .ContactSection {
+    z-index: 1;
     background: $black;
     color: $white;
 }
