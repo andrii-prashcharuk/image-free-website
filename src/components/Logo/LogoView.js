@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import classNames from 'classnames';
 import './Logo.scss';
 
 type Props = {
@@ -8,7 +9,7 @@ type Props = {
 
 const Logo = ({ onClick }: Props) => (
     <svg
-        className="Logo"
+        className={classNames('Logo', { interactive: !!onClick })}
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
         viewBox="0 0 820 875"

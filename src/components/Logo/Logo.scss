@@ -2,14 +2,14 @@
 
 .Logo {
     height: 90px;
-    cursor: pointer;
 
     .cls-1 {
         fill: $blue;
         transition: fill 300ms;
     }
 
-    &:hover {
+    &.interactive:hover {
+        cursor: pointer;
         .cls-1 {
             fill: $lightBlue;
         }

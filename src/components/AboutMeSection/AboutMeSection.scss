@@ -9,6 +9,21 @@
 
     .FakePopup {
         margin-top: -20%;
+
+        .FakePopup-Body {
+            display: flex;
+            flex: 1 1 100%;
+            padding: 16px;
+
+            .Logo {
+                flex: 0 0 20%;
+                margin-right: 16px;
+            }
+
+            p {
+                margin: 0;
+            }
+        }
     }
 
     .Character {

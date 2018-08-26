@@ -4,4 +4,101 @@
     z-index: 1;
     background: $black;
     color: $white;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0;
+
+    h3 {
+        text-align: center;
+    }
+
+    .ContactSection-Content {
+        position: relative;
+        flex: 1 1 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .ContactSection-Success {
+            opacity: 0;
+        }
+
+        .ContactSection-LetterWrap {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 600px;
+            max-width: 80%;
+            padding-bottom: 42px;
+            box-sizing: border-box;
+
+            .ContactSection-LetterTop,
+            .ContactSection-LetterBottom {
+                position: absolute;
+                opacity: 0;
+            }
+
+            .ContactSection-LetterPaper {
+                background: $white;
+                border-radius: 24px;
+                height: 100%;
+                width: 100%;
+                box-sizing: border-box;
+                padding: 24px;
+                display: flex;
+                flex-direction: column;
+
+                button {
+                    align-self: flex-end;
+                }
+
+                input, textarea {
+                    margin-bottom: 24px;
+                    color: $black;
+                    outline: none;
+                }
+
+                input, textarea {
+                    padding: 8px;
+                    border: 2px solid $lightBlue;
+                    transition: border-color 300ms;
+                    border-radius: 0;
+                }
+
+                input {
+                    background: transparent;
+                    border-top: none;
+                    border-left: none;
+                    border-right: none;
+                }
+
+                input:focus,
+                textarea:focus {
+                    border-color: $blue;
+                }
+
+                textarea {
+                    flex: 1 1 100%;
+                    resize: none;
+                }
+
+                button {
+                    background: $blue;
+                    color: $black;
+                    padding: 8px 16px;
+                    border-radius: 20px;
+                    border: none;
+                    outline: none;
+                    flex: none;
+                    transition: background 300ms;
+                }
+
+                button:hover,
+                button:focus {
+                    background: $lightBlue;
+                }
+            }
+        }
+    }
 }
