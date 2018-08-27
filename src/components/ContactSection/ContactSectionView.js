@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import Section from '../Section';
+import { paper } from './envelope';
 import './ContactSection.scss';
 
 const ContactSection = () => (
@@ -13,6 +14,7 @@ const ContactSection = () => (
             <div className="ContactSection-LetterWrap">
                 <div className="ContactSection-LetterTop" />
                 <div className="ContactSection-LetterPaper">
+                    {paper}
                     <input type="text" placeholder="Name" />
                     <input type="email" placeholder="Email" />
                     <textarea placeholder="Message" />

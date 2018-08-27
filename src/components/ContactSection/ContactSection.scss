@@ -7,6 +7,8 @@
     display: flex;
     flex-direction: column;
     padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
 
     h3 {
         text-align: center;
@@ -29,7 +31,7 @@
             top: 0;
             height: 100%;
             width: 600px;
-            max-width: 80%;
+            max-width: 85%;
             padding-bottom: 42px;
             box-sizing: border-box;
 
@@ -40,14 +42,13 @@
             }
 
             .ContactSection-LetterPaper {
-                background: $white;
-                border-radius: 24px;
                 height: 100%;
                 width: 100%;
                 box-sizing: border-box;
                 padding: 24px;
                 display: flex;
                 flex-direction: column;
+                position: relative;
 
                 button {
                     align-self: flex-end;
@@ -64,13 +65,14 @@
                     border: 2px solid $lightBlue;
                     transition: border-color 300ms;
                     border-radius: 0;
+                    background: transparent;
                 }
 
                 input {
-                    background: transparent;
                     border-top: none;
                     border-left: none;
                     border-right: none;
+                    width: calc(72.3% - 24px);
                 }
 
                 input:focus,
@@ -97,6 +99,79 @@
                 button:hover,
                 button:focus {
                     background: $lightBlue;
+                }
+            }
+
+            .main {
+                position: absolute;
+
+                .cls-1 {
+                    fill: #6965a8;
+                }
+
+                .cls-2 {
+                    fill: #9090dd;
+                }
+
+                .cls-3 {
+                    fill: #4c4c8c;
+                }
+            }
+
+            .mainBg {
+                position: absolute;
+
+                .cls-1 {
+                    fill: #4c5254;
+                }
+
+                .cls-2 {
+                    fill: #2f423f;
+                }
+            }
+
+            .topOpen {
+                position: absolute;
+
+                .cls-1 {
+                    fill: #4c5254;
+                }
+
+                .cls-2 {
+                    fill: #2f423f;
+                }
+            }
+
+            .topClosed {
+                position: absolute;
+
+                .cls-1 {
+                    fill: #4c4c8c;
+                }
+            }
+
+            .paper {
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: -1;
+                width: 100%;
+                height: 100%;
+
+                .cls-1 {
+                    fill: #eaeaea;
+                }
+
+                .cls-2 {
+                    fill: #d6d6d6;
+                }
+
+                .cls-3 {
+                    fill: #a8a8a8;
+                }
+
+                .cls-4 {
+                    fill: $white;
                 }
             }
         }
