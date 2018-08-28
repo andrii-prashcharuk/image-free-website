@@ -24,6 +24,10 @@
 
         .ContactSection-Success {
             opacity: 0;
+            margin-bottom: 30%;
+            font-size: 24px;
+            transition: opacity 1s;
+            transition-delay: 2.5s;
         }
 
         .ContactSection-LetterWrap {
@@ -34,6 +38,17 @@
             max-width: 85%;
             padding-bottom: 42px;
             box-sizing: border-box;
+            transition: transform 1s;
+            transition-delay: 2s;
+            overflow: hidden;
+
+            .ContactSection-EnvelopeTop {
+                position: absolute;
+                width: 100%;
+                max-height: 30%;
+                top: 25%;
+                z-index: 2;
+            }
 
             .ContactSection-LetterTop,
             .ContactSection-LetterBottom {
@@ -49,6 +64,8 @@
                 display: flex;
                 flex-direction: column;
                 position: relative;
+                z-index: 2;
+                transition: transform 1s ease-in;
 
                 button {
                     align-self: flex-end;
@@ -62,7 +79,7 @@
 
                 input, textarea {
                     padding: 8px;
-                    border: 2px solid $lightBlue;
+                    border: 2px solid $black;
                     transition: border-color 300ms;
                     border-radius: 0;
                     background: transparent;
@@ -102,8 +119,19 @@
                 }
             }
 
+            .ContactSection-EnvelopeTop,
+            .main,
+            .mainBg {
+                transform: translate3d(0, 100vh, 0);
+                transition: transform 1s ease-in;
+            }
+
             .main {
                 position: absolute;
+                top: 25%;
+                max-height: 60%;
+                width: 100%;
+                z-index: 3;
 
                 .cls-1 {
                     fill: #6965a8;
@@ -120,6 +148,10 @@
 
             .mainBg {
                 position: absolute;
+                top: 25%;
+                max-height: 60%;
+                width: 100%;
+                z-index: 1;
 
                 .cls-1 {
                     fill: #4c5254;
@@ -130,8 +162,18 @@
                 }
             }
 
+            .topOpen,
+            .topClosed {
+                backface-visibility: hidden;
+                transition: transform 1s;
+                transform-style: preserve-3d;
+                transition-delay: 1s;
+            }
+
             .topOpen {
-                position: absolute;
+                z-index: 1;
+                transform: translate3d(0, -100%, 0);
+                transform-origin: bottom;
 
                 .cls-1 {
                     fill: #4c5254;
@@ -144,6 +186,13 @@
 
             .topClosed {
                 position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                transform: rotate3d(1, 0, 0, 180deg);
+                transform-origin: top;
+                z-index: 3;
 
                 .cls-1 {
                     fill: #4c4c8c;
@@ -173,6 +222,35 @@
                 .cls-4 {
                     fill: $white;
                 }
+            }
+        }
+    }
+
+    &.closed {
+        .ContactSection-LetterPaper {
+            transform: translate3d(0, calc(100% + 50px), 0);
+        }
+
+        .ContactSection-Success {
+            opacity: 1;
+        }
+
+        .ContactSection-LetterWrap {
+            transform: scale3d(0.3, 0.3, 1);
+        }
+
+        .ContactSection-Content .ContactSection-LetterWrap {
+            .main,
+            .mainBg,
+            .ContactSection-EnvelopeTop {
+                transform: translate3d(0, 0, 0);
+            }
+
+            .topOpen {
+                transform: translate3d(0, -100%, 0) rotate3d(1, 0, 0, 180deg);
+            }
+            .topClosed {
+                transform: rotate3d(1, 0, 0, 0deg);
             }
         }
     }

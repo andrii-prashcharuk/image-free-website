@@ -2,7 +2,12 @@
 import React from 'react';
 
 export const envelope = (
-    <svg className="main" mlns="http://www.w3.org/2000/svg" viewBox="0 0 496 320">
+    <svg
+        className="main"
+        mlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 496 320"
+        preserveAspectRatio="none"
+    >
         <g>
             <polygon
                 className="cls-1"
@@ -18,7 +23,12 @@ export const envelope = (
 );
 
 export const mainBg = (
-    <svg className="mainBg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 320">
+    <svg
+        className="mainBg"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 496 320"
+        preserveAspectRatio="none"
+    >
         <g>
             <polyline className="cls-1" points="496 0 496 320 0 320 0 0" />
             <polyline className="cls-2" points="248 0 496 0 496 320 248 320" />
@@ -27,7 +37,12 @@ export const mainBg = (
 );
 
 export const topOpen = (
-    <svg className="topOpen" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 161.6">
+    <svg
+        className="topOpen"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 496 161.6"
+        preserveAspectRatio="none"
+    >
         <g>
             <polyline className="cls-1" points="0 161.6 248 0 496 161.6" />
             <polyline className="cls-2" points="248 0 496 161.6 248 161.6" />
@@ -36,8 +51,8 @@ export const topOpen = (
 );
 
 export const topClosed = (
-    <svg className="topClosed" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 157">
-        <polygon className="cls-1" points="0 0 248 157 496 0 494.4 0 1.6 0 0 0" />
+    <svg className="topClosed" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 158" preserveAspectRatio="none">
+        <polygon className="cls-1" points="0 0 248 158 496 0 494.4 0 1.6 0 0 0" />
     </svg>
 );
 
