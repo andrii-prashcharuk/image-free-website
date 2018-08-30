@@ -4,6 +4,7 @@ import { throttle } from 'throttle-debounce';
 import classNames from 'classnames';
 import CodeBackground from '../CodeBackground';
 import DisplayStand from '../DisplayStand';
+import { isMobileView } from '../../utils';
 import './DisplayBackground.scss';
 
 const isVertical = (): boolean => (window.innerWidth / window.innerHeight) < 1;
@@ -13,12 +14,14 @@ const getProgressValue =
 
 type State = {
     vertical: boolean,
+    isMobile: boolean,
     progress: number,
 };
 
 export default class DisplayBackground extends React.Component<*, State> {
     state: State = {
         vertical: isVertical(),
+        isMobile: isMobileView(),
         progress: getProgress(),
     };
     componentDidMount() {
@@ -33,13 +36,14 @@ export default class DisplayBackground extends React.Component<*, State> {
         100,
         () => this.setState({
             vertical: isVertical(),
+            isMobile: isMobileView(),
             progress: getProgress(),
         }),
     );
     render = () => {
-        const { vertical, progress } = this.state;
+        const { vertical, progress, isMobile } = this.state;
         const scale = getProgressValue(0.35, 1, progress);
-        const x = getProgressValue(21.43, 0, progress);
+        const x = isMobile ? 0 : getProgressValue(21.43, 0, progress);
         const y = getProgressValue(-190, 0, progress);
 
         return (

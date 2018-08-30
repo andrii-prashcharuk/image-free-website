@@ -173,3 +173,12 @@
         }
     }
 }
+
+@media only screen and (max-width: 600px) {
+    .TechLogo {
+        svg {
+            width: 36px;
+            height: 36px;
+        }
+    }
+}

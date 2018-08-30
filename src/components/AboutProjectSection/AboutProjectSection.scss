@@ -13,4 +13,20 @@
         display: flex;
         justify-content: space-around;
     }
+
+    .AboutProjectSection-Content {
+        h3 {
+            margin-top: 0;
+        }
+
+        p {
+            margin-bottom: 0;
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .AboutProjectSection {
+        padding: 54px 12px 12px;
+    }
 }

@@ -16,17 +16,48 @@
             padding: 16px;
 
             .Logo {
-                flex: 0 0 20%;
+                height: auto;
+                align-self: flex-start;
+                flex: 0 0 80px;
                 margin-right: 16px;
             }
 
             p {
                 margin: 0;
+                text-align: justify;
             }
         }
     }
 
     .Character {
         margin-top: 20%;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    .AboutMeSection {
+        flex-direction: column-reverse;
+
+        .Character {
+            margin-top: 0;
+            width: 30%;
+            align-self: flex-end;
+        }
+
+        .FakePopup {
+            width: 100%;
+            margin-top: -22%;
+            z-index: 1;
+
+            .FakePopup-Body {
+                display: block;
+                font-size: 16px;
+
+                .Logo {
+                    float: left;
+                    width: 48px;
+                }
+            }
+        }
     }
 }

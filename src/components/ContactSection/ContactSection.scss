@@ -25,9 +25,11 @@
         .ContactSection-Success {
             opacity: 0;
             margin-bottom: 30%;
+            padding: 0 12px;
             font-size: 24px;
             transition: opacity 1s;
             transition-delay: 2.5s;
+            text-align: center;
         }
 
         .ContactSection-LetterWrap {
@@ -65,7 +67,8 @@
                 flex-direction: column;
                 position: relative;
                 z-index: 2;
-                transition: transform 1s ease-in;
+                transition: transform 600ms ease-in;
+                transition-delay: 300ms;
 
                 button {
                     align-self: flex-end;
@@ -123,7 +126,7 @@
             .main,
             .mainBg {
                 transform: translate3d(0, 100vh, 0);
-                transition: transform 1s ease-in;
+                transition: transform 1.5s ease-out;
             }
 
             .main {
@@ -252,6 +255,19 @@
             .topClosed {
                 transform: rotate3d(1, 0, 0, 0deg);
             }
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .ContactSection .ContactSection-Content {
+        .ContactSection-Success {
+            margin-bottom: 60%;
+        }
+
+        .ContactSection-LetterWrap .ContactSection-LetterPaper {
+            transition: transform 500ms ease-in;
+            transition-delay: 300ms;
         }
     }
 }
