@@ -16,7 +16,7 @@ const AboutProjectSection = () => (
         <div className="AboutProjectSection-Content">
             <h3>About Project</h3>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Lorem ipsum dolor sit amet, consectetur <a href="/#">some link</a> elit.
                 Donec ex sem, auctor vel magna et, ullamcorper sodales tortor.
                 Etiam augue ligula, rutrum at augue quis, tincidunt vestibulum diam.
                 Nulla viverra ipsum sed scelerisque tempor. Nullam non euismod sapien.

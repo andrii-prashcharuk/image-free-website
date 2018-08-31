@@ -16,21 +16,27 @@ body {
     scroll-behavior: smooth;
 }
 
-//.AppLayout {
-//    main {
-//        transform: translate3d(0, 48px, 0);
-//        transition: transform 500ms;
-//    }
-//
-//    .Header.closed + main {
-//        transform: translate3d(0, 0, 0);
-//    }
-//}
-//
-//@media only screen and (max-width: 600px) {
-//    .AppLayout {
-//        main {
-//            transform: translate3d(0, 0, 0);
-//        }
-//    }
-//}
+a {
+    transition: color 300ms;
+}
+
+a, a:visited {
+    color: $red;
+}
+
+a:active {
+    color: $brightRed;
+}
+
+.darkColorScheme {
+    background: $black;
+    color: $white;
+
+    a, a:visited {
+        color: $blue;
+    }
+
+    a:active {
+        color: $lightBlue;
+    }
+}

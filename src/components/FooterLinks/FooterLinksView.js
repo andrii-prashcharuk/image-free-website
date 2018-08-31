@@ -1,11 +1,8 @@
 // @flow
 import React from 'react';
 import { LinkedInIcon, GithubIcon, FacebookIcon } from '../icons';
+import { LINKEDIN_LINK, GITHUB_LINK, FACEBOOK_LINK } from '../../constants';
 import './FooterLinks.scss';
-
-const LINKEDIN_LINK = 'https://www.linkedin.com/in/prashcharuk';
-const GITHUB_LINK = 'https://github.com/monext';
-const FACEBOOK_LINK = 'https://www.facebook.com/prashcharuk';
 
 const FooterLinks = () => (
     <div className="FooterLinks">

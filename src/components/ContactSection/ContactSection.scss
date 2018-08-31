@@ -1,9 +1,11 @@
 @import '../../constants/variables';
 
+$envelopeMainColor: $blue;
+$envelopeLightColor: $lightBlue;
+$envelopeDarkColor: $darkBlue;
+
 .ContactSection {
     z-index: 1;
-    background: $black;
-    color: $white;
     display: flex;
     flex-direction: column;
     padding-bottom: 0;
@@ -22,12 +24,12 @@
         justify-content: center;
         align-items: center;
 
-        .ContactSection-Success {
+        .ContactSection-SubmitResult {
             opacity: 0;
             margin-bottom: 30%;
             padding: 0 12px;
             font-size: 24px;
-            transition: opacity 1s;
+            transition: opacity 800ms ease-in;
             transition-delay: 2.5s;
             text-align: center;
         }
@@ -137,15 +139,15 @@
                 z-index: 3;
 
                 .cls-1 {
-                    fill: #6965a8;
+                    fill: $envelopeMainColor;
                 }
 
                 .cls-2 {
-                    fill: #9090dd;
+                    fill: $envelopeLightColor;
                 }
 
                 .cls-3 {
-                    fill: #4c4c8c;
+                    fill: $envelopeDarkColor;
                 }
             }
 
@@ -198,7 +200,7 @@
                 z-index: 3;
 
                 .cls-1 {
-                    fill: #4c4c8c;
+                    fill: $envelopeDarkColor;
                 }
             }
 
@@ -234,8 +236,26 @@
             transform: translate3d(0, calc(100% + 50px), 0);
         }
 
-        .ContactSection-Success {
-            opacity: 1;
+        &.success {
+            .ContactSection-SubmitResult.ContactSection-Success {
+                opacity: 1;
+            }
+            .ContactSection-SubmitResult.ContactSection-Error {
+                display: none;
+            }
+        }
+
+        &.error {
+            .ContactSection-SubmitResult.ContactSection-Error {
+                opacity: 1;
+            }
+            .ContactSection-SubmitResult.ContactSection-Success {
+                display: none;
+            }
+            .ContactSection-SubmitResult.ContactSection-Error::before {
+                content: '✖ ';
+                color: $brightRed;
+            }
         }
 
         .ContactSection-LetterWrap {
@@ -261,7 +281,7 @@
 
 @media only screen and (max-width: 600px) {
     .ContactSection .ContactSection-Content {
-        .ContactSection-Success {
+        .ContactSection-SubmitResult {
             margin-bottom: 60%;
         }
 
