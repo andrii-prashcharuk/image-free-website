@@ -5,6 +5,8 @@
     height: 100vh;
     font-family: 'Anonymous Pro', monospace;
     white-space: pre;
+    background: $darkGray;
+    color: #A9B7C6;
 
     .CodeBackground-PaddingWrap {
         width: 100%;
@@ -16,23 +18,18 @@
 
     .keyWord {
         font-weight: bold;
+        color: #CC7832;
     }
 
-    &.dark {
-        background: $darkGray;
-        color: #A9B7C6;
-
-        .keyWord {
-            color: #CC7832;
-        }
+    .quoted {
+        color: #6A8759;
     }
 
-    &.light {
-        background: $white;
-        color: $black;
+    .comment {
+        color: #808080;
+    }
 
-        .keyWord {
-            color: #000080;
-        }
+    .htmlTag {
+        color: #FFC66D;
     }
 }

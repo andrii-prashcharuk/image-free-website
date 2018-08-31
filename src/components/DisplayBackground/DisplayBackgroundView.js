@@ -54,7 +54,7 @@ export default class DisplayBackground extends React.Component<*, State> {
                     filter: progress < 1 && progress > 0.75 ? 'blur(1px)' : undefined,
                 }}
             >
-                <CodeBackground colorScheme="dark" />
+                <CodeBackground />
                 <DisplayStand />
             </div>
         );

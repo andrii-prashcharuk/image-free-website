@@ -46,16 +46,36 @@ const keyWords = [
     'type',
 ];
 
+const specialSymbols = [
+    ';',
+    ',',
+    '(',
+    ')',
+    '{',
+    '}',
+    '=',
+    '.',
+];
+
+const specialSymbolsHighlighted = [
+    ';',
+    ',',
+];
+
 const isSpace = (str: string | Node): boolean => typeof str === 'string' && (/\s/).test(str);
+const isQuotedWord = (str: string | Node): boolean => typeof str === 'string' && (/'(.*?)'|"(.*?)"/).test(str);
+const isSpecialSmbl = (str: string | Node): boolean => typeof str === 'string' && specialSymbols.includes(str);
+const isCommentLine = (str: string | Node): boolean => typeof str === 'string' && (str === '//' || str.indexOf('//') === 0);
+const isHtmlOpenTagWord = (str: string | Node): boolean => typeof str === 'string' && (str.indexOf('<') === 0);
+const isHtmlCloseTagWord = (str: string | Node): boolean => typeof str === 'string' && (str === '>' || str === '/>');
 const getWordType = (word: string): string | null => {
-    if (keyWords.includes(word)) {
+    if (keyWords.includes(word) || specialSymbolsHighlighted.includes(word)) {
         return 'keyWord';
     }
+    if (isQuotedWord(word)) {
+        return 'quoted';
+    }
     return null;
-};
-
-type Props = {
-    colorScheme: 'light' | 'dark',
 };
 
 type State = {
@@ -63,7 +83,7 @@ type State = {
     wordsToPrint: (Node | string)[],
 };
 
-export default class CodeBackground extends React.Component<Props, State> {
+export default class CodeBackground extends React.Component<*, State> {
     state: State = {
         textToPrint: fullText,
         wordsToPrint: [],
@@ -74,8 +94,8 @@ export default class CodeBackground extends React.Component<Props, State> {
     componentWillUnmount() {
         this.stopPrinting();
     }
-    props: Props;
     printInterval: IntervalID | null = null;
+    htmlTagOpen: boolean = false;
     startPrinting = () => {
         this.printInterval = setInterval(() => this.setState(
             (state: State) => {
@@ -89,26 +109,44 @@ export default class CodeBackground extends React.Component<Props, State> {
                 }
 
                 const newWordsToPrint = wordsToPrint.slice();
+                const beforeLastWord = newWordsToPrint[newWordsToPrint.length - 2] || '';
                 const lastWord = newWordsToPrint[newWordsToPrint.length - 1] || '';
-                const isSpaceSymbol = isSpace(symbol);
-                const isSpaceWord = isSpace(lastWord);
+                const isComment = isCommentLine(lastWord);
+                const isHtmlOpenTag = !isComment && isHtmlOpenTagWord(lastWord);
+                const isHtmlCloseTag = !isComment && isHtmlCloseTagWord(lastWord);
+                const isSpaceSymbol = !isComment && isSpace(symbol);
+                const isSpecialSymbol = !isComment && isSpecialSmbl(symbol);
+                const isSpecialWord = !isComment && isSpecialSmbl(lastWord);
+                const isSpaceWord = !isComment && isSpace(lastWord);
+                let wordType;
+
+                if (lastWord && typeof lastWord === 'string' && (isSpecialSymbol || isSpaceSymbol)) {
+                    wordType = !isSpaceWord && getWordType(lastWord);
+                }
+
+                if (isComment && symbol === '\n') {
+                    wordType = 'comment';
+                }
+
+                if ((isHtmlOpenTag && isSpaceSymbol) || (isHtmlCloseTag && beforeLastWord !== '=')) {
+                    wordType = 'htmlTag';
+                }
+
+                if (wordType) {
+                    newWordsToPrint[newWordsToPrint.length - 1] = (
+                        <span key={newWordsToPrint.length - 1} className={wordType}>
+                            {lastWord}
+                        </span>
+                    );
+                }
 
                 if (symbol === '\n') {
                     newWordsToPrint.push(<br key={newWordsToPrint.length} />);
-                } else if (!lastWord || typeof lastWord !== 'string') {
+                } else if (!lastWord || typeof lastWord !== 'string' || isSpecialSymbol || isSpecialWord) {
                     newWordsToPrint.push(symbol);
                 } else if ((isSpaceSymbol && isSpaceWord) || (!isSpaceSymbol && !isSpaceWord)) {
                     newWordsToPrint[newWordsToPrint.length - 1] = lastWord + symbol;
                 } else {
-                    const wordType = !isSpaceWord && getWordType(lastWord);
-
-                    if (wordType) {
-                        newWordsToPrint[newWordsToPrint.length - 1] = (
-                            <span key={newWordsToPrint.length} className={wordType}>
-                                {lastWord}
-                            </span>
-                        );
-                    }
                     newWordsToPrint.push(symbol);
                 }
 
@@ -121,7 +159,7 @@ export default class CodeBackground extends React.Component<Props, State> {
     };
     stopPrinting = () => this.printInterval && clearInterval(this.printInterval);
     render = () => (
-        <div className={`CodeBackground ${this.props.colorScheme}`}>
+        <div className="CodeBackground">
             <div className="CodeBackground-PaddingWrap">
                 {this.state.wordsToPrint}
             </div>

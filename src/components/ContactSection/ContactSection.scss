@@ -23,6 +23,7 @@ $envelopeDarkColor: $darkBlue;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        overflow: hidden;
 
         .ContactSection-SubmitResult {
             opacity: 0;
@@ -169,6 +170,9 @@ $envelopeDarkColor: $darkBlue;
 
             .topOpen,
             .topClosed {
+                -webkit-backface-visibility: hidden;
+                -moz-backface-visibility: hidden;
+                -ms-backface-visibility: hidden;
                 backface-visibility: hidden;
                 transition: transform 1s;
                 transform-style: preserve-3d;
