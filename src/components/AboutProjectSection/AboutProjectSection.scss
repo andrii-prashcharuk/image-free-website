@@ -1,17 +1,18 @@
 @import '../../constants/variables';
+@import '../../utils/mixins';
 
 .AboutProjectSection {
     overflow: hidden;
     z-index: 1;
     background: $white;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    @include flexbox();
+    @include flex-direction(column);
+    @include justify-content(space-around);
     text-align: center;
 
     .AboutProjectSection-TechLogos {
-        display: flex;
-        justify-content: space-around;
+        @include flexbox();
+        @include justify-content(space-around);
     }
 
     .AboutProjectSection-Content {

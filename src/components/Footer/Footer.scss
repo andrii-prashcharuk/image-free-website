@@ -1,11 +1,12 @@
 @import '../../constants/variables';
+@import '../../utils/mixins';
 
 .Footer {
     position: relative;
     z-index: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @include flexbox();
+    @include flex-direction(column);
+    @include align-items(center);
     padding: 24px 0;
     background: $white;
 }

@@ -1,8 +1,9 @@
 @import '../../constants/variables';
+@import '../../utils/mixins';
 
 .NavItem {
     text-decoration: none;
-    transition: background 300ms;
+    @include transition(background 300ms);
 
     &, &:active, &:visited {
         color: $black;

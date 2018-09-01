@@ -1,4 +1,5 @@
 @import '../../constants/variables';
+@import '../../utils/mixins';
 
 $envelopeMainColor: $blue;
 $envelopeLightColor: $lightBlue;
@@ -6,8 +7,8 @@ $envelopeDarkColor: $darkBlue;
 
 .ContactSection {
     z-index: 1;
-    display: flex;
-    flex-direction: column;
+    @include flexbox();
+    @include flex-direction(column);
     padding-bottom: 0;
     padding-left: 0;
     padding-right: 0;
@@ -18,11 +19,11 @@ $envelopeDarkColor: $darkBlue;
 
     .ContactSection-Content {
         position: relative;
-        flex: 1 1 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        @include flex(1 1 100%);
+        @include flexbox();
+        @include flex-direction(column);
+        @include justify-content(center);
+        @include align-items(center);
         overflow: hidden;
 
         .ContactSection-SubmitResult {
@@ -30,8 +31,8 @@ $envelopeDarkColor: $darkBlue;
             margin-bottom: 30%;
             padding: 0 12px;
             font-size: 24px;
-            transition: opacity 800ms ease-in;
-            transition-delay: 2.5s;
+            @include transition(opacity 800ms ease-in);
+            @include transition-delay(2.5s);
             text-align: center;
         }
 
@@ -43,8 +44,8 @@ $envelopeDarkColor: $darkBlue;
             max-width: 85%;
             padding-bottom: 42px;
             box-sizing: border-box;
-            transition: transform 1s;
-            transition-delay: 2s;
+            @include transitionTransform(1s);
+            @include transition-delay(2s);
             overflow: hidden;
 
             .ContactSection-EnvelopeTop {
@@ -66,15 +67,15 @@ $envelopeDarkColor: $darkBlue;
                 width: 100%;
                 box-sizing: border-box;
                 padding: 24px;
-                display: flex;
-                flex-direction: column;
+                @include flexbox();
+                @include flex-direction(column);
                 position: relative;
                 z-index: 2;
-                transition: transform 600ms ease-in;
-                transition-delay: 300ms;
+                @include transitionTransform(600ms ease-in);
+                @include transition-delay(300ms);
 
                 button {
-                    align-self: flex-end;
+                    @include align-self(flex-end);
                 }
 
                 input, textarea {
@@ -86,12 +87,12 @@ $envelopeDarkColor: $darkBlue;
                 input, textarea {
                     padding: 8px;
                     border: 2px solid $black;
-                    transition: border-color 300ms;
+                    @include transition(border-color 300ms);
                     border-radius: 0;
                     background: transparent;
 
                     &.form-error {
-                        animation: error 0.8s ease;
+                        @include animation(error 0.8s ease);
                         border-color: $brightRed;
                     }
                 }
@@ -109,7 +110,7 @@ $envelopeDarkColor: $darkBlue;
                 }
 
                 textarea {
-                    flex: 1 1 100%;
+                    @include flex(1 1 100%);
                     resize: none;
                 }
 
@@ -120,8 +121,8 @@ $envelopeDarkColor: $darkBlue;
                     border-radius: 20px;
                     border: none;
                     outline: none;
-                    flex: none;
-                    transition: background 300ms;
+                    @include flex(none);
+                    @include transition(background 300ms);
                 }
 
                 button:hover,
@@ -133,8 +134,8 @@ $envelopeDarkColor: $darkBlue;
             .ContactSection-EnvelopeTop,
             .main,
             .mainBg {
-                transform: translate3d(0, 100vh, 0);
-                transition: transform 1.5s ease-out;
+                @include transform(translate3d(0, 100vh, 0));
+                @include transitionTransform(1.5s ease-out);
             }
 
             .main {
@@ -175,19 +176,16 @@ $envelopeDarkColor: $darkBlue;
 
             .topOpen,
             .topClosed {
-                -webkit-backface-visibility: hidden;
-                -moz-backface-visibility: hidden;
-                -ms-backface-visibility: hidden;
-                backface-visibility: hidden;
-                transition: transform 1s;
-                transform-style: preserve-3d;
-                transition-delay: 1s;
+                @include backface-visibility(1hidden);
+                @include transitionTransform(1s);
+                @include transform-style(preserve-3d);
+                @include transition-delay(1s);
             }
 
             .topOpen {
                 z-index: 1;
-                transform: translate3d(0, -100%, 0);
-                transform-origin: bottom;
+                @include transform(translate3d(0, -100%, 0));
+                @include transform-origin(bottom);
 
                 .cls-1 {
                     fill: #4c5254;
@@ -204,8 +202,8 @@ $envelopeDarkColor: $darkBlue;
                 left: 0;
                 height: 100%;
                 width: 100%;
-                transform: rotate3d(1, 0, 0, 180deg);
-                transform-origin: top;
+                @include transform(rotate3d(1, 0, 0, 180deg));
+                @include transform-origin(top);
                 z-index: 3;
 
                 .cls-1 {
@@ -242,7 +240,7 @@ $envelopeDarkColor: $darkBlue;
 
     &.closed {
         .ContactSection-LetterPaper {
-            transform: translate3d(0, calc(100% + 50px), 0);
+            @include transform(translate3d(0, calc(100% + 50px), 0));
         }
 
         &.success {
@@ -268,21 +266,21 @@ $envelopeDarkColor: $darkBlue;
         }
 
         .ContactSection-LetterWrap {
-            transform: scale3d(0.3, 0.3, 1);
+            @include transform(scale3d(0.3, 0.3, 1));
         }
 
         .ContactSection-Content .ContactSection-LetterWrap {
             .main,
             .mainBg,
             .ContactSection-EnvelopeTop {
-                transform: translate3d(0, 0, 0);
+                @include transform(translate3d(0, 0, 0));
             }
 
             .topOpen {
-                transform: translate3d(0, -100%, 0) rotate3d(1, 0, 0, 180deg);
+                @include transform(translate3d(0, -100%, 0) rotate3d(1, 0, 0, 180deg));
             }
             .topClosed {
-                transform: rotate3d(1, 0, 0, 0deg);
+                @include transform(rotate3d(1, 0, 0, 0deg));
             }
         }
     }
@@ -295,14 +293,20 @@ $envelopeDarkColor: $darkBlue;
         }
 
         .ContactSection-LetterWrap .ContactSection-LetterPaper {
-            transition: transform 500ms ease-in;
-            transition-delay: 300ms;
+            @include transitionTransform(500ms ease-in);
+            @include transition-delay(300ms);
         }
     }
 }
 
-@keyframes error {
-    0%, 100% { transform: translateX(0); }
-    10%, 30%, 50%, 70%, 90% { transform: translateX(-6px); }
-    20%, 40%, 60%, 80% { transform: translateX(6px); }
+@include keyframes(error) {
+    0%, 100% {
+        @include transform(translate3d(0, 0, 0));
+    }
+    10%, 30%, 50%, 70%, 90% {
+        @include transform(translate3d(-6px, 0, 0));
+    }
+    20%, 40%, 60%, 80% {
+        @include transform(translate3d(6px, 0, 0));
+    }
 }

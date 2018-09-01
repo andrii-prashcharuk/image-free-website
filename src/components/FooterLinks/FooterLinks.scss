@@ -1,15 +1,16 @@
 @import '../../constants/variables';
+@import '../../utils/mixins';
 
 .FooterLinks {
-    display: flex;
+    @include flexbox();
 
     a {
-        display: flex;
+        @include flexbox();
         margin: 0 12px;
 
         svg {
             fill: $blue;
-            transition: fill 300ms;
+            @include transition(fill 300ms);
 
             &:hover {
                 fill: $darkBlue;

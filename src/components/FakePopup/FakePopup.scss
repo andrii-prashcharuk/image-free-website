@@ -6,13 +6,13 @@
     background: $white;
     overflow: hidden;
     border-radius: 16px;
-    display: flex;
-    flex-direction: column;
+    @include flexbox();
+    @include flex-direction(column);
     @include box-shadow(0, 22px, 70px, 4px, rgba(0, 0, 0, 0.56));
 
     .FakePopup-Header {
         position: relative;
-        flex: 0 0 32px;
+        @include flex(0 0 32px);
         padding: 0 16px;
         background: #e2e0e2;
         line-height: 32px;
@@ -24,9 +24,9 @@
             top: 0;
             width: 70px;
             height: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            @include flexbox();
+            @include justify-content(space-between);
+            @include align-items(center);
 
             .FakePopup-Button {
                 width: 16px;
@@ -40,7 +40,7 @@
     }
 
     .FakePopup-Body {
-        flex: 1 1 100%;
+        @include flex(1 1 100%);
         padding: 16px;
     }
 }

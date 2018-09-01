@@ -1,5 +1,6 @@
-@import "../node_modules/normalize.scss/normalize";
-@import "../constants/variables";
+@import '../node_modules/normalize.scss/normalize';
+@import '../constants/variables';
+@import '../utils/mixins';
 
 html, body {
     margin: 0;
@@ -17,7 +18,7 @@ body {
 }
 
 a {
-    transition: color 300ms;
+    @include transition(color 300ms);
 }
 
 a, a:visited {

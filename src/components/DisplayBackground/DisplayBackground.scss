@@ -1,16 +1,17 @@
 @import '../../constants/variables';
+@import '../../utils/mixins';
 
 .DisplayBackground {
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: stretch;
-    transform: scale3d(0.35, 0.35, 1) translate3d(21.43vw, -190px, 0);
-    transform-origin: left center;
-    transition: transform 300ms;
+    @include flexbox();
+    @include flex-direction(column);
+    @include justify-content(stretch);
+    @include transform(scale3d(0.35, 0.35, 1) translate3d(21.43vw, -190px, 0));
+    @include transform-origin(left center);
+    @include transitionTransform(300ms);
 
     .CodeBackground {
         position: relative;
@@ -19,7 +20,7 @@
         border: 25px solid $black;
         border-bottom-width: 50px;
         border-radius: 40px;
-        transition: border-radius 300ms;
+        @include transition(border-radius 300ms);
     }
 
     .CodeBackground::after {
@@ -58,6 +59,6 @@
 
 @media only screen and (max-width: 600px) {
     .DisplayBackground {
-        transform-origin: bottom center;
+        @include transform-origin(bottom center);
     }
 }

@@ -1,24 +1,25 @@
 @import '../../constants/variables';
+@import '../../utils/mixins';
 
 .AboutMeSection {
     z-index: 1;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
+    @include flexbox();
+    @include flex-direction(row);
+    @include justify-content(space-around);
+    @include align-items(center);
 
     .FakePopup {
         margin-top: -20%;
 
         .FakePopup-Body {
-            display: flex;
-            flex: 1 1 100%;
+            @include flexbox();
+            @include flex(1 1 100%);
             padding: 16px;
 
             .Logo {
                 height: auto;
-                align-self: flex-start;
-                flex: 0 0 80px;
+                @include align-self(flex-start);
+                @include flex(0 0 80px);
                 margin-right: 16px;
             }
 
@@ -36,12 +37,12 @@
 
 @media only screen and (max-width: 750px) {
     .AboutMeSection {
-        flex-direction: column-reverse;
+        @include flex-direction(column-reverse);
 
         .Character {
             margin-top: 0;
             width: 30%;
-            align-self: flex-end;
+            @include align-self(flex-end);
         }
 
         .FakePopup {

@@ -105,17 +105,20 @@ export default class ContactSection extends React.Component<Props, State> {
                             type="text"
                             placeholder="Name"
                             onChange={e => this.handleFieldChange('name', e.target.value)}
+                            maxLength="64"
                         />
                         <input
                             className={classNames({ 'form-error': this.state.notValidField === 'email' })}
                             type="email"
                             placeholder="Email"
                             onChange={e => this.handleFieldChange('email', e.target.value)}
+                            maxLength="64"
                         />
                         <textarea
                             className={classNames({ 'form-error': this.state.notValidField === 'message' })}
                             placeholder="Message"
                             onChange={e => this.handleFieldChange('message', e.target.value)}
+                            maxLength={3 * 1024}
                         />
                         <button onClick={this.handleSubmit}>Send</button>
                     </div>

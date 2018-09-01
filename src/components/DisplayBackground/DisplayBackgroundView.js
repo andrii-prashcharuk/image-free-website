@@ -45,13 +45,17 @@ export default class DisplayBackground extends React.Component<*, State> {
         const scale = getProgressValue(0.35, 1, progress);
         const x = isMobile ? 0 : getProgressValue(21.43, 0, progress);
         const y = getProgressValue(-190, 0, progress);
+        const transform = `scale3d(${scale}, ${scale}, 1) translate3d(${x}vw, ${y}px, 0)`;
 
         return (
             <div
                 className={classNames('DisplayBackground', { vertical, fullSize: progress === 1 })}
                 style={{
-                    transform: `scale3d(${scale}, ${scale}, 1) translate3d(${x}vw, ${y}px, 0)`,
                     filter: progress < 1 && progress > 0.75 ? 'blur(1px)' : undefined,
+                    WebkitTransform: transform,
+                    MozTransform: transform,
+                    msTransform: transform,
+                    transform,
                 }}
             >
                 <CodeBackground />

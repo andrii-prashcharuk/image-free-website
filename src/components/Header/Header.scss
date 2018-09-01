@@ -1,11 +1,12 @@
 @import '../../constants/variables';
+@import '../../utils/mixins';
 
 .Header {
     position: fixed;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    @include flexbox();
+    @include flex-direction(column);
+    @include justify-content(center);
+    @include align-items(center);
     z-index: 10;
     top: 0;
     left: 0;
@@ -13,23 +14,24 @@
     height: 48px;
     background: $blue;
     border-bottom: 2px solid $black;
-    transition: transform 500ms;
+    @include transitionTransform(500ms);
 
     &.closed {
-        transform: translate3d(0, -100%, 0);
+        @include transform(translate3d(0, -100%, 0));
+
 
         .Logo {
-            transform: translate3d(0, 2px, 0) scale3d(0.9, 0.9, 1);
+            @include transform(translate3d(0, 2px, 0) scale3d(0.9, 0.9, 1));
 
             &:hover {
-                transform: scale3d(1, 1, 1);
+                @include transform(scale3d(1, 1, 1));
             }
         }
     }
 
     .Logo {
         top: calc(100% - 44px);
-        transition: transform 500ms;
+        @include transitionTransform(500ms);
         position: absolute;
     }
 
@@ -42,7 +44,7 @@
     .Header {
         height: auto;
         padding-bottom: 44px;
-        justify-content: flex-start;
+        @include justify-content(flex-start);
 
         & > * {
             z-index: 1;

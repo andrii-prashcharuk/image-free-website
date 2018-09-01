@@ -1,18 +1,19 @@
 @import '../../constants/variables';
+@import '../../utils/mixins';
 
 .TechLogo {
     position: relative;
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    @include flexbox();
+    @include flex-direction(column);
+    @include justify-content(center);
+    @include align-items(center);
 
     figcaption {
         position: absolute;
         top: -25px;
         opacity: 0;
-        transition: opacity 500ms;
+        @include transition(opacity 500ms);
         color: $white;
         background: $black;
         padding: 0 8px;

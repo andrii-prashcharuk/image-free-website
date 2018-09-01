@@ -1,11 +1,12 @@
 @import '../../constants/variables';
+@import '../../utils/mixins';
 
 .Logo {
     height: 90px;
 
     .cls-1 {
         fill: $blue;
-        transition: fill 300ms;
+        @include transition(fill 300ms);
     }
 
     &.interactive:hover {

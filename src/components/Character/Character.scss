@@ -1,4 +1,5 @@
 @import '../../constants/variables';
+@import '../../utils/mixins';
 
 $hairColor: #5d4341;
 $eyesColor: #644831;
@@ -50,8 +51,8 @@ $shoesColor: #6d6d6d;
         position: absolute;
         top: -56%;
         left: -13%;
-        transform-origin: bottom center;
-        animation: HeadShaking 2s infinite;
+        @include transform-origin(bottom center);
+        @include animation(HeadShaking 2s infinite);
 
         .cls-1 {
             fill: $skinColor;
@@ -92,8 +93,8 @@ $shoesColor: #6d6d6d;
         position: absolute;
         top: -48.5%;
         left: 52%;
-        transform-origin: bottom left;
-        animation: HandWaving 2s infinite;
+        @include transform-origin(bottom left);
+        @include animation(HandWaving 2s infinite);
 
         .cls-1 {
             fill: none;
@@ -109,26 +110,26 @@ $shoesColor: #6d6d6d;
     }
 }
 
-@keyframes HandWaving {
+@include keyframes(HandWaving) {
     0% {
-        transform: rotate3d(0, 0, 1, 0deg);
+        @include transform(rotate3d(0, 0, 1, 0deg));
     }
     50% {
-        transform: rotate3d(0, 0, 1, 8deg);
+        @include transform(rotate3d(0, 0, 1, 8deg));
     }
     100% {
-        transform: rotate3d(0, 0, 1, 0deg);
+        @include transform(rotate3d(0, 0, 1, 0deg));
     }
 }
 
-@keyframes HeadShaking {
+@include keyframes(HeadShaking) {
     0% {
-        transform: rotate3d(0, 0, 1, 0.75deg);
+        @include transform(rotate3d(0, 0, 1, 0.75deg));
     }
     50% {
-        transform: rotate3d(0, 0, 1, -0.75deg);
+        @include transform(rotate3d(0, 0, 1, -0.75deg));
     }
     100% {
-        transform: rotate3d(0, 0, 1, 0.75deg);
+        @include transform(rotate3d(0, 0, 1, 0.75deg));
     }
 }
