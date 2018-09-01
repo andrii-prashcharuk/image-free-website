@@ -7,8 +7,12 @@ export function getErrorFromRequest(request: $AxiosError<Error>): string {
     return (request.response && request.response.data.error) || 'Unknown Error';
 }
 
-export function isMobileView():boolean {
+export function isMobileView(): boolean {
     return window.innerWidth <= MOBILE_MAX_WIDTH;
+}
+
+export function emailValid(email: string): boolean {
+    return (/^([A-Za-z0-9_\-.])+@([A-Za-z0-9_\-.])+\.([A-Za-z]{2,4})$/).test(email);
 }
 
 export function easeInOut(t: number):number {

@@ -6,5 +6,4 @@ import type { State, AppStore } from '../constants';
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 
-export default (initialState: State): AppStore =>
-    createStoreWithMiddleware(reducer, initialState);
+export default (initialState: State): AppStore => createStoreWithMiddleware(reducer, initialState);

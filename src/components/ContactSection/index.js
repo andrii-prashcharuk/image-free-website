@@ -1,4 +1,6 @@
 // @flow
 import ContactSectionView from './ContactSectionView';
+import ContactSection from './ContactSection';
 
-export default ContactSectionView;
+export { ContactSectionView };
+export default ContactSection;

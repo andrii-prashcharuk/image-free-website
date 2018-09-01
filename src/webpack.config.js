@@ -79,11 +79,6 @@ module.exports = (env, argv) => {
             }),
             new CopyWebpackPlugin([
                 {
-                    from: './__mocks__',
-                    to: '../dst/__mocks__',
-                    toType: 'dir',
-                },
-                {
                     from: './favicon',
                     to: '../dst',
                     toType: 'dir',

@@ -1,7 +1,7 @@
 // @flow
 import { combineReducers } from 'redux';
-import sample from './sample/sampleReducer';
+import form from './form/formReducer';
 
 export default combineReducers({
-    sample,
+    form,
 });

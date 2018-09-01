@@ -89,7 +89,7 @@ declare module "axios" {
     ): AxiosInterceptorIdent;
     eject(ident: AxiosInterceptorIdent): void;
   }
-  declare type AxiosPromise<T> = Promise<AxiosXHR<T>>;
+  declare export type AxiosPromise<T> = Promise<AxiosXHR<T>>;
   declare class Axios {
     constructor<T>(config?: AxiosXHRConfigBase<T>): void;
     [[call]]<T>(

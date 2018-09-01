@@ -148,7 +148,7 @@ declare module "chai" {
     matchSnapshot: (lang?: any, update?: boolean, msg?: any) => ExpectChain<T>
   };
 
-  declare function expect<T>(actual: T, message?: string): ExpectChain<T>;
+  declare export function expect<T>(actual: T, message?: string): ExpectChain<T>;
 
   declare function use(plugin: (chai: Object, utils: Object) => void): void;
 

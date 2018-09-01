@@ -1,7 +1,7 @@
 // @flow
 import type { Store } from 'redux';
-import type { SampleState } from '../reducers/sample/SampleInitialState';
-import type { SampleAction } from '../reducers/sample/sampleActions';
+import type { FormState } from '../reducers/form/formInitialState';
+import type { FormAction } from '../reducers/form/formActions';
 
 export default {
     FETCHING_DATA_MSD: 'Data are loading...',
@@ -9,10 +9,10 @@ export default {
 };
 
 export type State = {
-    sample: SampleState,
+    form: FormState,
 };
 
-export type Action = SampleAction;
+export type Action = FormAction;
 
 export type AppStore = Store<State, Action>;
 

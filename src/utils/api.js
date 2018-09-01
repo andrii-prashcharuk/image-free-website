@@ -1,9 +1,13 @@
 // @flow
 import axios from 'axios';
+import type { AxiosPromise } from 'axios';
 
-const URL = '/__mocks__/sample_data.json';
+axios.defaults.timeout = 2000;
 
 export default {
-    getAllData: () => axios.get(URL),
-    getFilteredData: (filter: string) => axios.get(URL, { params: { filter } }),
+    sendMessage: (
+        name: string,
+        email: string,
+        message: string,
+    ): AxiosPromise<void> => axios.post('/sendMessage', { name, email, message }),
 };
