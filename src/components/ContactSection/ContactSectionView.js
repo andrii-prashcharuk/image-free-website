@@ -3,7 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 import Section from '../Section';
 import { LINKEDIN_LINK } from '../../constants';
-import { emailValid } from '../../utils';
+import { isEmailValid } from '../../utils';
 import { paper, mainBg, envelope, topClosed, topOpen } from './envelope';
 import './ContactSection.scss';
 
@@ -41,7 +41,7 @@ export default class ContactSection extends React.Component<Props, State> {
         if (!name.trim()) {
             return 'name';
         }
-        if (!emailValid(email)) {
+        if (!isEmailValid(email)) {
             return 'email';
         }
         if (!message.trim()) {
