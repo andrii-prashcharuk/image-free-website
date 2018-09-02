@@ -21,6 +21,8 @@ if (!EMAIL) {
     throw Error('EMAIL environment variable is not defined');
 }
 
+const isEmailValid = email => (/^([A-Za-z0-9_\-.])+@([A-Za-z0-9_\-.])+\.([A-Za-z]{2,4})$/).test(email);
+
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -32,7 +34,10 @@ app.post('/sendMessage', function (req, res) {
     const emailText = message.trim();
 
     if (!senderName || !senderEmail || !emailText) {
-        res.status(400).json({ error: 'name, email or message parameter is empty or missing' });
+        return res.status(400).json({ error: 'name, email or message parameter is empty or missing' });
+    }
+    if (!isEmailValid(senderEmail)) {
+        return res.status(400).json({ error: 'email is not valid' });
     }
 
     const auth = {
