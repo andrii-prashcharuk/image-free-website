@@ -2,6 +2,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import Section from '../Section';
+import Alert from '../Alert';
 import { LINKEDIN_LINK } from '../../constants';
 import { isEmailValid } from '../../utils';
 import { paper, mainBg, envelope, topClosed, topOpen } from './envelope';
@@ -16,7 +17,8 @@ type Props = {
 };
 
 type State = {
-    closed: boolean,
+    closeEnvelope: boolean,
+    closePopup: boolean,
     notValidField: string | null,
     formData: {
         name: string,
@@ -27,7 +29,8 @@ type State = {
 
 export default class ContactSection extends React.Component<Props, State> {
     state: State = {
-        closed: false,
+        closeEnvelope: false,
+        closePopup: false,
         notValidField: null,
         formData: {
             name: '',
@@ -51,9 +54,10 @@ export default class ContactSection extends React.Component<Props, State> {
         return null;
     };
     props: Props;
-    close = () => this.setState((state: State) => ({
+    closeEnvelope = () => this.setState((state: State) => ({
         ...state,
-        closed: true,
+        closeEnvelope: true,
+        closePopup: false,
     }));
     handleFieldChange = (name: FieldName, value: string) => this.setState((state: State) => ({
         ...state,
@@ -69,29 +73,28 @@ export default class ContactSection extends React.Component<Props, State> {
 
         if (!notValidField) {
             this.props.sendMessage(name, email, message);
-            this.close();
+            this.closeEnvelope();
         } else {
             this.setState((state: State) => ({ ...state, notValidField }));
         }
     };
+    handleClosePopup = () => this.setState((state: State) => ({
+        ...state,
+        closePopup: true,
+    }));
     render = () => (
         <Section
             id="contact"
             className={classNames('ContactSection', 'darkColorScheme', {
-                closed: this.state.closed,
+                closed: this.state.closeEnvelope && !this.props.isFailedRequest,
                 success: !this.props.isRequesting && !this.props.isFailedRequest,
                 error: this.props.isFailedRequest,
             })}
         >
             <h3>Contact</h3>
             <div className="ContactSection-Content">
-                <div className="ContactSection-SubmitResult ContactSection-Success">
+                <div className="ContactSection-Success">
                     Your message has been successfully sent!
-                </div>
-                <div className="ContactSection-SubmitResult ContactSection-Error">
-                    Sorry, an error has been occurred :(
-                    <br />
-                    Please message me in <a href={LINKEDIN_LINK} target="_blank" rel="noopener noreferrer">LinkedIn</a> or try again later!
                 </div>
                 <div className="ContactSection-LetterWrap">
                     <div className="ContactSection-EnvelopeTop">
@@ -126,6 +129,16 @@ export default class ContactSection extends React.Component<Props, State> {
                     {envelope}
                 </div>
             </div>
+            <Alert
+                onCloseRequest={this.handleClosePopup}
+                show={this.props.isFailedRequest && !this.state.closePopup}
+            >
+                <div className="ContactSection-Error">
+                    Sorry, an error has been occurred :(
+                    <br />
+                    Please message me in <a href={LINKEDIN_LINK} target="_blank" rel="noopener noreferrer">LinkedIn</a> or try again later!
+                </div>
+            </Alert>
         </Section>
     );
 }

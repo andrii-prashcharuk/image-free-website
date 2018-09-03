@@ -17,6 +17,57 @@ body {
     scroll-behavior: smooth;
 }
 
+
+
+input, textarea {
+    margin-bottom: 24px;
+    color: $black;
+    outline: none;
+}
+
+input, textarea {
+    padding: 8px;
+    border: 2px solid $black;
+    @include transition(border-color 300ms);
+    border-radius: 0;
+    background: transparent;
+
+    &.form-error {
+        @include animation(error 0.8s ease);
+        border-color: $brightRed;
+    }
+}
+
+input {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+input:focus,
+textarea:focus {
+    border-color: $blue;
+}
+
+textarea {
+    resize: none;
+}
+
+button {
+    background: $blue;
+    color: $black;
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    @include transition(background 300ms);
+}
+
+button:hover,
+button:focus {
+    background: $lightBlue;
+}
+
 a {
     @include transition(color 300ms);
 }

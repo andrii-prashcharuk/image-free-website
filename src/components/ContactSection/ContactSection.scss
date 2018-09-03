@@ -17,6 +17,16 @@ $envelopeDarkColor: $darkBlue;
         text-align: center;
     }
 
+    .ContactSection-Error {
+        text-align: center;
+        font-size: 24px;
+
+        &::before {
+            content: '✖ ';
+            color: $brightRed;
+        }
+    }
+
     .ContactSection-Content {
         position: relative;
         @include flex(1 1 100%);
@@ -26,13 +36,13 @@ $envelopeDarkColor: $darkBlue;
         @include align-items(center);
         overflow: hidden;
 
-        .ContactSection-SubmitResult {
+        .ContactSection-Success {
             opacity: 0;
             margin-bottom: 30%;
             padding: 0 12px;
             font-size: 24px;
-            @include transition(opacity 800ms ease-in);
-            @include transition-delay(2.5s);
+            @include transition(opacity 500ms ease-in);
+            @include transition-delay(2s);
             text-align: center;
         }
 
@@ -78,56 +88,16 @@ $envelopeDarkColor: $darkBlue;
                     @include align-self(flex-end);
                 }
 
-                input, textarea {
-                    margin-bottom: 24px;
-                    color: $black;
-                    outline: none;
-                }
-
-                input, textarea {
-                    padding: 8px;
-                    border: 2px solid $black;
-                    @include transition(border-color 300ms);
-                    border-radius: 0;
-                    background: transparent;
-
-                    &.form-error {
-                        @include animation(error 0.8s ease);
-                        border-color: $brightRed;
-                    }
-                }
-
                 input {
-                    border-top: none;
-                    border-left: none;
-                    border-right: none;
                     width: calc(72.3% - 24px);
-                }
-
-                input:focus,
-                textarea:focus {
-                    border-color: $blue;
                 }
 
                 textarea {
                     @include flex(1 1 100%);
-                    resize: none;
                 }
 
                 button {
-                    background: $blue;
-                    color: $black;
-                    padding: 8px 16px;
-                    border-radius: 20px;
-                    border: none;
-                    outline: none;
                     @include flex(none);
-                    @include transition(background 300ms);
-                }
-
-                button:hover,
-                button:focus {
-                    background: $lightBlue;
                 }
             }
 
@@ -244,24 +214,8 @@ $envelopeDarkColor: $darkBlue;
         }
 
         &.success {
-            .ContactSection-SubmitResult.ContactSection-Success {
+            .ContactSection-Success {
                 opacity: 1;
-            }
-            .ContactSection-SubmitResult.ContactSection-Error {
-                display: none;
-            }
-        }
-
-        &.error {
-            .ContactSection-SubmitResult.ContactSection-Error {
-                opacity: 1;
-            }
-            .ContactSection-SubmitResult.ContactSection-Success {
-                display: none;
-            }
-            .ContactSection-SubmitResult.ContactSection-Error::before {
-                content: '✖ ';
-                color: $brightRed;
             }
         }
 
@@ -288,7 +242,7 @@ $envelopeDarkColor: $darkBlue;
 
 @media only screen and (max-width: 600px) {
     .ContactSection .ContactSection-Content {
-        .ContactSection-SubmitResult {
+        .ContactSection-Success {
             margin-bottom: 60%;
         }
 

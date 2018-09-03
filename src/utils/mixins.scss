@@ -75,7 +75,7 @@
     }
 }
 
-@mixin transition($parameters) {
+@mixin transition($parameters...) {
     -webkit-transition: $parameters;
     -moz-transition: $parameters;
     -ms-transition: $parameters;
