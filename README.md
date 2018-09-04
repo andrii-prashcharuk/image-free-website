@@ -6,10 +6,12 @@ The web page is 100% responsive and looks great on mobile and desktop devices.
 The size of the compiled project is 365KB only!
 
 Also you can check out back-end part of this project in this
-[repository](https://github.com/monext/image-free-website-server)
+<a href="https://github.com/monext/image-free-website-server" target="_blank">repository</a>
 to see how it works.
 
-Message me in [LinkedIn](https://www.linkedin.com/in/prashcharuk) if you have any questions or comments.
+Message me in
+<a href="https://www.linkedin.com/in/prashcharuk" target="_blank">LinkedIn</a>
+if you have any questions or comments.
 
 ## Getting Started
 
@@ -24,7 +26,7 @@ npm install
 
 ## Running the project
 
-To start webpack dev server at [http://0.0.0.0:8080](http://0.0.0.0:8080) run:
+To start webpack dev server at <a href="http://0.0.0.0:8080" target="_blank">http://0.0.0.0:8080</a> run:
 
 ```
 npm run server
