@@ -23,7 +23,7 @@ To start webpack dev server at [http://0.0.0.0:3000](http://0.0.0.0:3000) run:
 API_KEY=YOUR_MAILGUN_API_KEY DOMAIN=YOUR_DOMAIN EMAIL=your@email.com npm run start
 ```
 
-## Running eslint validation check
+## Running the project's eslint validation check
 
 To run eslint validation check:
 
