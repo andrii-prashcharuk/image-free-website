@@ -1,16 +1,21 @@
 // @flow
 import React from 'react';
 import Section from '../Section';
+import Chevron from '../Chevron';
 import './IntroSection.scss';
 
 const IntroSection = () => (
     <Section id="intro" className="IntroSection">
+        <h3>Welcome</h3>
         <p>
-            Welcome to Image-Free Website! Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Donec ex sem, auctor vel magna et, ullamcorper sodales tortor.
-            Etiam augue ligula, rutrum at augue quis, tincidunt vestibulum diam.
-            Nulla viverra ipsum sed scelerisque tempor. Nullam non euismod sapien.
+            To the modern, lightweight and image-free website!
+            <br />
+            Scroll down to learn more.
         </p>
+        <div className="IntroSection-ScrollDown">
+            <Chevron />
+            <Chevron />
+        </div>
     </Section>
 );
 

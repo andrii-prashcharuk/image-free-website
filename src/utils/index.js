@@ -19,6 +19,15 @@ export function easeInOut(t: number):number {
     return 0.5 * (Math.sin((t - 0.5) * Math.PI) + 1);
 }
 
+export function getYearsOfExperience():number {
+    const careerStartMonth = 6; // July
+    const careerStartYear = 2011;
+    const now = new Date();
+    const experience = now.getFullYear() - careerStartYear;
+
+    return (now.getMonth() < careerStartMonth) ? (experience - 1) : experience;
+}
+
 export function scrollTo(
     destination: number,
     callback?: * => *,

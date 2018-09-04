@@ -2,13 +2,20 @@
 
 .IntroSection {
     padding-left: 50%;
+    text-align: center;
     @include flexbox();
     @include flex-direction(column);
     @include justify-content(center);
 
     p {
-        margin: 0;
-        text-align: justify;
+        margin: 0 0 12px;
+    }
+
+    .IntroSection-ScrollDown {
+        @include flexbox();
+        @include flex-direction(column);
+        @include align-items(center);
+        @include animation(UpDown 2s infinite);
     }
 }
 
@@ -16,5 +23,17 @@
     .IntroSection {
         padding-left: 24px;
         padding-bottom: 73%;
+    }
+}
+
+@include keyframes(UpDown) {
+    0% {
+        @include transform(translate3d(0, 0, 0));
+    }
+    50% {
+        @include transform(translate3d(0, 12px, 0));
+    }
+    100% {
+        @include transform(translate3d(0, 0, 0));
     }
 }

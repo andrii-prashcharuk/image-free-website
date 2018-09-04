@@ -1,13 +1,12 @@
 {
   "name": "image-free-website",
   "author": "Andrii Prashcharuk",
-  "version": "1.2.13",
+  "version": "1.2.14",
   "description": "Image Free Website",
   "main": "index.js",
   "dependencies": {
     "axios": "^0.17.1",
     "classnames": "^2.2.6",
-    "key-mirror": "^1.0.1",
     "normalize.scss": "^0.1.0",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
@@ -74,12 +73,6 @@
     "build": "npm run clean && webpack --mode=production",
     "flow": "flow",
     "flow:watch": "flow-watch"
-  },
-  "jest": {
-    "testEnvironment": "node",
-    "roots": [
-      "test/javascript"
-    ]
   },
   "nyc": {
     "include": [
