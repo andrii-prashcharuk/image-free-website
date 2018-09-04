@@ -2,6 +2,7 @@
 /* eslint-disable react/no-unused-state */
 /* globals IntervalID: true */
 import React from 'react';
+import classNames from 'classnames';
 import type { Node } from 'react';
 import fullText from './code.txt';
 import './CodeBackground.scss';
@@ -78,12 +79,16 @@ const getWordType = (word: string): string | null => {
     return null;
 };
 
+type Props = {
+    blur: boolean,
+};
+
 type State = {
     textToPrint: string,
     wordsToPrint: (Node | string)[],
 };
 
-export default class CodeBackground extends React.Component<*, State> {
+export default class CodeBackground extends React.Component<Props, State> {
     state: State = {
         textToPrint: fullText,
         wordsToPrint: [],
@@ -94,8 +99,8 @@ export default class CodeBackground extends React.Component<*, State> {
     componentWillUnmount() {
         this.stopPrinting();
     }
+    props: Props;
     printInterval: IntervalID | null = null;
-    htmlTagOpen: boolean = false;
     startPrinting = () => {
         this.printInterval = setInterval(() => this.setState(
             (state: State) => {
@@ -159,7 +164,7 @@ export default class CodeBackground extends React.Component<*, State> {
     };
     stopPrinting = () => this.printInterval && clearInterval(this.printInterval);
     render = () => (
-        <div className="CodeBackground">
+        <div className={classNames('CodeBackground', { blur: this.props.blur })}>
             <div className="CodeBackground-PaddingWrap">
                 {this.state.wordsToPrint}
             </div>

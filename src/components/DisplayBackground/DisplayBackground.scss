@@ -48,8 +48,8 @@
 
     &.fullSize {
         .CodeBackground {
-            border-radius: 0;
             filter: blur(2px);
+            border-radius: 0;
         }
         .CodeBackground::after, .DisplayStand {
             display: none;

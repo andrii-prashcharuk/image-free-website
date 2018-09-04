@@ -3,11 +3,6 @@ import type { Store } from 'redux';
 import type { FormState } from '../reducers/form/formInitialState';
 import type { FormAction } from '../reducers/form/formActions';
 
-export default {
-    FETCHING_DATA_MSD: 'Data are loading...',
-    NO_DATA_MSG: 'No data were found',
-};
-
 export type State = {
     form: FormState,
 };

@@ -51,14 +51,13 @@ export default class DisplayBackground extends React.Component<*, State> {
             <div
                 className={classNames('DisplayBackground', { vertical, fullSize: progress === 1 })}
                 style={{
-                    filter: progress < 1 && progress > 0.75 ? 'blur(1px)' : undefined,
                     WebkitTransform: transform,
                     MozTransform: transform,
                     msTransform: transform,
                     transform,
                 }}
             >
-                <CodeBackground />
+                <CodeBackground blur={progress < 1 && progress > 0.75} />
                 <DisplayStand />
             </div>
         );

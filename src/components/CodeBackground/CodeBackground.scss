@@ -8,6 +8,10 @@
     background: $darkGray;
     color: #A9B7C6;
 
+    &.blur {
+        filter: blur(1px);
+    }
+
     .CodeBackground-PaddingWrap {
         width: 100%;
         height: 100%;
