@@ -146,7 +146,7 @@ $envelopeDarkColor: $darkBlue;
 
             .topOpen,
             .topClosed {
-                @include backface-visibility(1hidden);
+                @include backface-visibility(hidden);
                 @include transitionTransform(1s);
                 @include transform-style(preserve-3d);
                 @include transition-delay(1s);
@@ -241,14 +241,30 @@ $envelopeDarkColor: $darkBlue;
 }
 
 @media only screen and (max-width: 600px) {
-    .ContactSection .ContactSection-Content {
-        .ContactSection-Success {
-            margin-bottom: 60%;
+    .ContactSection {
+        .ContactSection-Content {
+            .ContactSection-Success {
+                margin-bottom: 60%;
+            }
+
+            .ContactSection-LetterWrap .ContactSection-LetterPaper {
+                @include transitionTransform(450ms ease-in);
+                @include transition-delay(250ms);
+            }
         }
 
-        .ContactSection-LetterWrap .ContactSection-LetterPaper {
-            @include transitionTransform(500ms ease-in);
-            @include transition-delay(300ms);
+        .ContactSection-Error::before {
+            content: '✕ ';
+        }
+    }
+}
+
+@media only screen and (max-height: 420px) {
+    .ContactSection .ContactSection-Content .ContactSection-LetterWrap {
+        .ContactSection-EnvelopeTop,
+        .main,
+        .mainBg {
+            @include transform(translate3d(0, 120vh, 0));
         }
     }
 }

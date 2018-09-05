@@ -45,6 +45,7 @@
         }
 
         .FakePopup {
+            position: relative;
             width: 100%;
             margin-top: -22%;
             z-index: 1;
@@ -52,6 +53,7 @@
             .FakePopup-Body {
                 display: block;
                 font-size: 16px;
+                line-height: 20px;
 
                 .Logo {
                     float: left;
