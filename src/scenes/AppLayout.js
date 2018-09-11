@@ -1,11 +1,10 @@
 // @flow
 import React from 'react';
 import { Provider } from 'react-redux';
-import { BrowserRouter, Route } from 'react-router-dom';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import HomePage from './home';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import getStore from '../utils/getStore';
+import HomePage from './home';
+import PageNotFound from './page-not-found';
 import './AppLayout.scss';
 
 const store = getStore();
@@ -14,11 +13,11 @@ const AppLayout = () => (
     <Provider store={store}>
         <BrowserRouter>
             <div className="AppLayout">
-                <Header />
-                <main>
+                <Switch>
                     <Route path="/" exact component={HomePage} />
-                </main>
-                <Footer />
+                    <Route path="/page-not-found" exact component={PageNotFound} />
+                    <Redirect from="*" to="/page-not-found" />
+                </Switch>
             </div>
         </BrowserRouter>
     </Provider>
