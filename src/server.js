@@ -27,7 +27,7 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.post('/sendMessage', function (req, res) {
+app.post('/sendMessage', (req, res) => {
     const { name = '', email = '', message = '' } = req.body;
     const senderName = name.trim();
     const senderEmail = email.trim();
@@ -61,6 +61,10 @@ app.post('/sendMessage', function (req, res) {
             console.log('Message %s sent', info.messageId);
         }
     });
+});
+
+app.get('*', (req, res) => {
+    res.sendFile('/public/index.html', { root: __dirname });
 });
 
 app.listen(port, () => console.log('Server is running at port: ',port));
