@@ -28,3 +28,17 @@
         @include transform(rotate3d(0, 0, 1, -25deg) translate3d(48%, 0, 0));
     }
 }
+
+@media only screen and (min-width: 1920px) {
+    .Chevron {
+        width: 58px;
+        height: 16px;
+
+        &::before,
+        &::after {
+            width: 32px;
+            height: 3px;
+            border-radius: 3px;
+        }
+    }
+}

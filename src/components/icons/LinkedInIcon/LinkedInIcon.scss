@@ -1,3 +1,9 @@
 .LinkedInIcon {
     height: 48px;
 }
+
+@media only screen and (min-width: 1920px) {
+    .LinkedInIcon {
+        height: 60px;
+    }
+}

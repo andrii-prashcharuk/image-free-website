@@ -22,7 +22,7 @@
 @media only screen and (max-width: 600px) {
     .IntroSection {
         padding-left: 24px;
-        padding-bottom: 60%;
+        padding-bottom: 260px;
     }
 }
 
@@ -41,6 +41,12 @@
         h3 {
             margin-top: 64px;
         }
+    }
+}
+
+@media only screen and (min-width: 1920px) {
+    .IntroSection p {
+        margin: 0 0 16px;
     }
 }
 

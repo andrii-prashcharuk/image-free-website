@@ -16,7 +16,66 @@
         <meta name="theme-color" content="#ffffff" />
     </head>
     <body>
-        <div id="root"></div>
+        <div id="root">
+            <div class="ifw-spinner">
+                <div></div>
+                <div></div>
+            </div>
+            <style>
+                html, body {
+                    background: #fdfdfd;
+                }
+                @keyframes ifw-spinner {
+                    0% { transform: rotate3d(0, 0, 1, 0); }
+                    50% { transform: rotate3d(0, 0, 1, -180deg); }
+                    100% { transform: rotate3d(0, 0, 1, -360deg); }
+                }
+                @-webkit-keyframes ifw-spinner {
+                    0% { -webkit-transform: rotate3d(0, 0, 1, 0); }
+                    50% { -webkit-transform: rotate3d(0, 0, 1, -180deg); }
+                    100% { -webkit-transform: rotate3d(0, 0, 1, -360deg); }
+                }
+                @-moz-keyframes ifw-spinner {
+                    0% { -moz-transform: rotate3d(0, 0, 1, 0); }
+                    50% { -moz-transform: rotate3d(0, 0, 1, -180deg); }
+                    100% { -moz-transform: rotate3d(0, 0, 1, -360deg); }
+                }
+                .ifw-spinner {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    bottom: 0;
+                    right: 0;
+                    margin: auto;
+                    width: 102px;
+                    height: 102px;
+                }
+                .ifw-spinner div {
+                    position: absolute;
+                    width: 96px;
+                    height: 96px;
+                    top: 0;
+                    left: 0;
+                    bottom: 0;
+                    right: 0;
+                    margin: auto;
+                    border-radius: 50%;
+                    border: 3px solid #000;
+                    border-color: #2f2f2f transparent #2f2f2f transparent;
+                    -webkit-animation: ifw-spinner 1.5s linear infinite reverse;
+                    -moz-animation: ifw-spinner 1.5s linear infinite reverse;
+                    animation: ifw-spinner 1.5s linear infinite reverse;
+                }
+                .ifw-spinner div:nth-child(2) {
+                    width: 80px;
+                    height: 80px;
+                    border-color: transparent #75d5eb transparent #75d5eb;
+                    -webkit-animation-direction: normal;
+                    -moz-animation-direction: normal;
+                    animation-direction: normal;
+                }
+            </style>
+        </div>
         <script type="text/javascript" src="<%= htmlWebpackPlugin.options.scriptPath %>"></script>
     </body>
 </html>

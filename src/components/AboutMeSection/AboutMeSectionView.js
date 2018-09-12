@@ -14,9 +14,6 @@ const AboutMeSection = () => (
         <FakePopup header="Hi there!">
             <Logo />
             <p>
-                My name is Andrii Prashcharuk.
-                <br />
-                <br />
                 I am Professional Software Engineer from Ukraine with more than {experience} years
                 of experience in Front-End development. Innovative, self-starter and reliable.
                 <br />

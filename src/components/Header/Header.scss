@@ -71,3 +71,13 @@
         }
     }
 }
+
+@media only screen and (min-width: 1920px) {
+    .Header {
+        height: 64px;
+
+        .Logo {
+            top: calc(100% - 59px);
+        }
+    }
+}

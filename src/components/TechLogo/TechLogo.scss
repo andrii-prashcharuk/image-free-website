@@ -176,10 +176,15 @@
 }
 
 @media only screen and (max-width: 600px) {
-    .TechLogo {
-        svg {
-            width: 36px;
-            height: 36px;
-        }
+    .TechLogo svg {
+        width: 36px;
+        height: 36px;
+    }
+}
+
+@media only screen and (min-width: 1920px) {
+    .TechLogo svg {
+        width: 60px;
+        height: 60px;
     }
 }

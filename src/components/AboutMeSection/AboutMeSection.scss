@@ -63,3 +63,26 @@
         }
     }
 }
+
+@media only screen and (min-width: 1920px) {
+    .AboutMeSection {
+        .Character {
+            width: 240px;
+            margin-top: 15%;
+        }
+
+        .FakePopup {
+            max-width: 700px;
+            margin-top: -15%;
+
+            .FakePopup-Body {
+                padding: 24px;
+
+                .Logo {
+                    @include flex(0 0 110px);
+                    margin-right: 24px;
+                }
+            }
+        }
+    }
+}

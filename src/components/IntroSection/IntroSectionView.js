@@ -8,7 +8,7 @@ const IntroSection = () => (
     <Section id="intro" className="IntroSection">
         <h3>Welcome</h3>
         <p>
-            To the modern, lightweight and image-free website!
+            My name is Andrii Prashcharuk and this is my personal website!
             <br />
             Scroll down to learn more.
         </p>

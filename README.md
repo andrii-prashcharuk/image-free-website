@@ -3,7 +3,9 @@ This project was created to show how powerful web technologies are. All the
 graphics here are SVG and HTML elements embedded in the source code what
 means they are small and doesn’t required additional requests to the server.
 The web page is 100% responsive and looks great on mobile and desktop devices.
-The size of the compiled project is 365KB only!
+The size of the compiled project is 374KB only!
+
+You can see this project live at [https://prashchar.uk](https://prashchar.uk).
 
 Also you can check out back-end part of this project in this
 [repository](https://github.com/monext/image-free-website-server)

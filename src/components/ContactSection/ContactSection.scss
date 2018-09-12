@@ -269,6 +269,15 @@ $envelopeDarkColor: $darkBlue;
     }
 }
 
+@media only screen and (min-width: 1920px) {
+    .ContactSection .ContactSection-Content .ContactSection-LetterWrap {
+        width: 800px;
+    }
+    .ContactSection .ContactSection-Content .ContactSection-LetterWrap .ContactSection-LetterPaper {
+        padding: 32px;
+    }
+}
+
 @include keyframes(error) {
     0%, 100% {
         @include transform(translate3d(0, 0, 0));

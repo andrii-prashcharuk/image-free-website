@@ -45,3 +45,21 @@
         padding: 16px;
     }
 }
+
+@media only screen and (min-width: 1920px) {
+    .FakePopup .FakePopup-Header {
+        @include flex(0 0 48px);
+        padding: 0 24px;
+        line-height: 48px;
+
+        .FakePopup-HeaderButtons {
+            width: 90px;
+
+            .FakePopup-Button {
+                width: 20px;
+                height: 20px;
+                border-radius: 10px;
+            }
+        }
+    }
+}

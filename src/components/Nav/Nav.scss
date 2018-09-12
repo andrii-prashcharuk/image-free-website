@@ -50,3 +50,14 @@
         }
     }
 }
+
+@media only screen and (min-width: 1920px) {
+    .Nav {
+        max-width: 1000px;
+
+        ul li a {
+            padding: 6px 16px;
+            border-radius: 22px;
+        }
+    }
+}

@@ -17,3 +17,15 @@
         text-align: center;
     }
 }
+
+@media only screen and (min-width: 1920px) {
+    .PageNotFound {
+        .PageNotFound-ErrorCode {
+            font-size: 160px;
+        }
+
+        .PageNotFound-Text {
+            margin: 32px;
+        }
+    }
+}
