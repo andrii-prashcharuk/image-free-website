@@ -1,7 +1,7 @@
 {
   "name": "image-free-website",
   "author": "Andrii Prashcharuk",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Image Free Website",
   "main": "index.js",
   "dependencies": {

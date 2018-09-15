@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <title>Image-Free Website | Andrii Prashcharuk</title>
+        <title><%= htmlWebpackPlugin.options.title %></title>
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Anonymous+Pro" rel="stylesheet" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -12,8 +12,37 @@
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="shortcut icon" href="/favicon.ico?v=4" type="image/x-icon" />
         <link rel="manifest" href="/site.webmanifest" />
+        <link rel='canonical' href='<%= htmlWebpackPlugin.options.url %>' />
         <meta name="msapplication-TileColor" content="#ffd09c" />
         <meta name="theme-color" content="#ffffff" />
+        <meta name="google-site-verification" content="16jfatzn5CNX9JMnsruYPbtIW5OMEAREtbLHqfsbqY0" />
+        <meta name="fragment" content="!" />
+        <!--Meta tags-->
+        <meta name="keywords" content="<%= htmlWebpackPlugin.options.keywords %>" />
+        <meta name="description" content="<%= htmlWebpackPlugin.options.description %>" />
+        <!--Meta tags for google-->
+        <meta itemprop="name" content="<%= htmlWebpackPlugin.options.title %>" />
+        <meta itemprop="description" content="<%= htmlWebpackPlugin.options.description %>" />
+        <meta itemprop="image" content="<%= htmlWebpackPlugin.options.image %>" />
+        <!--Open Graph meta tags-->
+        <meta property="og:title" content="<%= htmlWebpackPlugin.options.title %>" />
+        <meta property="og:description" content="<%= htmlWebpackPlugin.options.description %>"/>
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="<%= htmlWebpackPlugin.options.image %>" />
+        <meta property="og:url" content="<%= htmlWebpackPlugin.options.url %>" />
+        <!--Schema data-->
+        <script type="application/ld+json">
+            {
+                "@context": "http://schema.org",
+                "@type": "Person",
+                "name": "Andrii Prashcharuk",
+                "url": "<%= htmlWebpackPlugin.options.url %>",
+                "jobTitle": "Senior Front-End Developer",
+                "alumniOf": "National Technical University of Ukraine 'Kyiv Polytechnic Institute'",
+                "gender": "male",
+                "image": "<%= htmlWebpackPlugin.options.image %>"
+            }
+        </script>
     </head>
     <body>
         <div id="root">
