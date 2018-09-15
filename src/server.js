@@ -64,7 +64,7 @@ app.post('/sendMessage', (req, res) => {
 });
 
 app.get('*', (req, res) => {
-    res.sendFile('/public/index.html', { root: __dirname });
+    res.status(404).sendFile('/public/index.html', { root: __dirname });
 });
 
 app.listen(port, () => console.log('Server is running at port: ',port));
