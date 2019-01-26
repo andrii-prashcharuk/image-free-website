@@ -14,7 +14,7 @@ const Alert = ({ children, onCloseRequest, show }: Props) => (
     <div className={classNames('AlertWrap', { show })}>
         <div className="Alert">
             <div className="Alert-Body">{children}</div>
-            <button onClick={onCloseRequest}>OK</button>
+            <button type="button" onClick={onCloseRequest}>OK</button>
         </div>
         <div
             className="Alert-Overlay"

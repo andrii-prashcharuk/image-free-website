@@ -13,7 +13,6 @@ type Props = {
 };
 
 export default class NavItem extends React.Component<Props> {
-    props: Props;
     clickHandler = (e: Event) => {
         const { onClick, to } = this.props;
         const scrollTarget = window.document.getElementById(to);
@@ -27,13 +26,20 @@ export default class NavItem extends React.Component<Props> {
             onClick(scrollTarget ? scrollTarget.offsetTop : -1);
         }
     };
-    render = () => (
-        <a
-            className={classNames('NavItem', { active: this.props.active })}
-            href={`/#${this.props.to}`}
-            onClick={this.clickHandler}
-        >
-            {this.props.children}
-        </a>
-    );
+
+    props: Props;
+
+    render() {
+        const { active, to, children } = this.props;
+
+        return (
+            <a
+                className={classNames('NavItem', { active })}
+                href={`/#${to}`}
+                onClick={this.clickHandler}
+            >
+                {children}
+            </a>
+        );
+    }
 }

@@ -14,12 +14,14 @@ const AboutMeSection = () => (
         <FakePopup header="Hi there!">
             <Logo />
             <p>
-                I am Professional Software Engineer from Ukraine with more than {experience} years
-                of experience in Front-End development. Innovative, self-starter and reliable.
+                I&apos;m a Professional Software Engineer from Ukraine with more than&nbsp;
+                {experience}
+                &nbsp;years of experience in Front-End development.
+                Adaptable, self-starter and reliable.
                 <br />
                 <br />
-                I’ve got a lot of practical experience with a number of modern technologies
-                and tools (e.g. ES2017, React, Typescript, Backbone, HTML5, CSS3 etc.).
+                I’ve got a lot of practical experience with a number of modern technologies and
+                tools (ES2015+, React, Redux, Flow, HTML5, and CSS3).
             </p>
         </FakePopup>
         <Character />

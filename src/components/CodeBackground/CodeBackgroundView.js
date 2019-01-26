@@ -93,14 +93,17 @@ export default class CodeBackground extends React.Component<Props, State> {
         textToPrint: fullText,
         wordsToPrint: [],
     };
+
+    printInterval: IntervalID | null = null;
+
     componentDidMount() {
         this.startPrinting();
     }
+
     componentWillUnmount() {
         this.stopPrinting();
     }
-    props: Props;
-    printInterval: IntervalID | null = null;
+
     startPrinting = () => {
         this.printInterval = setInterval(() => this.setState(
             (state: State) => {
@@ -162,12 +165,21 @@ export default class CodeBackground extends React.Component<Props, State> {
             },
         ), 75);
     };
+
     stopPrinting = () => this.printInterval && clearInterval(this.printInterval);
-    render = () => (
-        <div className={classNames('CodeBackground', { blur: this.props.blur })}>
-            <div className="CodeBackground-PaddingWrap">
-                {this.state.wordsToPrint}
+
+    props: Props;
+
+    render() {
+        const { blur } = this.props;
+        const { wordsToPrint } = this.state;
+
+        return (
+            <div className={classNames('CodeBackground', { blur })}>
+                <div className="CodeBackground-PaddingWrap">
+                    {wordsToPrint}
+                </div>
             </div>
-        </div>
-    );
+        );
+    }
 }

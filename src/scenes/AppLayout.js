@@ -1,7 +1,9 @@
 // @flow
 import React from 'react';
 import { Provider } from 'react-redux';
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import {
+    BrowserRouter, Route, Switch, Redirect,
+} from 'react-router-dom';
 import getStore from '../utils/getStore';
 import HomePage from './home';
 import PageNotFound from './page-not-found';

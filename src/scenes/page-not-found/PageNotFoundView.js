@@ -7,11 +7,13 @@ import './PageNotFound.scss';
 const PageNotFound = () => (
     <div className="PageNotFound darkColorScheme">
         <div className="PageNotFound-ErrorCode">
-            4<Logo />4
+            4
+            <Logo />
+            4
         </div>
         <div className="PageNotFound-Text">The page you’re trying to reach does not exist :(</div>
         <Link to="/">
-            <button>Back to Home Page</button>
+            <button type="button">Back to Home Page</button>
         </Link>
     </div>
 );

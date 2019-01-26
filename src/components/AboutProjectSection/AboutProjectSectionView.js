@@ -27,11 +27,11 @@ const AboutProjectSection = () => (
                 The size of the compiled project is 374KB only!
                 <br />
                 <br />
-                Check out my github repositories for &nbsp;
+                Check out my github repositories for&nbsp;
                 <a href={CLIENT_URL} target="_blank" rel="noopener noreferrer">client</a>
-                &nbsp; and &nbsp;
+                &nbsp;and&nbsp;
                 <a href={SERVER_URL} target="_blank" rel="noopener noreferrer">server</a>
-                &nbsp; to see how it works.
+                &nbsp;to see how it works.
             </p>
         </div>
         <div className="AboutProjectSection-TechLogos">

@@ -27,14 +27,27 @@ type Props = {
 };
 
 export default class Nav extends React.Component<Props> {
+    handleScrollResize: () => void = debounce(
+        300,
+        () => {
+            const { history } = this.props;
+
+            history.push({
+                hash: this.getActiveSection(),
+            });
+        },
+    );
+
     componentDidMount() {
         window.addEventListener('scroll', this.handleScrollResize);
         window.addEventListener('resize', this.handleScrollResize);
     }
+
     componentWillUnmount() {
         window.removeEventListener('scroll', this.handleScrollResize);
         window.removeEventListener('resize', this.handleScrollResize);
     }
+
     getActiveSection = (): string => {
         const { scrollY } = window;
         let activeSection;
@@ -60,28 +73,27 @@ export default class Nav extends React.Component<Props> {
 
         return (activeSection && activeSection.id) || '';
     };
-    handleScrollResize = debounce(
-        300,
-        () => {
-            this.props.history.push({
-                hash: this.getActiveSection(),
-            });
-        },
-    );
+
     props: Props;
-    renderNav = (item: NavItemData) => (item.id ? (
-        <li key={item.id}>
-            <NavItem
-                to={item.id}
-                onClick={this.props.onClick}
-                active={this.props.location.hash === `#${item.id}`}
-            >
-                {item.label}
-            </NavItem>
-        </li>
-    ) : (
-        <li key="placeholder" className="Nav-LogoPlaceholder" />
-    ));
+
+    renderNav = (item: NavItemData) => {
+        const { onClick, location } = this.props;
+
+        return ((item.id && item.label) ? (
+            <li key={item.id}>
+                <NavItem
+                    to={item.id}
+                    onClick={onClick}
+                    active={location.hash === `#${item.id}`}
+                >
+                    {item.label}
+                </NavItem>
+            </li>
+        ) : (
+            <li key="placeholder" className="Nav-LogoPlaceholder" />
+        ));
+    };
+
     render = () => (
         <nav className="Nav">
             <ul>

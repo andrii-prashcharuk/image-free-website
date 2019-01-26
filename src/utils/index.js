@@ -41,23 +41,22 @@ export function scrollTo(
     );
     const startTime = 'now' in window.performance ? performance.now() : new Date().getTime();
     const { body, documentElement } = document;
-    const documentHeight = body && documentElement ?
-        Math.max(
+    const documentHeight = body && documentElement
+        ? Math.max(
             body.scrollHeight,
             body.offsetHeight,
             documentElement.clientHeight,
             documentElement.scrollHeight,
             documentElement.offsetHeight,
         ) : 0;
-    const windowHeight =
-        window.innerHeight ||
-        (documentElement ? documentElement.clientHeight : 0) ||
-        (body ? body.clientHeight : 0);
+    const windowHeight = window.innerHeight
+        || (documentElement ? documentElement.clientHeight : 0)
+        || (body ? body.clientHeight : 0);
     const destinationOffset = typeof destination === 'number' ? destination : destination.offsetTop;
     const destinationOffsetToScroll = Math.round(
-        documentHeight - destinationOffset < windowHeight ?
-            documentHeight - windowHeight :
-            destinationOffset,
+        documentHeight - destinationOffset < windowHeight
+            ? documentHeight - windowHeight
+            : destinationOffset,
     );
 
     if ('requestAnimationFrame' in window === false) {

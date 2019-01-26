@@ -6,7 +6,9 @@ const YEAR = (new Date()).getFullYear();
 
 const CopyrightText = () => (
     <p className="CopyrightText">
-        Copyright &copy; {YEAR} Andrii Prashcharuk
+        Copyright &copy;&nbsp;
+        {YEAR}
+        &nbsp;Andrii Prashcharuk
     </p>
 );
 
