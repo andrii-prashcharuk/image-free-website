@@ -151,7 +151,9 @@ export default class ContactSection extends React.Component<Props, State> {
                         Sorry, an error has been occurred :(
                         <br />
                         Please message me in&nbsp;
-                        <a href={LINKEDIN_LINK} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                        <a href={LINKEDIN_LINK} target="_blank" rel="me noopener noreferrer">
+                            LinkedIn
+                        </a>
                         &nbsp;or try again later!
                     </div>
                 </Alert>

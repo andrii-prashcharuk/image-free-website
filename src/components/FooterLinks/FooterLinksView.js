@@ -6,13 +6,13 @@ import './FooterLinks.scss';
 
 const FooterLinks = () => (
     <div className="FooterLinks">
-        <a href={FACEBOOK_LINK} title="Facebook" target="_blank" rel="noopener noreferrer">
+        <a href={FACEBOOK_LINK} title="Facebook" target="_blank" rel="me noopener noreferrer">
             <FacebookIcon />
         </a>
-        <a href={GITHUB_LINK} title="Github" target="_blank" rel="noopener noreferrer">
+        <a href={GITHUB_LINK} title="Github" target="_blank" rel="me noopener noreferrer">
             <GithubIcon />
         </a>
-        <a href={LINKEDIN_LINK} title="LinkedIn" target="_blank" rel="noopener noreferrer">
+        <a href={LINKEDIN_LINK} title="LinkedIn" target="_blank" rel="me noopener noreferrer">
             <LinkedInIcon />
         </a>
     </div>

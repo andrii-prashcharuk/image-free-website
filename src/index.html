@@ -29,6 +29,10 @@
         <meta property="og:description" content="<%= htmlWebpackPlugin.options.description %>"/>
         <meta property="og:type" content="website" />
         <meta property="og:image" content="<%= htmlWebpackPlugin.options.image %>" />
+        <meta property="og:image:secure_url" content="<%= htmlWebpackPlugin.options.image %>" />
+        <meta property="og:image:type" content="<%= htmlWebpackPlugin.options.imageType %>" />
+        <meta property="og:image:width" content="<%= htmlWebpackPlugin.options.imageWidth %>" />
+        <meta property="og:image:height" content="<%= htmlWebpackPlugin.options.imageHeight %>" />
         <meta property="og:url" content="<%= htmlWebpackPlugin.options.url %>" />
         <!--Schema data-->
         <script type="application/ld+json">
@@ -37,7 +41,7 @@
                 "@type": "Person",
                 "name": "Andrii Prashcharuk",
                 "url": "<%= htmlWebpackPlugin.options.url %>",
-                "jobTitle": "Senior Front-End Developer",
+                "jobTitle": "Senior Front-End Engineer",
                 "alumniOf": "National Technical University of Ukraine 'Kyiv Polytechnic Institute'",
                 "gender": "male",
                 "image": "<%= htmlWebpackPlugin.options.image %>"
