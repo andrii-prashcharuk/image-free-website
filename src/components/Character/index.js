@@ -1,4 +1,2 @@
 // @flow
-import CharacterView from './CharacterView';
-
-export default CharacterView;
+export { default } from './CharacterView';

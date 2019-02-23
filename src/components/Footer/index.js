@@ -1,4 +1,2 @@
 // @flow
-import FooterView from './FooterView';
-
-export default FooterView;
+export { default } from './FooterView';

@@ -1,4 +1,2 @@
 // @flow
-import AboutProjectSectionView from './AboutProjectSectionView';
-
-export default AboutProjectSectionView;
+export { default } from './AboutProjectSectionView';

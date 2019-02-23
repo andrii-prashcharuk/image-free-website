@@ -1,4 +1,2 @@
 // @flow
-import CopyrightTextView from './CopyrightTextView';
-
-export default CopyrightTextView;
+export { default } from './CopyrightTextView';

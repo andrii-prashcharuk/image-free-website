@@ -1,4 +1,2 @@
 // @flow
-import FakePopupView from './FakePopupView';
-
-export default FakePopupView;
+export { default } from './FakePopupView';

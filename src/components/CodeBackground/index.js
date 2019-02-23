@@ -1,4 +1,2 @@
 // @flow
-import CodeBackgroundView from './CodeBackgroundView';
-
-export default CodeBackgroundView;
+export { default } from './CodeBackgroundView';

@@ -1,10 +1,4 @@
 // @flow
-import LinkedInIcon from './LinkedInIcon';
-import GithubIcon from './GithubIcon';
-import FacebookIcon from './FacebookIcon';
-
-export {
-    LinkedInIcon,
-    GithubIcon,
-    FacebookIcon,
-};
+export { default as LinkedInIcon } from './LinkedInIcon';
+export { default as GithubIcon } from './GithubIcon';
+export { default as FacebookIcon } from './FacebookIcon';

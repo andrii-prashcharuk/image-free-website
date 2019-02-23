@@ -1,4 +1,2 @@
 // @flow
-import AlertView from './AlertView';
-
-export default AlertView;
+export { default } from './AlertView';

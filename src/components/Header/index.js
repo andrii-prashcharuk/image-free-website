@@ -1,4 +1,2 @@
 // @flow
-import HeaderView from './HeaderView';
-
-export default HeaderView;
+export { default } from './HeaderView';

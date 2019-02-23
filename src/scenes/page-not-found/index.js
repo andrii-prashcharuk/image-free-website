@@ -1,4 +1,2 @@
 // @flow
-import PageNotFoundView from './PageNotFoundView';
-
-export default PageNotFoundView;
+export { default } from './PageNotFoundView';

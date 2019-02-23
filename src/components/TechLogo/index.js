@@ -1,4 +1,2 @@
 // @flow
-import TechLogoView from './TechLogoView';
-
-export default TechLogoView;
+export { default } from './TechLogoView';

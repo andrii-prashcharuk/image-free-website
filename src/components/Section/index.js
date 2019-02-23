@@ -1,4 +1,2 @@
 // @flow
-import SectionView from './SectionView';
-
-export default SectionView;
+export { default } from './SectionView';

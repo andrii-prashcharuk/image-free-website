@@ -1,4 +1,2 @@
 // @flow
-import ChevronView from './ChevronView';
-
-export default ChevronView;
+export { default } from './ChevronView';
