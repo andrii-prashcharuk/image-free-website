@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
 const path = require('path');
 const PACKAGE = require('./package.json');
 
@@ -9,12 +10,14 @@ const APP_DIR = path.resolve(__dirname, './');
 module.exports = (env, argv) => {
     const isProduction = argv.mode === 'production';
     const scriptName = isProduction ? 'bundle.min.js' : 'bundle.js';
+    const vendorsScriptName = isProduction ? 'vendors.min.js' : 'vendors.js';
 
     return {
         entry: './index.js',
         output: {
             path: BUILD_DIR,
             filename: scriptName,
+            chunkFilename: vendorsScriptName,
         },
         devtool: isProduction ? 'source-map' : 'inline-source-map',
         module: {
@@ -76,6 +79,7 @@ module.exports = (env, argv) => {
                 filename: 'index.html',
                 template: './index.html',
                 scriptPath: `/${scriptName}?v${PACKAGE.version}`,
+                vendorsScriptName: `/${vendorsScriptName}?v${PACKAGE.version}`,
                 title: 'Andrii Prashcharuk | Image-Free Website',
                 description: 'My name is Andrii Prashcharuk and this is my personal website! I’m a Professional Software Engineer from Ukraine with more than 7 years of experience in Front-End development.',
                 keywords: 'Prashcharuk, Andrii Prashcharuk, front-end, developer, engineer, react, redux, html5, css3, css3 animation, flow, image-free website',
@@ -93,6 +97,12 @@ module.exports = (env, argv) => {
                     toType: 'dir',
                 },
             ]),
+            new CompressionPlugin(),
         ],
+        optimization: {
+            splitChunks: {
+                chunks: 'all',
+            },
+        },
     };
 };

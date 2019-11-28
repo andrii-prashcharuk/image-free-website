@@ -24,7 +24,7 @@ const AboutProjectSection = () => (
                 means they are small and doesn’t required additional requests to the server.
                 The web page is 100% responsive and looks great on mobile and desktop devices.
                 <br />
-                The size of the compiled project is 374KB only!
+                The size of the compiled and gziped project is 99KB only!
                 <br />
                 <br />
                 Check out my github repositories for&nbsp;
