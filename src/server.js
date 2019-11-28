@@ -1,4 +1,5 @@
 const express = require('express');
+const compression = require('compression');
 const nodeMailer = require('nodemailer');
 const mg = require('nodemailer-mailgun-transport');
 const bodyParser = require('body-parser');
@@ -23,6 +24,7 @@ if (!EMAIL) {
 
 const isEmailValid = email => (/^([A-Za-z0-9_\-.])+@([A-Za-z0-9_\-.])+\.([A-Za-z]{2,4})$/).test(email);
 
+app.use(compression());
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
