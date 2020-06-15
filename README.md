@@ -60,6 +60,14 @@ To run flow validation watch:
 npm run flow:watch
 ```
 
+## Running the project's eslint validation check
+
+To run eslint validation check:
+
+```
+npm run eslint
+```
+
 ## Running the project's unit tests
 
 To run unit tests:
