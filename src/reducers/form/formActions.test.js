@@ -1,8 +1,12 @@
 // @flow
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+import {
+    describe, it, beforeEach, afterEach,
+} from 'mocha';
 import { expect } from 'chai';
-import { fakeServer } from 'sinon';
+import axios from 'axios';
+import sinon from 'sinon';
 import * as actions from './formActions';
 
 const middlewares = [thunk];
@@ -29,16 +33,16 @@ describe('formActions tests', () => {
     });
 
     describe('testing user\'s actions', () => {
-        let server;
         let store;
+        let sandbox;
 
         beforeEach(() => {
-            server = fakeServer.create({ respondImmediately: true });
+            sandbox = sinon.createSandbox();
             store = mockStore({});
         });
 
         afterEach(() => {
-            server.restore();
+            sandbox.restore();
         });
 
         it('should create correct actions after sendMessage is called successfully', async () => {
@@ -47,7 +51,10 @@ describe('formActions tests', () => {
                 { type: 'FORM_SUCCESS' },
             ];
 
-            server.respondWith('POST', '/sendMessage', '');
+            sandbox.stub(axios, 'post')
+                .withArgs('/sendMessage', { name: 'name', email: 'email@domain.com', message: 'test message' })
+                .returns(Promise.resolve(''));
+
             await store.dispatch(actions.sendMessage('name', 'email@domain.com', 'test message'));
 
             expect(store.getActions()).to.deep.equal(expectedActions);
@@ -60,7 +67,9 @@ describe('formActions tests', () => {
                 { type: 'FORM_FAILURE', payload: error.error },
             ];
 
-            server.respondWith('POST', '/sendMessage', [404, {}, JSON.stringify(error)]);
+            sandbox.stub(axios, 'post')
+                .withArgs('/sendMessage', { name: 'name', email: 'email@domain.com', message: 'test message' })
+                .returns(Promise.reject({ response: { data: error } }));
             await store.dispatch(actions.sendMessage('name', 'email@domain.com', 'test message'));
 
             expect(store.getActions()).to.deep.equal(expectedActions);

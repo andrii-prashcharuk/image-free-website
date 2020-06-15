@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import type { RouterHistory, LocationShape } from 'react-router';
+import type { ContextRouter } from 'react-router';
 import { debounce } from 'throttle-debounce';
 import NavItem from '../NavItem';
 import './Nav.scss';
@@ -20,11 +20,10 @@ const NAV_ITEMS: NavItemData[] = [
 
 const NAV_ITEMS_REVERSED = [...NAV_ITEMS].reverse();
 
-type Props = {
+export type Props = {|
+    ...ContextRouter,
     onClick?: number => *,
-    location: LocationShape,
-    history: RouterHistory,
-};
+|};
 
 export default class Nav extends React.Component<Props> {
     handleScrollResize: () => void = debounce(
@@ -73,8 +72,6 @@ export default class Nav extends React.Component<Props> {
 
         return (activeSection && activeSection.id) || '';
     };
-
-    props: Props;
 
     renderNav = (item: NavItemData) => {
         const { onClick, location } = this.props;

@@ -49,6 +49,6 @@ export function sendMessage(name: string, email: string, message: string): Thunk
 
         return api.sendMessage(name, email, message)
             .then(() => dispatch(formSuccess()))
-            .catch(request => dispatch(formFailure(getErrorFromRequest(request))));
+            .catch((request) => dispatch(formFailure(getErrorFromRequest(request))));
     };
 }

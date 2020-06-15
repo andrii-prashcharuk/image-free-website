@@ -22,6 +22,7 @@ const Alert = ({ children, onCloseRequest, show }: Props) => (
             onClick={show ? onCloseRequest : undefined}
             onKeyPress={show ? onCloseRequest : undefined}
             tabIndex={0}
+            aria-label="Close"
         />
     </div>
 );

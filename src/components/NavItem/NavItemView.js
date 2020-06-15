@@ -27,8 +27,6 @@ export default class NavItem extends React.Component<Props> {
         }
     };
 
-    props: Props;
-
     render() {
         const { active, to, children } = this.props;
 

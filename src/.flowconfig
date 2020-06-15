@@ -12,4 +12,3 @@ module.name_mapper='.*\(.txt\)' -> 'CSSModule'
 module.system=haste
 
 [lints]
-deprecated-call-syntax=off

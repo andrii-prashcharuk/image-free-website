@@ -6,14 +6,20 @@ import Logo from '../Logo';
 import { isMobileView } from '../../utils';
 import './Header.scss';
 
+type Props = {||};
+
 type State = {
     closed: boolean,
 };
 
-export default class Header extends React.Component<*, State> {
-    state: State = {
-        closed: isMobileView() || !!window.scrollY,
-    };
+export default class Header extends React.Component<Props, State> {
+    constructor(props: Props) {
+        super(props);
+
+        this.state = {
+            closed: isMobileView() || !!window.scrollY,
+        };
+    }
 
     componentDidMount() {
         window.addEventListener('scroll', this.handleScroll);

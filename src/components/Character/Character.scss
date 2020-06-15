@@ -49,6 +49,7 @@ $shoesColor: #6d6d6d;
     .Character-Head {
         display: block;
         position: absolute;
+        width: 100%;
         top: -56%;
         left: -13%;
         @include transform-origin(bottom center);
@@ -91,6 +92,7 @@ $shoesColor: #6d6d6d;
     .Character-Hand {
         display: block;
         position: absolute;
+        width: 100%;
         top: -48.5%;
         left: 52%;
         @include transform-origin(bottom left);

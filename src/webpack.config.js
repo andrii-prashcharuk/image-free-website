@@ -90,13 +90,11 @@ module.exports = (env, argv) => {
                 imageHeight: '256',
                 inject: false,
             }),
-            new CopyWebpackPlugin([
-                {
-                    from: './static',
-                    to: '../dst',
-                    toType: 'dir',
-                },
-            ]),
+            new CopyWebpackPlugin({
+                patterns: [
+                    { from: './static', to: '../dst', toType: 'dir' },
+                ],
+            }),
             new CompressionPlugin(),
         ],
         optimization: {

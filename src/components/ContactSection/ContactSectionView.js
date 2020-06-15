@@ -12,10 +12,10 @@ import './ContactSection.scss';
 
 type FieldName = 'name' | 'email' | 'message';
 
-type Props = {
+export type Props = {
     isRequesting: boolean,
     isFailedRequest: boolean,
-    sendMessage: (string, string, string) => *,
+    sendMessage: (string, string, string) => void,
 };
 
 type State = {
@@ -23,23 +23,25 @@ type State = {
     closePopup: boolean,
     notValidField: string | null,
     formData: {
-        name: string,
-        email: string,
-        message: string,
+        [FieldName]: string,
     },
 };
 
 export default class ContactSection extends React.Component<Props, State> {
-    state: State = {
-        closeEnvelope: false,
-        closePopup: false,
-        notValidField: null,
-        formData: {
-            name: '',
-            email: '',
-            message: '',
-        },
-    };
+    constructor(props: Props) {
+        super(props);
+
+        this.state = {
+            closeEnvelope: false,
+            closePopup: false,
+            notValidField: null,
+            formData: {
+                name: '',
+                email: '',
+                message: '',
+            },
+        };
+    }
 
     getNotValidField = () => {
         const { formData: { name, email, message } } = this.state;
@@ -63,14 +65,16 @@ export default class ContactSection extends React.Component<Props, State> {
         closePopup: false,
     }));
 
-    handleFieldChange = (name: FieldName, value: string) => this.setState((state: State) => ({
-        ...state,
-        notValidField: null,
-        formData: {
-            ...state.formData,
-            [name]: value,
-        },
-    }));
+    handleFieldChange = (name: FieldName, value: string) => this.setState((state: State) => {
+        const newState = {
+            ...state,
+            notValidField: null,
+        };
+
+        newState.formData[name] = value;
+
+        return newState;
+    });
 
     handleSubmit = () => {
         const notValidField = this.getNotValidField();
@@ -89,8 +93,6 @@ export default class ContactSection extends React.Component<Props, State> {
         ...state,
         closePopup: true,
     }));
-
-    props: Props;
 
     render() {
         const { closeEnvelope, notValidField, closePopup } = this.state;
@@ -121,20 +123,22 @@ export default class ContactSection extends React.Component<Props, State> {
                                 className={classNames({ 'form-error': notValidField === 'name' })}
                                 type="text"
                                 placeholder="Name"
-                                onChange={e => this.handleFieldChange('name', e.target.value)}
+                                aria-label="Name"
+                                onChange={(e) => this.handleFieldChange('name', e.target.value)}
                                 maxLength="64"
                             />
                             <input
                                 className={classNames({ 'form-error': notValidField === 'email' })}
                                 type="email"
                                 placeholder="Email"
-                                onChange={e => this.handleFieldChange('email', e.target.value)}
+                                aria-label="Email"
+                                onChange={(e) => this.handleFieldChange('email', e.target.value)}
                                 maxLength="64"
                             />
                             <textarea
                                 className={classNames({ 'form-error': notValidField === 'message' })}
                                 placeholder="Message"
-                                onChange={e => this.handleFieldChange('message', e.target.value)}
+                                onChange={(e) => this.handleFieldChange('message', e.target.value)}
                                 maxLength={3 * 1024}
                             />
                             <button type="button" onClick={this.handleSubmit}>Send</button>

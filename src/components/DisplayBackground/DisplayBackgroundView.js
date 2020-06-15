@@ -13,19 +13,15 @@ const getProgressValue = (min: number, max: number, progress: number): number =>
     min + ((max - min) * progress)
 );
 
+type Props = {||};
+
 type State = {
     vertical: boolean,
     isMobile: boolean,
     progress: number,
 };
 
-export default class DisplayBackground extends React.Component<*, State> {
-    state: State = {
-        vertical: isVertical(),
-        isMobile: isMobileView(),
-        progress: getProgress(),
-    };
-
+export default class DisplayBackground extends React.Component<Props, State> {
     handleResizeScroll: () => void = throttle(
         100,
         () => this.setState({
@@ -34,6 +30,16 @@ export default class DisplayBackground extends React.Component<*, State> {
             progress: getProgress(),
         }),
     );
+
+    constructor(props: Props) {
+        super(props);
+
+        this.state = {
+            vertical: isVertical(),
+            isMobile: isMobileView(),
+            progress: getProgress(),
+        };
+    }
 
     componentDidMount() {
         window.addEventListener('resize', this.handleResizeScroll);

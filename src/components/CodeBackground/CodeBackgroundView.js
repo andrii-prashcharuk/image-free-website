@@ -89,12 +89,15 @@ type State = {
 };
 
 export default class CodeBackground extends React.Component<Props, State> {
-    state: State = {
-        textToPrint: fullText,
-        wordsToPrint: [],
-    };
-
     printInterval: IntervalID | null = null;
+
+    constructor(props: Props) {
+        super(props);
+        this.state = {
+            textToPrint: fullText,
+            wordsToPrint: [],
+        };
+    }
 
     componentDidMount() {
         this.startPrinting();
@@ -167,8 +170,6 @@ export default class CodeBackground extends React.Component<Props, State> {
     };
 
     stopPrinting = () => this.printInterval && clearInterval(this.printInterval);
-
-    props: Props;
 
     render() {
         const { blur } = this.props;
