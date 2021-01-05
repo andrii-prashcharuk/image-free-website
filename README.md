@@ -3,7 +3,7 @@ NodeJS Server for [Image Free Website](https://github.com/monext/image-free-webs
 
 ## Getting Started
 
-To run the project **node.js** and **npm** is required (I used node v8.9.2 and npm v6.4.0).
+To run the project **node.js** and **npm** is required (I used node v14.15.3 and npm v6.14.9).
 
 Also it uses [mailgun](https://www.mailgun.com/) API for sending email, so you should have **api key** and **domain**.
 

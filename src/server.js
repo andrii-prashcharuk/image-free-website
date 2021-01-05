@@ -69,4 +69,4 @@ app.get('*', (req, res) => {
     res.status(404).sendFile('/public/index.html', { root: __dirname });
 });
 
-app.listen(port, () => console.log('Server is running at port: ',port));
+app.listen(port, () => console.log('Server is running at port: ', port));
