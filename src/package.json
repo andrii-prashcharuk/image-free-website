@@ -5,7 +5,7 @@
   "description": "Image Free Website",
   "main": "index.js",
   "dependencies": {
-    "axios": "0.19.2",
+    "axios": "0.21.1",
     "classnames": "2.2.6",
     "normalize.scss": "0.1.0",
     "react": "16.13.1",
