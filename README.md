@@ -18,7 +18,7 @@ Message me in [LinkedIn](https://www.linkedin.com/in/prashcharuk) if you have an
 To build the project **node.js** and **npm** is required (I used node v8.9.2 and npm v6.4.0).
 ### Installing
 
-After node and npm are ready, navigate to ```./src``` folder and run:
+After node and npm are ready, from the project's root folder run:
 
 ```
 npm install

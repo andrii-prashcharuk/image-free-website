@@ -1,6 +1,6 @@
 .idea
-src/node_modules
-src/.nyc_output
-src/coverage
+node_modules
+.nyc_output
+coverage
 dst
 npm-debug.log

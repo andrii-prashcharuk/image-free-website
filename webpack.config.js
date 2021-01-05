@@ -4,14 +4,14 @@ const CompressionPlugin = require('compression-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const path = require('path');
 
-const BUILD_DIR = path.resolve(__dirname, '../dst');
-const APP_DIR = path.resolve(__dirname, './');
+const BUILD_DIR = path.resolve(__dirname, './dst');
+const APP_DIR = path.resolve(__dirname, './src');
 
 module.exports = (env, argv) => {
     const isProduction = argv.mode === 'production';
 
     return {
-        entry: './index.tsx',
+        entry: './src/index.tsx',
         output: {
             path: BUILD_DIR,
             filename: '[name].[fullhash:8].js',
@@ -66,7 +66,7 @@ module.exports = (env, argv) => {
             new CleanWebpackPlugin(),
             new HtmlWebpackPlugin({
                 filename: 'index.html',
-                template: './index.html',
+                template: './src/index.html',
                 title: 'Andrii Prashcharuk | Image-Free Website',
                 description: 'My name is Andrii Prashcharuk and this is my personal website! I’m a Professional Software Engineer from Ukraine with more than 9 years of experience in Front-End development.',
                 keywords: 'Prashcharuk, Andrii Prashcharuk, front-end, developer, engineer, react, redux, html5, css3, css3 animation, typescript, image-free website',
@@ -79,7 +79,7 @@ module.exports = (env, argv) => {
             new CopyWebpackPlugin({
                 patterns: [
                     {
-                        from: './static',
+                        from: './src/static',
                         to: '../dst',
                     },
                 ],

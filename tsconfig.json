@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "module": "esnext",
-    "outDir": "../dst/",
+    "outDir": "./dst/",
     "noImplicitAny": true,
     "removeComments": true,
     "preserveConstEnums": true,
@@ -22,7 +22,9 @@
     "isolatedModules": true
   },
   "include": [
-    "./"
+    "./src"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }

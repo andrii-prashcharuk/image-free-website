@@ -1,9 +1,9 @@
 {
   "name": "image-free-website",
   "author": "Andrii Prashcharuk",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "Image Free Website",
-  "main": "index.tsx",
+  "main": "src/index.tsx",
   "dependencies": {
     "axios": "0.21.1",
     "classnames": "2.2.6",
@@ -63,7 +63,7 @@
   "scripts": {
     "start": "webpack serve --mode=development",
     "build": "npm run eslint && npm run test && webpack --mode=production",
-    "eslint": "eslint -c .eslintrc ./ --fix",
+    "eslint": "eslint -c .eslintrc ./src --fix",
     "test": "jest",
     "test:report": "nyc --reporter=html --reporter=text npm run test"
   },
