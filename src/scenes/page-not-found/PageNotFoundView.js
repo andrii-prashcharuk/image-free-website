@@ -1,10 +1,11 @@
 // @flow
 import React from 'react';
+import type { Node } from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../../components/Logo';
 import './PageNotFound.scss';
 
-const PageNotFound = () => (
+const PageNotFound = (): Node => (
     <div className="PageNotFound darkColorScheme">
         <div className="PageNotFound-ErrorCode">
             4

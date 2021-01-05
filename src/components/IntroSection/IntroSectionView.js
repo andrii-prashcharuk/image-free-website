@@ -1,10 +1,11 @@
 // @flow
 import React from 'react';
+import type { Node } from 'react';
 import Section from '../Section';
 import Chevron from '../Chevron';
 import './IntroSection.scss';
 
-const IntroSection = () => (
+const IntroSection = (): Node => (
     <Section id="intro" className="IntroSection">
         <h3>Welcome</h3>
         <p>

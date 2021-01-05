@@ -1,24 +1,27 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const path = require('path');
-const PACKAGE = require('./package.json');
 
 const BUILD_DIR = path.resolve(__dirname, '../dst');
 const APP_DIR = path.resolve(__dirname, './');
 
 module.exports = (env, argv) => {
     const isProduction = argv.mode === 'production';
-    const scriptName = isProduction ? 'bundle.min.js' : 'bundle.js';
-    const vendorsScriptName = isProduction ? 'vendors.min.js' : 'vendors.js';
 
     return {
         entry: './index.js',
         output: {
             path: BUILD_DIR,
-            filename: scriptName,
-            chunkFilename: vendorsScriptName,
+            filename: '[name].[fullhash:8].js',
+            sourceMapFilename: '[name].[fullhash:8].map',
+            chunkFilename: '[id].[fullhash:8].js',
         },
+        performance: {
+            hints: isProduction ? 'warning' : false,
+        },
+        target: isProduction ? 'browserslist' : 'web',
         devtool: isProduction ? 'source-map' : 'inline-source-map',
         module: {
             rules: [
@@ -27,13 +30,6 @@ module.exports = (env, argv) => {
                     loader: 'babel-loader',
                     include: APP_DIR,
                     exclude: /node_modules/,
-                    options: {
-                        presets: [
-                            '@babel/preset-react',
-                            '@babel/preset-flow',
-                            '@babel/preset-env',
-                        ],
-                    },
                 },
                 {
                     test: /\.js?$/,
@@ -42,11 +38,22 @@ module.exports = (env, argv) => {
                 },
                 {
                     test: /\.png$/,
-                    loader: 'url-loader?limit=10000&name=/images/[name].[ext]',
+                    use: [{
+                        loader: 'url-loader',
+                        options: {
+                            limit: 10000,
+                            name: '/images/[name].[ext]',
+                        },
+                    }],
                 },
                 {
                     test: /\.jpg$/,
-                    loader: 'file-loader?&name=/images/[name].[ext]',
+                    use: [{
+                        loader: 'file-loader',
+                        options: {
+                            name: '/images/[name].[ext]',
+                        },
+                    }],
                 },
                 {
                     test: /\.(scss|css)$/,
@@ -58,7 +65,7 @@ module.exports = (env, argv) => {
                 },
                 {
                     test: /\.txt$/,
-                    use: 'raw-loader',
+                    loader: 'raw-loader',
                 },
             ],
         },
@@ -71,28 +78,29 @@ module.exports = (env, argv) => {
         devServer: {
             historyApiFallback: true,
             disableHostCheck: true,
+            hot: true,
             contentBase: '../dst',
-            host: '0.0.0.0',
         },
         plugins: [
+            new CleanWebpackPlugin(),
             new HtmlWebpackPlugin({
                 filename: 'index.html',
                 template: './index.html',
-                scriptPath: `/${scriptName}?v${PACKAGE.version}`,
-                vendorsScriptName: `/${vendorsScriptName}?v${PACKAGE.version}`,
                 title: 'Andrii Prashcharuk | Image-Free Website',
-                description: 'My name is Andrii Prashcharuk and this is my personal website! I’m a Professional Software Engineer from Ukraine with more than 7 years of experience in Front-End development.',
+                description: 'My name is Andrii Prashcharuk and this is my personal website! I’m a Professional Software Engineer from Ukraine with more than 9 years of experience in Front-End development.',
                 keywords: 'Prashcharuk, Andrii Prashcharuk, front-end, developer, engineer, react, redux, html5, css3, css3 animation, flow, image-free website',
                 url: 'https://prashchar.uk',
                 image: 'https://prashchar.uk/profile_image.jpg',
                 imageType: 'image/jpeg',
                 imageWidth: '256',
                 imageHeight: '256',
-                inject: false,
             }),
             new CopyWebpackPlugin({
                 patterns: [
-                    { from: './static', to: '../dst', toType: 'dir' },
+                    {
+                        from: './static',
+                        to: '../dst',
+                    },
                 ],
             }),
             new CompressionPlugin(),

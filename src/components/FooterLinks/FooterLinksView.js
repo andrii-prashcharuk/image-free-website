@@ -1,10 +1,11 @@
 // @flow
 import React from 'react';
+import type { Node } from 'react';
 import { LinkedInIcon, GithubIcon, FacebookIcon } from '../icons';
 import { LINKEDIN_LINK, GITHUB_LINK, FACEBOOK_LINK } from '../../constants';
 import './FooterLinks.scss';
 
-const FooterLinks = () => (
+const FooterLinks = (): Node => (
     <div className="FooterLinks">
         <a href={FACEBOOK_LINK} title="Facebook" target="_blank" rel="me noopener noreferrer">
             <FacebookIcon />

@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import type { Node } from 'react';
 import classNames from 'classnames';
 import Section from '../Section';
 import Alert from '../Alert';
@@ -43,7 +44,7 @@ export default class ContactSection extends React.Component<Props, State> {
         };
     }
 
-    getNotValidField = () => {
+    getNotValidField: () => (FieldName | null) = () => {
         const { formData: { name, email, message } } = this.state;
 
         if (!name.trim()) {
@@ -59,24 +60,29 @@ export default class ContactSection extends React.Component<Props, State> {
         return null;
     };
 
-    closeEnvelope = () => this.setState((state: State) => ({
+    closeEnvelope: () => void = () => this.setState((state: State) => ({
         ...state,
         closeEnvelope: true,
         closePopup: false,
     }));
 
-    handleFieldChange = (name: FieldName, value: string) => this.setState((state: State) => {
-        const newState = {
-            ...state,
-            notValidField: null,
-        };
+    handleFieldChange: (FieldName, string) => (() => void) = (
+        name,
+        value,
+    ) => () => {
+        this.setState((state: State) => {
+            const newState = {
+                ...state,
+                notValidField: null,
+            };
 
-        newState.formData[name] = value;
+            newState.formData[name] = value;
 
-        return newState;
-    });
+            return newState;
+        });
+    }
 
-    handleSubmit = () => {
+    handleSubmit: () => void = () => {
         const notValidField = this.getNotValidField();
         const { formData: { name, email, message } } = this.state;
         const { sendMessage } = this.props;
@@ -89,12 +95,12 @@ export default class ContactSection extends React.Component<Props, State> {
         }
     };
 
-    handleClosePopup = () => this.setState((state: State) => ({
+    handleClosePopup: () => void = () => this.setState((state: State) => ({
         ...state,
         closePopup: true,
     }));
 
-    render() {
+    render(): Node {
         const { closeEnvelope, notValidField, closePopup } = this.state;
         const { isFailedRequest, isRequesting } = this.props;
 

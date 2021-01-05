@@ -1,8 +1,9 @@
 // @flow
 import React from 'react';
+import type { Node } from 'react';
 import './DisplayStand.scss';
 
-const DisplayStandView = () => (
+const DisplayStandView = (): Node => (
     <svg
         className="DisplayStand"
         xmlns="http://www.w3.org/2000/svg"

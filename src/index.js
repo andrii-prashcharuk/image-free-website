@@ -8,3 +8,7 @@ const root = document.getElementById('root');
 if (root) {
     render((<AppLayout />), root);
 }
+
+if (module.hot) {
+    module.hot.accept();
+}

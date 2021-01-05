@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import type { Node } from 'react';
 import Section from '../Section';
 import FakePopup from '../FakePopup';
 import Character from '../Character';
@@ -9,7 +10,7 @@ import './AboutMeSection.scss';
 
 const experience = getYearsOfExperience();
 
-const AboutMeSection = () => (
+const AboutMeSection = (): Node => (
     <Section id="about-me" className="AboutMeSection">
         <FakePopup header="Hi there!">
             <Logo />

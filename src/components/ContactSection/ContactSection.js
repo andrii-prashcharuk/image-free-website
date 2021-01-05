@@ -1,5 +1,6 @@
 // @flow
 import { bindActionCreators } from 'redux';
+import type { ComponentType } from 'react';
 import { connect } from 'react-redux';
 import { sendMessage } from '../../reducers/form/formActions';
 import ContactSectionView from './ContactSectionView';
@@ -22,6 +23,8 @@ const mapDispatchToProps = (dispatch) => ({
     sendMessage: bindActionCreators(sendMessage, dispatch),
 });
 
-const connector = connect<Props, OwnProps, *, *, *, *>(mapStateToProps, mapDispatchToProps);
+const WrappedComponent: ComponentType<OwnProps> = connect<
+    Props, OwnProps, *, *, *, *
+>(mapStateToProps, mapDispatchToProps)(ContactSectionView);
 
-export default connector(ContactSectionView);
+export default WrappedComponent;

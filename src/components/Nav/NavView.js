@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import type { Node } from 'react';
 import type { ContextRouter } from 'react-router';
 import { debounce } from 'throttle-debounce';
 import NavItem from '../NavItem';
@@ -47,7 +48,7 @@ export default class Nav extends React.Component<Props> {
         window.removeEventListener('resize', this.handleScrollResize);
     }
 
-    getActiveSection = (): string => {
+    getActiveSection: () => string = () => {
         const { scrollY } = window;
         let activeSection;
         let activeSectionDiff;
@@ -73,7 +74,7 @@ export default class Nav extends React.Component<Props> {
         return (activeSection && activeSection.id) || '';
     };
 
-    renderNav = (item: NavItemData) => {
+    renderNav: NavItemData => Node = (item) => {
         const { onClick, location } = this.props;
 
         return ((item.id && item.label) ? (
@@ -91,7 +92,7 @@ export default class Nav extends React.Component<Props> {
         ));
     };
 
-    render = () => (
+    render: () => Node = () => (
         <nav className="Nav">
             <ul>
                 {NAV_ITEMS.map(this.renderNav)}

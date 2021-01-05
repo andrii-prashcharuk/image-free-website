@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import type { Node } from 'react';
 import Section from '../Section';
 import TechLogo from '../TechLogo';
 import './AboutProjectSection.scss';
@@ -7,7 +8,7 @@ import './AboutProjectSection.scss';
 const CLIENT_URL = 'https://github.com/monext/image-free-website';
 const SERVER_URL = 'https://github.com/monext/image-free-website-server';
 
-const AboutProjectSection = () => (
+const AboutProjectSection = (): Node => (
     <Section id="about-project" className="AboutProjectSection">
         <div className="AboutProjectSection-TechLogos">
             <TechLogo type="html5" />

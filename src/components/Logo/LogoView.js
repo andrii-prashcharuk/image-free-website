@@ -1,13 +1,14 @@
 // @flow
 import React from 'react';
+import type { Node } from 'react';
 import classNames from 'classnames';
 import './Logo.scss';
 
 type Props = {
-    onClick?: * => *
+    onClick?: SyntheticEvent<HTMLElement> => any
 };
 
-const Logo = ({ onClick }: Props) => (
+const Logo = ({ onClick }: Props): Node => (
     <svg
         className={classNames('Logo', { interactive: !!onClick })}
         xmlns="http://www.w3.org/2000/svg"

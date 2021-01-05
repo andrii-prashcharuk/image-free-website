@@ -1,8 +1,9 @@
 // @flow
 import React from 'react';
+import type { Node } from 'react';
 import './LinkedInIcon.scss';
 
-const LinkedInIcon = () => (
+const LinkedInIcon = (): Node => (
     <svg
         className="LinkedInIcon"
         xmlns="http://www.w3.org/2000/svg"

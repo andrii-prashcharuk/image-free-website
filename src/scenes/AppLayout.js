@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import type { Node } from 'react';
 import { Provider } from 'react-redux';
 import {
     BrowserRouter, Route, Switch, Redirect,
@@ -11,7 +12,7 @@ import './AppLayout.scss';
 
 const store = getStore();
 
-const AppLayout = () => (
+const AppLayout = (): Node => (
     <Provider store={store}>
         <BrowserRouter>
             <div className="AppLayout">

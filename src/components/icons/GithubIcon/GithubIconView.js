@@ -1,8 +1,9 @@
 // @flow
 import React from 'react';
+import type { Node } from 'react';
 import './GithubIcon.scss';
 
-const GithubIcon = () => (
+const GithubIcon = (): Node => (
     <svg
         className="GithubIcon"
         xmlns="http://www.w3.org/2000/svg"

@@ -10,7 +10,7 @@ type Props = {
     onCloseRequest: * => *,
 };
 
-const Alert = ({ children, onCloseRequest, show }: Props) => (
+const Alert = ({ children, onCloseRequest, show }: Props): Node => (
     <div className={classNames('AlertWrap', { show })}>
         <div className="Alert">
             <div className="Alert-Body">{children}</div>

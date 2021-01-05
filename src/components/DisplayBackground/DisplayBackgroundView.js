@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import type { Node } from 'react';
 import { throttle } from 'throttle-debounce';
 import classNames from 'classnames';
 import CodeBackground from '../CodeBackground';
@@ -51,7 +52,7 @@ export default class DisplayBackground extends React.Component<Props, State> {
         window.removeEventListener('scroll', this.handleResizeScroll);
     }
 
-    render = () => {
+    render(): Node {
         const { vertical, progress, isMobile } = this.state;
         const scale = getProgressValue(0.35, 1, progress);
         const x = isMobile ? 0 : getProgressValue(21.43, 0, progress);

@@ -1,7 +1,8 @@
 // @flow
 import React from 'react';
+import type { Node } from 'react';
 
-export const envelope = (
+export const envelope: Node = (
     <svg
         className="main"
         mlns="http://www.w3.org/2000/svg"
@@ -22,7 +23,7 @@ export const envelope = (
     </svg>
 );
 
-export const mainBg = (
+export const mainBg: Node = (
     <svg
         className="mainBg"
         xmlns="http://www.w3.org/2000/svg"
@@ -36,7 +37,7 @@ export const mainBg = (
     </svg>
 );
 
-export const topOpen = (
+export const topOpen: Node = (
     <svg
         className="topOpen"
         xmlns="http://www.w3.org/2000/svg"
@@ -50,13 +51,13 @@ export const topOpen = (
     </svg>
 );
 
-export const topClosed = (
+export const topClosed: Node = (
     <svg className="topClosed" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 158" preserveAspectRatio="none">
         <polygon className="cls-1" points="0 0 248 158 496 0 494.4 0 1.6 0 0 0" />
     </svg>
 );
 
-export const paper = (
+export const paper: Node = (
     <svg
         className="paper"
         xmlns="http://www.w3.org/2000/svg"

@@ -1,8 +1,9 @@
 // @flow
 import React from 'react';
+import type { Node } from 'react';
 import './Character.scss';
 
-const Character = () => (
+const Character = (): Node => (
     <div className="Character">
         <svg
             className="Character-Head"

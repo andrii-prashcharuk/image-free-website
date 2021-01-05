@@ -9,7 +9,7 @@ type Props = {
     children: Node,
 };
 
-const Section = ({ id, className = '', children }: Props) => (
+const Section = ({ id, className = '', children }: Props): Node => (
     <section className={`Section ${className}`} id={id}>
         {children}
     </section>

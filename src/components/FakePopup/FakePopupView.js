@@ -8,7 +8,7 @@ type Props = {
     children: Node,
 };
 
-const FakePopup = ({ header, children }: Props) => (
+const FakePopup = ({ header, children }: Props): Node => (
     <div className="FakePopup">
         <div className="FakePopup-Header">
             <div className="FakePopup-HeaderButtons">

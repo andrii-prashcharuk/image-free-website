@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import type { Node } from 'react';
 import classNames from 'classnames';
 import Nav from '../Nav';
 import Logo from '../Logo';
@@ -29,26 +30,30 @@ export default class Header extends React.Component<Props, State> {
         window.removeEventListener('scroll', this.handleScroll);
     }
 
-    handleScroll = () => this.setState((state: State) => ({
+    handleScroll: () => void = () => this.setState((state: State) => ({
         closed: isMobileView() ? state.closed : !!window.scrollY,
     }));
 
-    toggleHeader = () => this.setState((state: State) => ({
+    toggleHeader: () => void = () => this.setState((state: State) => ({
         closed: !state.closed,
     }));
 
-    closedOnMobile = () => isMobileView() && this.setState({
-        closed: true,
-    });
+    closeOnMobile: () => void = () => {
+        if (isMobileView()) {
+            this.setState({
+                closed: true,
+            });
+        }
+    }
 
-    render() {
+    render(): Node {
         const { closed } = this.state;
 
         return (
             <header className={classNames('Header', { closed })}>
-                <Nav onClick={this.closedOnMobile} />
+                <Nav onClick={this.closeOnMobile} />
                 <Logo onClick={this.toggleHeader} />
-                <div className="Header-Overlap" onTouchStart={this.closedOnMobile} />
+                <div className="Header-Overlap" onTouchStart={this.closeOnMobile} />
             </header>
         );
     }

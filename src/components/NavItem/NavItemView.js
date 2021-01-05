@@ -13,7 +13,7 @@ type Props = {
 };
 
 export default class NavItem extends React.Component<Props> {
-    clickHandler = (e: Event) => {
+    clickHandler: (Event) => void = (e) => {
         const { onClick, to } = this.props;
         const scrollTarget = window.document.getElementById(to);
 
@@ -27,7 +27,7 @@ export default class NavItem extends React.Component<Props> {
         }
     };
 
-    render() {
+    render(): Node {
         const { active, to, children } = this.props;
 
         return (

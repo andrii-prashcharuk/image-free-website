@@ -2,8 +2,8 @@
 /* eslint-disable react/no-unused-state */
 /* globals IntervalID: true */
 import React from 'react';
-import classNames from 'classnames';
 import type { Node } from 'react';
+import classNames from 'classnames';
 import fullText from './code.txt';
 import './CodeBackground.scss';
 
@@ -107,7 +107,7 @@ export default class CodeBackground extends React.Component<Props, State> {
         this.stopPrinting();
     }
 
-    startPrinting = () => {
+    startPrinting: () => void = () => {
         this.printInterval = setInterval(() => this.setState(
             (state: State) => {
                 const { textToPrint, wordsToPrint } = state;
@@ -169,9 +169,13 @@ export default class CodeBackground extends React.Component<Props, State> {
         ), 75);
     };
 
-    stopPrinting = () => this.printInterval && clearInterval(this.printInterval);
+    stopPrinting: () => void = () => {
+        if (this.printInterval) {
+            clearInterval(this.printInterval);
+        }
+    }
 
-    render() {
+    render(): Node {
         const { blur } = this.props;
         const { wordsToPrint } = this.state;
 
