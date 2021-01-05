@@ -11,7 +11,7 @@ module.exports = (env, argv) => {
     const isProduction = argv.mode === 'production';
 
     return {
-        entry: './index.js',
+        entry: './index.tsx',
         output: {
             path: BUILD_DIR,
             filename: '[name].[fullhash:8].js',
@@ -26,34 +26,14 @@ module.exports = (env, argv) => {
         module: {
             rules: [
                 {
-                    test: /\.js?$/,
-                    loader: 'babel-loader',
-                    include: APP_DIR,
+                    test: /\.tsx?$/,
+                    use: ['ts-loader'],
                     exclude: /node_modules/,
                 },
                 {
-                    test: /\.js?$/,
-                    loader: 'eslint-loader',
+                    test: /\.(ts|tsx)$/,
+                    use: ['eslint-loader'],
                     include: APP_DIR,
-                },
-                {
-                    test: /\.png$/,
-                    use: [{
-                        loader: 'url-loader',
-                        options: {
-                            limit: 10000,
-                            name: '/images/[name].[ext]',
-                        },
-                    }],
-                },
-                {
-                    test: /\.jpg$/,
-                    use: [{
-                        loader: 'file-loader',
-                        options: {
-                            name: '/images/[name].[ext]',
-                        },
-                    }],
                 },
                 {
                     test: /\.(scss|css)$/,
@@ -74,6 +54,7 @@ module.exports = (env, argv) => {
                 path.resolve(__dirname),
                 path.resolve(__dirname, 'node_modules'),
             ],
+            extensions: ['.ts', '.tsx', '.js'],
         },
         devServer: {
             historyApiFallback: true,
@@ -88,7 +69,7 @@ module.exports = (env, argv) => {
                 template: './index.html',
                 title: 'Andrii Prashcharuk | Image-Free Website',
                 description: 'My name is Andrii Prashcharuk and this is my personal website! I’m a Professional Software Engineer from Ukraine with more than 9 years of experience in Front-End development.',
-                keywords: 'Prashcharuk, Andrii Prashcharuk, front-end, developer, engineer, react, redux, html5, css3, css3 animation, flow, image-free website',
+                keywords: 'Prashcharuk, Andrii Prashcharuk, front-end, developer, engineer, react, redux, html5, css3, css3 animation, typescript, image-free website',
                 url: 'https://prashchar.uk',
                 image: 'https://prashchar.uk/profile_image.jpg',
                 imageType: 'image/jpeg',

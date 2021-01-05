@@ -46,20 +46,6 @@ npm run build
 
 The build files are located in ```./dst``` folder.
 
-## Running the project's flow validation check
-
-To run flow validation check:
-
-```
-npm run flow
-```
-
-To run flow validation watch:
-
-```
-npm run flow:watch
-```
-
 ## Running the project's eslint validation check
 
 To run eslint validation check:
