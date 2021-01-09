@@ -1,10 +1,153 @@
 import React from 'react';
-import './Character.scss';
+import styled from '@emotion/styled';
+import { keyframes } from '@emotion/react';
 
-const Character = (): JSX.Element => (
-    <div className="Character">
-        <svg
-            className="Character-Head"
+const handWaving = keyframes`
+    0% {
+        transform: rotate3d(0, 0, 1, 0deg);
+    }
+    50% {
+        transform: rotate3d(0, 0, 1, 8deg);
+    }
+    100% {
+        transform: rotate3d(0, 0, 1, 0deg);
+    }
+`;
+
+const headShaking = keyframes`
+    0% {
+        transform: rotate3d(0, 0, 1, 0.75deg);
+    }
+    50% {
+        transform: rotate3d(0, 0, 1, -0.75deg);
+    }
+    100% {
+        transform: rotate3d(0, 0, 1, 0.75deg);
+    }
+`;
+
+const hairColor = '#5d4341';
+const eyesColor = '#644831';
+const noseColor = '#f9bba5';
+const mouthColor = '#d48694';
+const skinColor = '#fccfbd';
+const tShirtColor = '#2574A9';
+const pantsColor = '#a63c23';
+const shoesColor = '#6d6d6d';
+
+const Container = styled('div')`
+    width: 180px;
+    position: relative;
+`;
+
+const Head = styled('svg')`
+    display: block;
+    position: absolute;
+    width: 100%;
+    top: -56%;
+    left: -13%;
+    transform-origin: bottom center;
+    -webkit-animation: ${headShaking} 2s infinite;
+    -moz-animation: ${headShaking} 2s infinite;
+    animation: ${headShaking} 2s infinite;
+    
+    .cls-1 {
+        fill: ${skinColor};
+    }
+    
+    .cls-2, .cls-6 {
+        fill: ${hairColor};
+    }
+    
+    .cls-2 {
+        opacity: 0.2;
+    }
+    
+    .cls-3, .cls-5 {
+        fill: none;
+        stroke-linecap: round;
+    }
+    
+    .cls-3 {
+        stroke: ${noseColor};
+        stroke-miterlimit: 10;
+        stroke-width: 4.67px;
+    }
+    
+    .cls-4 {
+        fill: ${eyesColor};
+    }
+    
+    .cls-5 {
+        stroke: ${mouthColor};
+        stroke-linejoin: round;
+        stroke-width: 2.8px;
+    }
+`;
+
+const Body = styled('svg')`
+    display: block;
+    
+    .cls-1 {
+      fill: ${pantsColor};
+    }
+    
+    .cls-2 {
+      fill: ${({ theme }) => theme.color.black};
+    }
+    
+    .cls-3 {
+      fill: ${shoesColor};
+    }
+    
+    .cls-4 {
+        fill: none;
+        stroke: ${skinColor};
+        stroke-linecap: round;
+        stroke-miterlimit: 10;
+        stroke-width: 14.02px;
+    }
+    
+    .cls-5 {
+      fill: ${tShirtColor};
+    }
+    
+    .cls-6 {
+      fill: ${skinColor};
+    }
+`;
+
+const Hand = styled('svg')`
+    display: block;
+    position: absolute;
+    width: 100%;
+    top: -48.5%;
+    left: 52%;
+    transform-origin: bottom left;
+    -webkit-animation: ${handWaving} 2s infinite;
+    -moz-animation: ${handWaving} 2s infinite;
+    animation: ${handWaving} 2s infinite;
+    
+    .cls-1 {
+        fill: none;
+        stroke: ${skinColor};
+        stroke-linecap: round;
+        stroke-miterlimit: 10;
+        stroke-width: 14.02px;
+    }
+    
+    .cls-2 {
+        fill: ${tShirtColor};
+    }
+`;
+
+type Props = {
+    className?: string,
+};
+
+const Character = ({ className }: Props): JSX.Element => (
+    <Container className={className}>
+        <Head
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 145 292.4"
         >
@@ -29,9 +172,8 @@ const Character = (): JSX.Element => (
                     d="M119.16,235.93a.88.88,0,0,1-.16.38c-.09.1-.2.1-.32,0h0c-1-.78-2.9-7.06-3.87-8.63-2.61-4.21-3.33-8.3-5-12.53-2.92-7.41-.21-16.76-4.67-20.33-3.28-2.63-10.64-.2-25.46-1.4-12.86-1-19.29-3.44-23.6-4.44s-10.72,1.07-12.62,2.1c-5,2.73-1.61,12.35-4.67,20.56-1,2.71-3.85,7.69-5,10.39-2,4.71-4.57,11.35-6.24,12.91-.46.41-.85.46-1.14,0l-.08-.15c-1.73-3.65.42-32,8.25-49.06,1.07-2.33,4.17-6,11.14-11.59,1.44-1.15,3.78-2.25,5.27-3.28,1-.69,5.73-4.07,7.18-4.57,2.4-.82,9.18-2.81,10.93-2.81s4.57,0,5.74,0a36.87,36.87,0,0,1,4.21-.53c2,0,9.64,3.64,10.22,4.06,1,.71,6.66,3.43,6.66,3.43s5.22,1.92,6.63,3.33c7.17,5.93,9.08,15.33,9.81,17.13C117.87,204.38,120.32,230.84,119.16,235.93Z"
                 />
             </g>
-        </svg>
-        <svg
-            className="Character-Hand"
+        </Head>
+        <Hand
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 145 292.4"
         >
@@ -42,9 +184,8 @@ const Character = (): JSX.Element => (
                     d="M20.89,252.56l5,5.2L32,263.45l-16.1,21.74-5,6.76s-7-8-8-11.11c-.74-1.43-3.36-5-2.28-6.63C3.7,273.13,20.89,252.56,20.89,252.56Z"
                 />
             </g>
-        </svg>
-        <svg
-            className="Character-Body"
+        </Hand>
+        <Body
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 145 292.4"
         >
@@ -94,8 +235,8 @@ const Character = (): JSX.Element => (
                     d="M61,127v4.66a7,7,0,0,1-14.06,0V127c2.34.48,4.6,0,7,0h0C56.35,127,58.79,127.44,61,127Z"
                 />
             </g>
-        </svg>
-    </div>
+        </Body>
+    </Container>
 );
 
 export default Character;

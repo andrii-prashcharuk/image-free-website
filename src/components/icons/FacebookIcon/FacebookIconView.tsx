@@ -1,9 +1,8 @@
 import React from 'react';
-import './FacebookIcon.scss';
+import StyledBottomIconSvg from '../StyledBottomIconSvg';
 
 const FacebookIcon = (): JSX.Element => (
-    <svg
-        className="FacebookIcon"
+    <StyledBottomIconSvg
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
         viewBox="0 0 49.652 49.652"
@@ -15,7 +14,7 @@ const FacebookIcon = (): JSX.Element => (
             "
             />
         </g>
-    </svg>
+    </StyledBottomIconSvg>
 );
 
 export default FacebookIcon;

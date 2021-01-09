@@ -1,9 +1,8 @@
 import React from 'react';
-import './LinkedInIcon.scss';
+import StyledBottomIconSvg from '../StyledBottomIconSvg';
 
 const LinkedInIcon = (): JSX.Element => (
-    <svg
-        className="LinkedInIcon"
+    <StyledBottomIconSvg
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
         viewBox="0 0 49.652 49.652"
@@ -22,7 +21,7 @@ const LinkedInIcon = (): JSX.Element => (
                 C19.762,16.676,18.921,15.777,17.551,15.777z"
             />
         </g>
-    </svg>
+    </StyledBottomIconSvg>
 );
 
 export default LinkedInIcon;

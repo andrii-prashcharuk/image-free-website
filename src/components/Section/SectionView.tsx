@@ -1,20 +1,33 @@
-import React from 'react';
-import './Section.scss';
+import styled from '@emotion/styled';
 
-type Props = {
-    id: string,
-    className?: string,
-    children: JSX.Element | JSX.Element[],
-};
+const Section = styled.div`
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    min-width: 320px;
+    min-height: 568px;
+    padding: 42px 24px;
+    box-sizing: border-box;
 
-const Section = ({ id, className, children }: Props): JSX.Element => (
-    <section className={`Section ${className}`} id={id}>
-        {children}
-    </section>
-);
+    h3 {
+        margin-top: 0;
+        font-size: 36px;
+        margin-bottom: 24px;
+    }
 
-Section.defaultProps = {
-    className: '',
-};
+    @media only screen and (max-width: 600px) {
+        & h3 {
+            font-size: 28px;
+            margin-bottom: 18px;
+        }
+    }
+
+    @media only screen and (min-width: 1920px) {
+        & h3 {
+            font-size: 48px;
+            margin-bottom: 36px;
+        }
+    }
+`;
 
 export default Section;

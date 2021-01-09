@@ -1,11 +1,27 @@
 import React from 'react';
 import type { MouseEvent } from 'react';
 import classNames from 'classnames';
+import styled from '@emotion/styled';
 import { scrollTo } from '../../utils';
-import './NavItem.scss';
+import { StyledA } from '../StyledA';
+
+const A = styled(StyledA)`
+    text-decoration: none;
+    transition: background 300ms;
+
+    &, &:active, &:visited {
+        color: ${({ theme }) => theme.color.black};
+    }
+
+    &:hover,
+    &.active {
+        background: ${({ theme }) => theme.color.lightBlue};
+    }
+`;
 
 type Props = {
     to: string,
+    className?: string,
     onClick?: (offsetTop: number) => any,
     children: JSX.Element | string,
     active?: boolean,
@@ -27,16 +43,21 @@ export default class NavItem extends React.Component<Props> {
     };
 
     render(): JSX.Element {
-        const { active, to, children } = this.props;
+        const {
+            className,
+            active,
+            to,
+            children,
+        } = this.props;
 
         return (
-            <a
-                className={classNames('NavItem', { active })}
+            <A
+                className={classNames(className, { active })}
                 href={`/#${to}`}
                 onClick={this.clickHandler}
             >
                 {children}
-            </a>
+            </A>
         );
     }
 }

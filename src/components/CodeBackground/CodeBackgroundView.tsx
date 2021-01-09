@@ -1,8 +1,46 @@
 import React from 'react';
 import classNames from 'classnames';
+import styled from '@emotion/styled';
 import fullText from './code.txt';
-import './CodeBackground.scss';
 import Timeout = NodeJS.Timeout;
+
+const Container = styled.div`
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Anonymous Pro', monospace;
+    white-space: pre;
+    background: ${({ theme }) => theme.color.darkGray};
+    color: #A9B7C6;
+
+    &.blur {
+        filter: blur(2px);
+    }
+`;
+
+const PaddingWrap = styled.div`
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 20px;
+`;
+
+const KeyWord = styled.span`
+    font-weight: bold;
+    color: #CC7832;
+`;
+
+const Quoted = styled.span`
+    color: #6A8759;
+`;
+
+const Comment = styled.span`
+    color: #808080;
+`;
+
+const HtmlTag = styled.span`
+    color: #FFC66D;
+`;
 
 const keyWords = [
     'from',
@@ -61,23 +99,24 @@ const specialSymbolsHighlighted = [
 ];
 
 const isSpace = (str: string | JSX.Element): boolean => typeof str === 'string' && (/\s/).test(str);
-const isQuotedWord = (str: string | JSX.Element): boolean => typeof str === 'string' && (/'(.*?)'|"(.*?)"/).test(str);
+const isQuotedWord = (str: string | JSX.Element): boolean => typeof str === 'string' && (/'(.*?)'|"|`(.*?)"/).test(str);
 const isSpecialSmbl = (str: string | JSX.Element): boolean => typeof str === 'string' && specialSymbols.includes(str);
 const isCommentLine = (str: string | JSX.Element): boolean => typeof str === 'string' && (str === '//' || str.indexOf('//') === 0);
 const isHtmlOpenTagWord = (str: string | JSX.Element): boolean => typeof str === 'string' && (str.indexOf('<') === 0);
 const isHtmlCloseTagWord = (str: string | JSX.Element): boolean => typeof str === 'string' && (str === '>' || str === '/>');
-const getWordType = (word: string): string | null => {
+const getWordType = (word: string): typeof KeyWord | typeof Quoted | null => {
     if (keyWords.includes(word) || specialSymbolsHighlighted.includes(word)) {
-        return 'keyWord';
+        return KeyWord;
     }
     if (isQuotedWord(word)) {
-        return 'quoted';
+        return Quoted;
     }
     return null;
 };
 
 type Props = {
     blur: boolean,
+    className?: string,
 };
 
 type State = {
@@ -126,25 +165,25 @@ export default class CodeBackground extends React.Component<Props, State> {
                 const isSpecialSymbol = !isComment && isSpecialSmbl(symbol);
                 const isSpecialWord = !isComment && isSpecialSmbl(lastWord);
                 const isSpaceWord = !isComment && isSpace(lastWord);
-                let wordType;
+                let Component;
 
                 if (lastWord && typeof lastWord === 'string' && (isSpecialSymbol || isSpaceSymbol)) {
-                    wordType = !isSpaceWord && getWordType(lastWord);
+                    Component = !isSpaceWord && getWordType(lastWord);
                 }
 
                 if (isComment && symbol === '\n') {
-                    wordType = 'comment';
+                    Component = Comment;
                 }
 
                 if ((isHtmlOpenTag && isSpaceSymbol) || (isHtmlCloseTag && beforeLastWord !== '=')) {
-                    wordType = 'htmlTag';
+                    Component = HtmlTag;
                 }
 
-                if (wordType) {
+                if (Component) {
                     newWordsToPrint[newWordsToPrint.length - 1] = (
-                        <span key={newWordsToPrint.length - 1} className={wordType}>
+                        <Component key={newWordsToPrint.length - 1}>
                             {lastWord}
-                        </span>
+                        </Component>
                     );
                 }
 
@@ -173,15 +212,15 @@ export default class CodeBackground extends React.Component<Props, State> {
     }
 
     render(): JSX.Element {
-        const { blur } = this.props;
+        const { blur, className } = this.props;
         const { wordsToPrint } = this.state;
 
         return (
-            <div className={classNames('CodeBackground', { blur })}>
-                <div className="CodeBackground-PaddingWrap">
+            <Container className={classNames(className, { blur })}>
+                <PaddingWrap>
                     {wordsToPrint}
-                </div>
-            </div>
+                </PaddingWrap>
+            </Container>
         );
     }
 }

@@ -1,8 +1,72 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router';
 import { debounce } from 'throttle-debounce';
+import styled from '@emotion/styled';
 import NavItem from '../NavItem';
-import './Nav.scss';
+
+const Container = styled.nav`
+    width: 100%;
+    max-width: 800px;
+
+    @media only screen and (min-width: 1920px) {
+        & {
+            max-width: 1000px;
+        }
+    }
+`;
+
+const LogoPlaceholder = styled.li`
+    width: 152px;
+
+    @media only screen and (max-width: 600px) {
+        & {
+            display: none;
+        }
+    }
+`;
+
+const LI = styled.li`
+    @media only screen and (max-width: 600px) {
+        width: 100%;
+        text-align: center;
+    }
+`;
+
+const UL = styled.ul`
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    align-items: center;
+
+    @media only screen and (max-width: 600px) {
+        & {
+            flex-direction: column;
+        }
+    }
+`;
+
+const StyledNavItem = styled(NavItem)`
+    display: block;
+    padding: 4px 12px;
+    border-radius: 16px;
+
+    @media only screen and (max-width: 600px) {
+        & {
+            padding: 18px 0;
+            border-radius: 0;
+            font-size: 24px;
+        }
+    }
+
+    @media only screen and (min-width: 1920px) {
+        & {
+            padding: 6px 16px;
+            border-radius: 22px;
+        }
+    }
+`;
 
 type NavItemData = {
     id?: string,
@@ -77,25 +141,25 @@ export default class Nav extends React.Component<Props> {
         const { onClick, location } = this.props;
 
         return ((item.id && item.label) ? (
-            <li key={item.id}>
-                <NavItem
+            <LI key={item.id}>
+                <StyledNavItem
                     to={item.id}
                     onClick={onClick}
                     active={location.hash === `#${item.id}`}
                 >
                     {item.label}
-                </NavItem>
-            </li>
+                </StyledNavItem>
+            </LI>
         ) : (
-            <li key="placeholder" className="Nav-LogoPlaceholder" />
+            <LogoPlaceholder key="placeholder" />
         ));
     };
 
     render = (): JSX.Element => (
-        <nav className="Nav">
-            <ul>
+        <Container>
+            <UL>
                 {NAV_ITEMS.map(this.renderNav)}
-            </ul>
-        </nav>
+            </UL>
+        </Container>
     );
 }

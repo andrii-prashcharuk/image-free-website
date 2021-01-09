@@ -3,7 +3,7 @@ This project was created to show how powerful web technologies are. All the
 graphics here are SVG and HTML elements embedded in the source code what
 means they are small and doesn’t required additional requests to the server.
 The web page is 100% responsive and looks great on mobile and desktop devices.
-The size of the compiled project is 374KB only!
+The size of the compiled and gziped project is 113KB only!
 
 You can see this project live at [https://prashchar.uk](https://prashchar.uk).
 
@@ -15,10 +15,10 @@ Message me in [LinkedIn](https://www.linkedin.com/in/prashcharuk) if you have an
 
 ## Getting Started
 
-To build the project **node.js** and **npm** is required (I used node v8.9.2 and npm v6.4.0).
+To build the project **node.js** and **npm** is required (I used node v14.15.3 and npm v6.14.9).
 ### Installing
 
-After node and npm are ready, from the project's root folder run:
+After the node and npm are ready, from the project's root folder run:
 
 ```
 npm install
@@ -26,13 +26,7 @@ npm install
 
 ## Running the project
 
-To start webpack dev server at [http://0.0.0.0:8080](http://0.0.0.0:8080) run:
-
-```
-npm run server
-```
-
-To build a development bundle with automatic rebuild on code changes:
+To start webpack dev server at [http://localhost:8080](http://localhost:8080) run:
 
 ```
 npm run start

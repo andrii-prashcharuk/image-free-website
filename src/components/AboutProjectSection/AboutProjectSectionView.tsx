@@ -1,21 +1,64 @@
 import React from 'react';
+import styled from '@emotion/styled';
 import Section from '../Section';
 import TechLogo from '../TechLogo';
-import './AboutProjectSection.scss';
+import { StyledA } from '../StyledA';
 
 const CLIENT_URL = 'https://github.com/monext/image-free-website';
 const SERVER_URL = 'https://github.com/monext/image-free-website-server';
 
+const StyledSection = styled(Section)`
+    overflow: hidden;
+    z-index: 1;
+    background: ${({ theme }) => theme.color.white};
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    @media only screen and (max-width: 600px) {
+        & {
+            padding: 54px 12px 12px;
+        }
+    }
+`;
+
+const TechLogos = styled.div`
+    display: flex;
+    justify-content: space-around;
+`;
+
+const Content = styled.div`
+    max-width: 1000px;
+    text-align: center;
+    align-self: center;
+    
+    p {
+        margin-bottom: 0;
+    }
+
+    @media only screen and (max-width: 600px) {
+        & {
+            h3 {
+                font-size: 28px;
+                margin-bottom: 18px;
+            }
+            p {
+              font-size: 16px;
+            }
+        }
+    }
+`;
+
 const AboutProjectSection = (): JSX.Element => (
-    <Section id="about-project" className="AboutProjectSection">
-        <div className="AboutProjectSection-TechLogos">
+    <StyledSection id="about-project">
+        <TechLogos>
             <TechLogo type="html5" />
             <TechLogo type="css3" />
             <TechLogo type="js" />
             <TechLogo type="react" />
             <TechLogo type="redux" />
-        </div>
-        <div className="AboutProjectSection-Content">
+        </TechLogos>
+        <Content>
             <h3>About Project</h3>
             <p>
                 This project was created to show how powerful web technologies are. All the
@@ -23,24 +66,24 @@ const AboutProjectSection = (): JSX.Element => (
                 means they are small and doesn’t required additional requests to the server.
                 The web page is 100% responsive and looks great on mobile and desktop devices.
                 <br />
-                The size of the compiled and gziped project is 99KB only!
+                The size of the compiled and gziped project is 113KB only!
                 <br />
                 <br />
                 Check out my github repositories for&nbsp;
-                <a href={CLIENT_URL} target="_blank" rel="noopener noreferrer">client</a>
+                <StyledA href={CLIENT_URL} target="_blank" rel="noopener noreferrer">client</StyledA>
                 &nbsp;and&nbsp;
-                <a href={SERVER_URL} target="_blank" rel="noopener noreferrer">server</a>
+                <StyledA href={SERVER_URL} target="_blank" rel="noopener noreferrer">server</StyledA>
                 &nbsp;to see how it works.
             </p>
-        </div>
-        <div className="AboutProjectSection-TechLogos">
+        </Content>
+        <TechLogos>
             <TechLogo type="git" />
             <TechLogo type="webpack" />
             <TechLogo type="flow" />
             <TechLogo type="sass" />
             <TechLogo type="babel" />
-        </div>
-    </Section>
+        </TechLogos>
+    </StyledSection>
 );
 
 export default AboutProjectSection;

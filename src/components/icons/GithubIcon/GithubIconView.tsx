@@ -1,9 +1,8 @@
 import React from 'react';
-import './GithubIcon.scss';
+import StyledBottomIconSvg from '../StyledBottomIconSvg';
 
 const GithubIcon = (): JSX.Element => (
-    <svg
-        className="GithubIcon"
+    <StyledBottomIconSvg
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
         viewBox="0 0 438.549 438.549"
@@ -31,7 +30,7 @@ const GithubIcon = (): JSX.Element => (
         C438.536,184.851,428.728,148.168,409.132,114.573z"
             />
         </g>
-    </svg>
+    </StyledBottomIconSvg>
 );
 
 export default GithubIcon;

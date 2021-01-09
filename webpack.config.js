@@ -36,14 +36,6 @@ module.exports = (env, argv) => {
                     include: APP_DIR,
                 },
                 {
-                    test: /\.(scss|css)$/,
-                    use: [
-                        'style-loader',
-                        'css-loader',
-                        'sass-loader',
-                    ],
-                },
-                {
                     test: /\.txt$/,
                     loader: 'raw-loader',
                 },
