@@ -2,6 +2,7 @@ import axios from 'axios';
 import type { AxiosPromise } from 'axios';
 
 axios.defaults.timeout = 2000;
+axios.defaults.baseURL = '/api';
 
 export default {
     sendMessage: (
