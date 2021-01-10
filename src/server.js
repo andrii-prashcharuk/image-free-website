@@ -1,13 +1,10 @@
-const path = require('path');
 const express = require('express');
-const compression = require('compression');
 const nodeMailer = require('nodemailer');
 const mg = require('nodemailer-mailgun-transport');
 const bodyParser = require('body-parser');
 
 const app = express();
 const port = 3000;
-const PUBLIC_PATH = path.resolve(`${__dirname}/../public`);
 const {
     API_KEY,
     DOMAIN,
@@ -26,8 +23,6 @@ if (!EMAIL) {
 
 const isEmailValid = email => (/^([A-Za-z0-9_\-.])+@([A-Za-z0-9_\-.])+\.([A-Za-z]{2,4})$/).test(email);
 
-app.use(compression());
-app.use(express.static(PUBLIC_PATH));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -65,10 +60,6 @@ app.post('/sendMessage', (req, res) => {
             console.log('Message %s sent', info.messageId);
         }
     });
-});
-
-app.get('*', (req, res) => {
-    res.status(404).sendFile(`${PUBLIC_PATH}/index.html`, { root: __dirname });
 });
 
 app.listen(port, () => console.log('Server is running at port: ', port));

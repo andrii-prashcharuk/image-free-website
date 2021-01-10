@@ -17,7 +17,7 @@ npm install
 
 ## Running the server
 
-To start webpack dev server at [http://localhost:3000](http://localhost:3000) run:
+To start node server at [http://localhost:3000](http://localhost:3000) run:
 
 ```
 API_KEY=YOUR_MAILGUN_API_KEY DOMAIN=YOUR_DOMAIN EMAIL=your@email.com npm run start

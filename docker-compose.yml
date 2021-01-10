@@ -1,0 +1,18 @@
+version: "3"
+services:
+  backend:
+    build: ./
+    ports:
+      - "3000:3000"
+    container_name: ifw-backend
+    environment:
+      - API_KEY=${API_KEY}
+      - DOMAIN=${DOMAIN}
+      - EMAIL=${EMAIL}
+  frontend:
+    build: ../image-free-website/
+    ports:
+      - "80:80"
+    container_name: ifw-frontend
+    depends_on:
+      - backend
