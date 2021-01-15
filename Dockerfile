@@ -13,8 +13,9 @@ COPY nginx.conf /etc/nginx/conf.d/configfile.template
 
 ENV PORT 8080
 ENV HOST 0.0.0.0
+ENV API_SERVER localhost:3000
 
-RUN sh -c "envsubst '\$PORT'  < /etc/nginx/conf.d/configfile.template > /etc/nginx/conf.d/default.conf"
+RUN sh -c "envsubst '\$PORT \$API_SERVER'  < /etc/nginx/conf.d/configfile.template > /etc/nginx/conf.d/default.conf"
 
 COPY --from=build /app/dst /usr/share/nginx/html
 
