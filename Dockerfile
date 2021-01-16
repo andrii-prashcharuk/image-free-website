@@ -13,11 +13,9 @@ COPY nginx.conf /etc/nginx/conf.d/configfile.template
 
 ENV PORT 8080
 ENV HOST 0.0.0.0
-ENV API_SERVER localhost:3000
-
-RUN sh -c "envsubst '\$PORT \$API_SERVER'  < /etc/nginx/conf.d/configfile.template > /etc/nginx/conf.d/default.conf"
+ENV API_ENDPOINT localhost:3000
 
 COPY --from=build /app/dst /usr/share/nginx/html
 
 EXPOSE 8080
-CMD ["nginx", "-g", "daemon off;"]
+CMD sh -c "envsubst '\$PORT \$API_ENDPOINT' < /etc/nginx/conf.d/configfile.template > /etc/nginx/conf.d/default.conf && nginx -g \"daemon off;\""
