@@ -2,6 +2,7 @@ const express = require('express');
 const nodeMailer = require('nodemailer');
 const mg = require('nodemailer-mailgun-transport');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const app = express();
 const port = 3000;
@@ -25,6 +26,7 @@ const isEmailValid = email => (/^([A-Za-z0-9_\-.])+@([A-Za-z0-9_\-.])+\.([A-Za-z
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cors());
 
 app.post('/sendMessage', (req, res) => {
     const { name = '', email = '', message = '' } = req.body;
