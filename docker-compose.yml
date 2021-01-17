@@ -2,8 +2,6 @@ version: "3"
 services:
   backend:
     build: "./api"
-    ports:
-      - "3000:3000"
     container_name: ifw-backend
     environment:
       - API_KEY=${API_KEY}
@@ -13,8 +11,6 @@ services:
       - sub-etha
   frontend:
     build: "./ui"
-    ports:
-      - "8080:8080"
     container_name: ifw-frontend
     depends_on:
       - backend
