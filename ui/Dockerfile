@@ -4,7 +4,7 @@ WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 COPY package*.json ./
 RUN npm install
-COPY . ./
+COPY .. ./
 RUN npm run build
 
 # stage 2 - build the final image and copy the react build files
