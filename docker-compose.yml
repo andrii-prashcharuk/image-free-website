@@ -9,6 +9,8 @@ services:
       - API_KEY=${API_KEY}
       - DOMAIN=${DOMAIN}
       - EMAIL=${EMAIL}
+    networks:
+      - sub-etha
   frontend:
     build: "./ui"
     ports:
@@ -16,3 +18,7 @@ services:
     container_name: ifw-frontend
     depends_on:
       - backend
+    networks:
+      - sub-etha
+networks:
+  sub-etha:
