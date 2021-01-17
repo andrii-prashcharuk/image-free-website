@@ -20,5 +20,12 @@ services:
       - backend
     networks:
       - sub-etha
+  revproxy:
+    build: "./reverse-proxy"
+    ports:
+      - "80:80"
+    container_name: ifw-reverse-proxy
+    networks:
+      - sub-etha
 networks:
   sub-etha:
