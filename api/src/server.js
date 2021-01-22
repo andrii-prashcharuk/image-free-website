@@ -27,7 +27,13 @@ if (!EMAIL) {
 const isEmailValid = email => (/^([A-Za-z0-9_\-.])+@([A-Za-z0-9_\-.])+\.([A-Za-z]{2,4})$/).test(email);
 
 app.use(compression());
-app.use(express.static(PUBLIC_PATH));
+app.use(express.static(PUBLIC_PATH, {
+    setHeaders: (res, path) => {
+        if (path.endsWith('.html')) {
+            res.setHeader('Cache-Control', 'no-cache');
+        }
+    },
+}));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
