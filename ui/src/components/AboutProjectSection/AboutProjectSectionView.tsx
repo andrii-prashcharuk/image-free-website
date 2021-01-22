@@ -5,7 +5,6 @@ import TechLogo from '../TechLogo';
 import { StyledA } from '../StyledA';
 
 const CLIENT_URL = 'https://github.com/monext/image-free-website';
-const SERVER_URL = 'https://github.com/monext/image-free-website-server';
 
 const StyledSection = styled(Section)`
     overflow: hidden;
@@ -69,10 +68,8 @@ const AboutProjectSection = (): JSX.Element => (
                 The size of the compiled and gziped project is 113KB only!
                 <br />
                 <br />
-                Check out my github repositories for&nbsp;
-                <StyledA href={CLIENT_URL} target="_blank" rel="noopener noreferrer">client</StyledA>
-                &nbsp;and&nbsp;
-                <StyledA href={SERVER_URL} target="_blank" rel="noopener noreferrer">server</StyledA>
+                Check out my github&nbsp;
+                <StyledA href={CLIENT_URL} target="_blank" rel="noopener noreferrer">repository</StyledA>
                 &nbsp;to see how it works.
             </p>
         </Content>
