@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import LOGOS from './logos';
 import type { LogoType } from './logos';
 
-const Container = styled.figure`position: relative;
+const Figure = styled.figure`position: relative;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -47,11 +47,15 @@ type Props = {
     type: LogoType,
 };
 
-const TechLogo = ({ type }: Props): JSX.Element => (
-    <Container className={type}>
-        {LOGOS[type].title && <figcaption>{LOGOS[type].title}</figcaption>}
-        {LOGOS[type].svg}
-    </Container>
-);
+const TechIcon = ({ type }: Props): JSX.Element => {
+    const { title, Component } = LOGOS[type];
 
-export default TechLogo;
+    return (
+        <Figure className={type}>
+            <figcaption>{title}</figcaption>
+            <Component />
+        </Figure>
+    );
+};
+
+export default TechIcon;

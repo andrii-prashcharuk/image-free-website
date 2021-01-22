@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import Section from '../Section';
-import TechLogo from '../TechLogo';
+import TechIcon from '../TechIcon';
 import { StyledA } from '../StyledA';
 
 const CLIENT_URL = 'https://github.com/monext/image-free-website';
@@ -51,11 +51,11 @@ const Content = styled.div`
 const AboutProjectSection = (): JSX.Element => (
     <StyledSection id="about-project">
         <TechLogos>
-            <TechLogo type="html5" />
-            <TechLogo type="css3" />
-            <TechLogo type="js" />
-            <TechLogo type="react" />
-            <TechLogo type="redux" />
+            <TechIcon type="html5" />
+            <TechIcon type="css3" />
+            <TechIcon type="ts" />
+            <TechIcon type="react" />
+            <TechIcon type="redux" />
         </TechLogos>
         <Content>
             <h3>About Project</h3>
@@ -65,7 +65,7 @@ const AboutProjectSection = (): JSX.Element => (
                 means they are small and doesn’t required additional requests to the server.
                 The web page is 100% responsive and looks great on mobile and desktop devices.
                 <br />
-                The size of the compiled and gziped project is 113KB only!
+                The size of the compiled and gziped project is 111KB only!
                 <br />
                 <br />
                 Check out my github&nbsp;
@@ -74,11 +74,11 @@ const AboutProjectSection = (): JSX.Element => (
             </p>
         </Content>
         <TechLogos>
-            <TechLogo type="git" />
-            <TechLogo type="webpack" />
-            <TechLogo type="flow" />
-            <TechLogo type="sass" />
-            <TechLogo type="babel" />
+            <TechIcon type="git" />
+            <TechIcon type="webpack" />
+            <TechIcon type="emotion" />
+            <TechIcon type="docker" />
+            <TechIcon type="jest" />
         </TechLogos>
     </StyledSection>
 );

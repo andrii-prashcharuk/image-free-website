@@ -264,7 +264,7 @@ export default class ContactSection extends React.Component<Props, State> {
                 id="contact"
                 className={classNames({
                     closed: closeEnvelope && !isFailedRequest,
-                    success: !isRequesting && !isFailedRequest,
+                    success: closeEnvelope && !isRequesting && !isFailedRequest,
                     error: isFailedRequest,
                 })}
             >
