@@ -1,10 +1,11 @@
 import React from 'react';
-import { throttle } from 'throttle-debounce';
 import classnames from 'classnames';
 import styled from '@emotion/styled';
 import CodeBackground from '../CodeBackground';
 import DisplayStand from '../DisplayStand';
-import { isMobileView } from '../../utils';
+import { useIsMobileView } from '../../hooks';
+import { useProgress, useIsVertical } from './hooks';
+import { getProgressValue } from './utils';
 
 const DisplayBackgroundContainer = styled.div`
     position: fixed;
@@ -61,69 +62,28 @@ const StyledCodeBackground = styled(CodeBackground)`
     }
 `;
 
-const isVertical = (): boolean => (window.innerWidth / window.innerHeight) < 1;
-const getProgress = (): number => Math.min(window.scrollY / window.innerHeight, 1);
-const getProgressValue = (min: number, max: number, progress: number): number => (
-    min + ((max - min) * progress)
-);
+const DisplayBackground = (): JSX.Element => {
+    const vertical = useIsVertical();
+    const progress = useProgress();
+    const isMobile = useIsMobileView();
+    const scale = getProgressValue(0.35, 1, progress);
+    const x = isMobile ? 0 : getProgressValue(21.43, 0, progress);
+    const y = getProgressValue(-190, 0, progress);
+    const transformValue = `scale3d(${scale}, ${scale}, 1) translate3d(${x}vw, ${y}px, 0)`;
 
-type Props = Record<string, never>;
-
-type State = {
-    vertical: boolean,
-    isMobile: boolean,
-    progress: number,
+    return (
+        <DisplayBackgroundContainer
+            className={classnames({ vertical, fullSize: progress === 1 })}
+            style={{
+                WebkitTransform: transformValue,
+                msTransform: transformValue,
+                transform: transformValue,
+            }}
+        >
+            <StyledCodeBackground blur={progress > 0.75} />
+            <StyledDisplayStand />
+        </DisplayBackgroundContainer>
+    );
 };
 
-export default class DisplayBackground extends React.Component<Props, State> {
-    handleResizeScroll: () => void = throttle(
-        100,
-        () => this.setState({
-            vertical: isVertical(),
-            isMobile: isMobileView(),
-            progress: getProgress(),
-        }),
-    );
-
-    constructor(props: Props) {
-        super(props);
-
-        this.state = {
-            vertical: isVertical(),
-            isMobile: isMobileView(),
-            progress: getProgress(),
-        };
-    }
-
-    componentDidMount(): void {
-        window.addEventListener('resize', this.handleResizeScroll);
-        window.addEventListener('scroll', this.handleResizeScroll);
-    }
-
-    componentWillUnmount(): void {
-        window.removeEventListener('resize', this.handleResizeScroll);
-        window.removeEventListener('scroll', this.handleResizeScroll);
-    }
-
-    render(): JSX.Element {
-        const { vertical, progress, isMobile } = this.state;
-        const scale = getProgressValue(0.35, 1, progress);
-        const x = isMobile ? 0 : getProgressValue(21.43, 0, progress);
-        const y = getProgressValue(-190, 0, progress);
-        const transformValue = `scale3d(${scale}, ${scale}, 1) translate3d(${x}vw, ${y}px, 0)`;
-
-        return (
-            <DisplayBackgroundContainer
-                className={classnames({ vertical, fullSize: progress === 1 })}
-                style={{
-                    WebkitTransform: transformValue,
-                    msTransform: transformValue,
-                    transform: transformValue,
-                }}
-            >
-                <StyledCodeBackground blur={progress > 0.75} />
-                <StyledDisplayStand />
-            </DisplayBackgroundContainer>
-        );
-    }
-}
+export default DisplayBackground;

@@ -1,7 +1,7 @@
 {
   "name": "image-free-website",
   "author": "Andrii Prashcharuk",
-  "version": "1.9.3",
+  "version": "1.9.4",
   "description": "Image Free Website",
   "main": "src/index.tsx",
   "repository": {

@@ -1,2 +1,1 @@
-export { default as NavView } from './NavView';
-export { default } from './Nav';
+export { default } from './NavView';

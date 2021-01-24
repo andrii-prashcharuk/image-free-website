@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { Theme } from '@emotion/react';
 import { Link } from 'react-router-dom';
 
-export const StyledA = styled('a')`
+export const StyledA = styled.a`
     transition: color 300ms;
 
     &, &:visited {

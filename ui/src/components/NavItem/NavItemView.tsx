@@ -1,63 +1,68 @@
 import React from 'react';
-import type { MouseEvent } from 'react';
-import classNames from 'classnames';
+import { useLocation } from 'react-router';
 import styled from '@emotion/styled';
-import { scrollTo } from '../../utils';
-import { StyledA } from '../StyledA';
+import NavLink from '../NavLink';
 
-const A = styled(StyledA)`
-    text-decoration: none;
-    transition: background 300ms;
+const StyledNavLink = styled(NavLink)`
+    display: block;
+    padding: 4px 12px;
+    border-radius: 16px;
 
-    &, &:active, &:visited {
-        color: ${({ theme }) => theme.color.black};
+    @media only screen and (max-width: 600px) {
+        & {
+            padding: 18px 0;
+            border-radius: 0;
+            font-size: 24px;
+        }
     }
 
-    &:hover,
-    &.active {
-        background: ${({ theme }) => theme.color.lightBlue};
+    @media only screen and (min-width: 1920px) {
+        & {
+            padding: 6px 16px;
+            border-radius: 22px;
+        }
+    }
+`;
+
+const LogoPlaceholder = styled.li`
+    width: 152px;
+
+    @media only screen and (max-width: 600px) {
+        & {
+            display: none;
+        }
+    }
+`;
+
+const LI = styled.li`
+    @media only screen and (max-width: 600px) {
+        width: 100%;
+        text-align: center;
     }
 `;
 
 type Props = {
-    to: string,
-    className?: string,
+    id: string,
+    label?: string,
     onClick?: (offsetTop: number) => any,
-    children: JSX.Element | string,
-    active?: boolean,
 };
 
-export default class NavItem extends React.Component<Props> {
-    clickHandler = (e: MouseEvent<HTMLAnchorElement>): void => {
-        const { onClick, to } = this.props;
-        const scrollTarget = window.document.getElementById(to);
+const NavItem = ({ onClick, id, label }: Props): JSX.Element => {
+    const location = useLocation();
 
-        if (scrollTarget) {
-            scrollTo(scrollTarget.offsetTop);
-            e.preventDefault();
-        }
-
-        if (onClick) {
-            onClick(scrollTarget ? scrollTarget.offsetTop : -1);
-        }
-    };
-
-    render(): JSX.Element {
-        const {
-            className,
-            active,
-            to,
-            children,
-        } = this.props;
-
-        return (
-            <A
-                className={classNames(className, { active })}
-                href={`/#${to}`}
-                onClick={this.clickHandler}
+    return (label ? (
+        <LI key={id}>
+            <StyledNavLink
+                to={id}
+                onClick={onClick}
+                active={location.hash === `#${id}`}
             >
-                {children}
-            </A>
-        );
-    }
-}
+                {label}
+            </StyledNavLink>
+        </LI>
+    ) : (
+        <LogoPlaceholder key="placeholder" />
+    ));
+};
+
+export default NavItem;

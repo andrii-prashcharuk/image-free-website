@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import classNames from 'classnames';
 import styled from '@emotion/styled';
 import Nav from '../Nav';
 import Logo from '../Logo';
-import { isMobileView } from '../../utils';
+import { useIsMobileView, useWindowScrollY } from '../../hooks';
 
 const Container = styled.header`
     position: fixed;
@@ -88,54 +88,34 @@ const Overlap = styled.header`
     }
 `;
 
-type Props = Record<string, never>;
+const Header = (): JSX.Element => {
+    const isMobileView = useIsMobileView();
+    const scrollY = useWindowScrollY(100);
+    const [closed, setClosed] = useState(isMobileView || !!scrollY);
 
-type State = {
-    closed: boolean,
+    useEffect(() => {
+        if (!isMobileView) {
+            setClosed(!!scrollY);
+        }
+    }, [isMobileView, scrollY]);
+
+    const toggleHeader = (): void => setClosed(!closed);
+    const closeOnMobile = useCallback(
+        (): void => {
+            if (isMobileView) {
+                setClosed(true);
+            }
+        },
+        [isMobileView],
+    );
+
+    return (
+        <Container className={classNames({ closed })}>
+            <Nav onClick={closeOnMobile} />
+            <StyledLogo onClick={toggleHeader} />
+            <Overlap onTouchStart={closeOnMobile} />
+        </Container>
+    );
 };
 
-export default class Header extends React.Component<Props, State> {
-    constructor(props: Props) {
-        super(props);
-
-        this.state = {
-            closed: isMobileView() || !!window.scrollY,
-        };
-    }
-
-    componentDidMount(): void {
-        window.addEventListener('scroll', this.handleScroll);
-    }
-
-    componentWillUnmount(): void {
-        window.removeEventListener('scroll', this.handleScroll);
-    }
-
-    handleScroll = (): void => this.setState((state: State) => ({
-        closed: isMobileView() ? state.closed : !!window.scrollY,
-    }));
-
-    toggleHeader = (): void => this.setState((state: State) => ({
-        closed: !state.closed,
-    }));
-
-    closeOnMobile = (): void => {
-        if (isMobileView()) {
-            this.setState({
-                closed: true,
-            });
-        }
-    }
-
-    render(): JSX.Element {
-        const { closed } = this.state;
-
-        return (
-            <Container className={classNames({ closed })}>
-                <Nav onClick={this.closeOnMobile} />
-                <StyledLogo onClick={this.toggleHeader} />
-                <Overlap onTouchStart={this.closeOnMobile} />
-            </Container>
-        );
-    }
-}
+export default Header;

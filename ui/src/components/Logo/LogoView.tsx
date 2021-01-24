@@ -58,7 +58,6 @@ const Logo = ({ className, onClick, containerCss }: Props): JSX.Element => (
         className={classNames(className, { interactive: !!onClick })}
         css={[logoCss, containerCss]}
         xmlns="http://www.w3.org/2000/svg"
-        xmlnsXlink="http://www.w3.org/1999/xlink"
         viewBox="0 0 820 875"
         onClick={onClick}
     >

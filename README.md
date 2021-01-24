@@ -3,7 +3,7 @@ This project was created to show how powerful web technologies are. All the
 graphics here are SVG and HTML elements embedded in the source code what
 means they are small and doesn’t required additional requests to the server.
 The web page is 100% responsive and looks great on mobile and desktop devices.
-The size of the compiled and gziped project is 111KB only!
+The size of the compiled and gziped project is 107KB only!
 
 You can see this project live at [https://prashchar.uk](https://prashchar.uk).
 

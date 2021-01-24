@@ -77,6 +77,11 @@ const HeaderButton = styled.div`
     }
 `;
 
+const popupBodyCss = css`
+    flex: 1 1 100%;
+    padding: 16px;
+`;
+
 type Props = {
     className?: string,
     header: string | JSX.Element,
@@ -89,25 +94,18 @@ const FakePopup = ({
     children,
     className,
     bodyCss,
-}: Props): JSX.Element => {
-    const popupBodyCss = css`
-        flex: 1 1 100%;
-        padding: 16px;
-    `;
-
-    return (
-        <Container className={className}>
-            <Header>
-                <HeaderButtons>
-                    <HeaderButton />
-                    <HeaderButton />
-                    <HeaderButton />
-                </HeaderButtons>
-                <span>{header}</span>
-            </Header>
-            <div css={[popupBodyCss, bodyCss]}>{children}</div>
-        </Container>
-    );
-};
+}: Props): JSX.Element => (
+    <Container className={className}>
+        <Header>
+            <HeaderButtons>
+                <HeaderButton />
+                <HeaderButton />
+                <HeaderButton />
+            </HeaderButtons>
+            <span>{header}</span>
+        </Header>
+        <div css={[popupBodyCss, bodyCss]}>{children}</div>
+    </Container>
+);
 
 export default FakePopup;
