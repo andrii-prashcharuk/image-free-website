@@ -1,3 +1,3 @@
-import GithubIconView from './GithubIconView';
+import GithubIconView from './GithubIcon';
 
 export default GithubIconView;

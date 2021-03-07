@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import AppLayout from './scenes/AppLayoutView';
+import AppLayout from './scenes/AppLayout';
 
 const root = document.getElementById('root');
 

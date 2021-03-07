@@ -1,3 +1,3 @@
-import FacebookIconView from './StyledBottomIconSvgView';
+import FacebookIconView from './StyledBottomIconSvg';
 
 export default FacebookIconView;

@@ -1,3 +1,3 @@
-import LinkedInIconView from './LinkedInIconView';
+import LinkedInIconView from './LinkedInIcon';
 
 export default LinkedInIconView;

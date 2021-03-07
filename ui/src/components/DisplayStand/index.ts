@@ -1,1 +1,1 @@
-export { default } from './DisplayStandView';
+export { default } from './DisplayStand';

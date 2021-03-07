@@ -1,1 +1,1 @@
-export { default } from './StyledButtonView';
+export { default } from './StyledButton';

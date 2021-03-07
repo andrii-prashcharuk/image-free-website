@@ -1,1 +1,1 @@
-export { default } from './CopyrightTextView';
+export { default } from './CopyrightText';

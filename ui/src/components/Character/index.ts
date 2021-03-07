@@ -1,1 +1,1 @@
-export { default } from './CharacterView';
+export { default } from './Character';

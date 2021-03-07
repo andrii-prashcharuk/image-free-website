@@ -1,1 +1,1 @@
-export { default } from './LetterMainBgView';
+export { default } from './LetterMainBg';

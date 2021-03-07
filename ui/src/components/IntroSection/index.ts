@@ -1,1 +1,1 @@
-export { default } from './IntroSectionView';
+export { default } from './IntroSection';

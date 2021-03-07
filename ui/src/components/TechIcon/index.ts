@@ -1,1 +1,1 @@
-export { default } from './TechIconView';
+export { default } from './TechIcon';

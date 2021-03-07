@@ -1,1 +1,1 @@
-export { StyledLink, StyledA } from './StyledAView';
+export { StyledLink, StyledA } from './StyledA';

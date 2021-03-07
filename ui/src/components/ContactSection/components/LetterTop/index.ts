@@ -1,1 +1,1 @@
-export { TopOpened, TopClosed } from './LetterTopOpenedView';
+export { TopOpened, TopClosed } from './LetterTopOpened';

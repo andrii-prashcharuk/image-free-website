@@ -1,1 +1,1 @@
-export { default } from './StyledTextAreaView';
+export { default } from './StyledTextArea';

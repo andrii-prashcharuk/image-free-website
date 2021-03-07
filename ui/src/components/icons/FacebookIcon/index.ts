@@ -1,3 +1,3 @@
-import FacebookIconView from './FacebookIconView';
+import FacebookIconView from './FacebookIcon';
 
 export default FacebookIconView;

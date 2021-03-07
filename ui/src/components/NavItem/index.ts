@@ -1,1 +1,1 @@
-export { default } from './NavItemView';
+export { default } from './NavItem';

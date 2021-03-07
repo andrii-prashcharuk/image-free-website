@@ -1,1 +1,1 @@
-export { default } from './LetterPaperView';
+export { default } from './LetterPaper';

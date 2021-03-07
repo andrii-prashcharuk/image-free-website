@@ -1,1 +1,1 @@
-export { default } from './FakePopupView';
+export { default } from './FakePopup';

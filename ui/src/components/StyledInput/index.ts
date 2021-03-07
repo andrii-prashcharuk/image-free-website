@@ -1,1 +1,1 @@
-export { BaseInput, default } from './StyledInputView';
+export { BaseInput, default } from './StyledInput';

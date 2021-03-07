@@ -13,7 +13,7 @@ type Props = {
     className?: string,
 };
 
-const DisplayStandView = ({ className }: Props): JSX.Element => (
+const DisplayStand = ({ className }: Props): JSX.Element => (
     <Svg
         className={className}
         xmlns="http://www.w3.org/2000/svg"
@@ -25,4 +25,4 @@ const DisplayStandView = ({ className }: Props): JSX.Element => (
     </Svg>
 );
 
-export default DisplayStandView;
+export default DisplayStand;

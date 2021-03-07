@@ -1,1 +1,1 @@
-export { default } from './InvertedColorsContainerView';
+export { default } from './InvertedColorsContainer';

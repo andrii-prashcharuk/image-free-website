@@ -1,1 +1,1 @@
-export { default } from './DisplayBackgroundView';
+export { default } from './DisplayBackground';

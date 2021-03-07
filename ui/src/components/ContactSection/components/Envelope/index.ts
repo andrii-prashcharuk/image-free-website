@@ -1,1 +1,1 @@
-export { default } from './EnvelopeView';
+export { default } from './Envelope';

@@ -1,1 +1,1 @@
-export { default } from './ChevronView';
+export { default } from './Chevron';
