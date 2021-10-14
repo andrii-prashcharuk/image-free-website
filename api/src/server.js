@@ -5,6 +5,8 @@ const nodeMailer = require('nodemailer');
 const mg = require('nodemailer-mailgun-transport');
 const bodyParser = require('body-parser');
 
+const redirectWwwTraffic = require('./middleware/redirectWwwTraffic');
+
 const PUBLIC_PATH = path.resolve(`${__dirname}/../public`);
 const app = express();
 const {
@@ -36,6 +38,7 @@ app.use(express.static(PUBLIC_PATH, {
 }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(redirectWwwTraffic);
 
 app.post('/sendMessage', (req, res) => {
     const { name = '', email = '', message = '' } = req.body;
