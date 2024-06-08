@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import React from 'react';
+import React, { JSX } from 'react';
 import styled from '@emotion/styled';
 import {
     jsx,
@@ -17,14 +17,6 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     box-shadow: 0 22px 70px 4px rgba(0, 0, 0, 0.56);
-
-    @media only screen and (min-width: 1920px) {
-        & {
-            flex: 0 0 48px;
-            padding: 0 24px;
-            line-height: 48px;
-        }
-    }
 `;
 
 const Header = styled.div`
@@ -89,23 +81,23 @@ type Props = {
     bodyCss?: Interpolation<Theme>,
 };
 
-const FakePopup = ({
+export function FakePopup({
     header,
     children,
     className,
     bodyCss,
-}: Props): JSX.Element => (
-    <Container className={className}>
-        <Header>
-            <HeaderButtons>
-                <HeaderButton />
-                <HeaderButton />
-                <HeaderButton />
-            </HeaderButtons>
-            <span>{header}</span>
-        </Header>
-        <div css={[popupBodyCss, bodyCss]}>{children}</div>
-    </Container>
-);
-
-export default FakePopup;
+}: Props): JSX.Element {
+    return (
+        <Container className={className}>
+            <Header>
+                <HeaderButtons>
+                    <HeaderButton />
+                    <HeaderButton />
+                    <HeaderButton />
+                </HeaderButtons>
+                <span>{header}</span>
+            </Header>
+            <div css={[popupBodyCss, bodyCss]}>{children}</div>
+        </Container>
+    );
+}

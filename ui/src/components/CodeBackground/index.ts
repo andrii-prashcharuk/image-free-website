@@ -1,1 +1,1 @@
-export { default } from './CodeBackground';
+export * from './CodeBackground';

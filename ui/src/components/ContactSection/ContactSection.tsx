@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, JSX } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import classNames from 'classnames';
 import styled from '@emotion/styled';
-import Section from '../Section';
-import InvertedColorsContainer from '../InvertedColorsContainer';
-import ContactForm from './components/ContactForm';
-import type { Form } from './components/ContactForm';
-import ErrorAlert from './components/ErrorAlert';
-import Letter from './components/Letter';
+import { Section } from '../Section';
+import { InvertedColorsContainer } from '../InvertedColorsContainer';
+import { ContactForm } from './components/ContactForm';
+import { Form } from './components/ContactForm/utils';
+import { ErrorAlert } from './components/ErrorAlert';
+import { Letter } from './components/Letter';
 import { sendMessage } from '../../reducers/form/formActions';
 import { getFormError, isFormRequesting } from '../../reducers/form/formSelectors';
 
@@ -67,7 +67,7 @@ const SuccessMessage = styled.div`
     }
 `;
 
-const ContactSection = (): JSX.Element => {
+export function ContactSection(): JSX.Element {
     const isFailedRequest = !!useSelector(getFormError);
     const isRequesting = useSelector(isFormRequesting);
     const dispatch = useDispatch();
@@ -105,6 +105,4 @@ const ContactSection = (): JSX.Element => {
             </StyledInvertedColorsContainer>
         </StyledSection>
     );
-};
-
-export default ContactSection;
+}

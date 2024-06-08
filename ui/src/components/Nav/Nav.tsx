@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { JSX } from 'react';
 import styled from '@emotion/styled';
 import { NAV_ITEMS } from './utils';
 import { useHistoryUpdate } from './hooks';
-import NavItem from '../NavItem';
+import { NavItem } from '../NavItem';
 
 const Container = styled.nav`
     width: 100%;
@@ -34,7 +34,7 @@ type Props = {
     onClick?: (offsetTop: number) => any,
 }
 
-const Nav = ({ onClick }: Props): JSX.Element => {
+export function Nav({ onClick }: Props): JSX.Element {
     useHistoryUpdate();
 
     return (
@@ -51,6 +51,4 @@ const Nav = ({ onClick }: Props): JSX.Element => {
             </UL>
         </Container>
     );
-};
-
-export default Nav;
+}

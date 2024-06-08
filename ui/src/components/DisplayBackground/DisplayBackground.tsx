@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { JSX } from 'react';
 import classnames from 'classnames';
 import styled from '@emotion/styled';
-import CodeBackground from '../CodeBackground';
-import DisplayStand from '../DisplayStand';
+import { CodeBackground } from '../CodeBackground';
+import { DisplayStand } from '../DisplayStand';
 import { useIsMobileView } from '../../hooks';
 import { useProgress, useIsVertical } from './hooks';
 import { getProgressValue } from './utils';
@@ -62,7 +62,7 @@ const StyledCodeBackground = styled(CodeBackground)`
     }
 `;
 
-const DisplayBackground = (): JSX.Element => {
+export function DisplayBackground(): JSX.Element {
     const vertical = useIsVertical();
     const progress = useProgress();
     const isMobile = useIsMobileView();
@@ -84,6 +84,4 @@ const DisplayBackground = (): JSX.Element => {
             <StyledDisplayStand />
         </DisplayBackgroundContainer>
     );
-};
-
-export default DisplayBackground;
+}

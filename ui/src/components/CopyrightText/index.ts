@@ -1,1 +1,1 @@
-export { default } from './CopyrightText';
+export * from './CopyrightText';

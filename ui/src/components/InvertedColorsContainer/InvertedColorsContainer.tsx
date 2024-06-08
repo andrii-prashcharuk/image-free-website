@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-const InvertedColorsContainer = styled.div`
+export const InvertedColorsContainer = styled.div`
     background: ${({ theme }) => theme.color.black};
     color: ${({ theme }) => theme.color.white};
 
@@ -11,5 +11,3 @@ const InvertedColorsContainer = styled.div`
         color: ${({ theme }) => theme.color.lightBlue};
     }
 `;
-
-export default InvertedColorsContainer;

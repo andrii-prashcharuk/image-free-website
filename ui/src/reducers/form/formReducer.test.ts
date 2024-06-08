@@ -1,4 +1,4 @@
-import form from './formReducer';
+import { form } from './formReducer';
 import type { FormAction } from './formActions';
 import initialState from './formInitialState';
 

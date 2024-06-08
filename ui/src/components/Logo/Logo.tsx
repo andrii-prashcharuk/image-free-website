@@ -1,6 +1,5 @@
 /** @jsx jsx */
-import React from 'react';
-import type { MouseEvent } from 'react';
+import React, { JSX, MouseEvent } from 'react';
 import {
     jsx,
     css,
@@ -53,30 +52,30 @@ type Props = {
     containerCss?: Interpolation<Theme>,
 };
 
-const Logo = ({ className, onClick, containerCss }: Props): JSX.Element => (
-    <svg
-        className={classNames(className, { interactive: !!onClick })}
-        css={[logoCss, containerCss]}
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 820 875"
-        onClick={onClick}
-    >
-        <g id="bg">
-            <g>
-                <Circle1 cx="410" cy="437.5" r="400" />
-                <Circle2 cx="410" cy="437.5" r="400" />
+export function Logo({ className, onClick, containerCss }: Props): JSX.Element {
+    return (
+        <svg
+            className={classNames(className, { interactive: !!onClick })}
+            css={[logoCss, containerCss]}
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 820 875"
+            onClick={onClick}
+        >
+            <g id="bg">
+                <g>
+                    <Circle1 cx="410" cy="437.5" r="400" />
+                    <Circle2 cx="410" cy="437.5" r="400" />
+                </g>
             </g>
-        </g>
-        <g id="shape">
-            <g>
-                <Line x1="447.5" y1="25" x2="210" y2="437.5" />
-                <Line x1="610" y1="437.5" x2="372.5" y2="850" />
-                <Line x1="465.66" y1="187.5" x2="610" y2="437.5" />
-                <Line x1="210" y1="438" x2="354.34" y2="688" />
-                <Line2 x1="310" y1="287.5" x2="510" y2="287.5" />
+            <g id="shape">
+                <g>
+                    <Line x1="447.5" y1="25" x2="210" y2="437.5" />
+                    <Line x1="610" y1="437.5" x2="372.5" y2="850" />
+                    <Line x1="465.66" y1="187.5" x2="610" y2="437.5" />
+                    <Line x1="210" y1="438" x2="354.34" y2="688" />
+                    <Line2 x1="310" y1="287.5" x2="510" y2="287.5" />
+                </g>
             </g>
-        </g>
-    </svg>
-);
-
-export default Logo;
+        </svg>
+    );
+}

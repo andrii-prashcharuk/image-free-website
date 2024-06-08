@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, JSX } from 'react';
 import type { ChangeEvent, FormEvent } from 'react';
 import classNames from 'classnames';
 import styled from '@emotion/styled';
-import StyledInput from '../../../StyledInput';
-import StyledTextArea from '../../../StyledTextArea';
-import StyledButton from '../../../StyledButton';
+import { StyledInput } from '../../../StyledInput';
+import { StyledTextArea } from '../../../StyledTextArea';
+import { StyledButton } from '../../../StyledButton';
 import { getNotValidField } from './utils';
 import type { FieldName, Form } from './utils';
 
@@ -15,11 +15,11 @@ const FormContainer = styled.form`
     flex-direction: column;
 `;
 
-export type Props = {
+export type ContactFormProps = {
     onSubmit: (form: Form) => void,
 };
 
-const ContactForm = ({ onSubmit }: Props): JSX.Element => {
+export function ContactForm({ onSubmit }: ContactFormProps): JSX.Element {
     const [notValidField, setNotValidField] = useState<FieldName | null>(null);
     const [formData, setFormData] = useState<Form>({
         name: '',
@@ -76,6 +76,4 @@ const ContactForm = ({ onSubmit }: Props): JSX.Element => {
             <StyledButton type="submit">Send</StyledButton>
         </FormContainer>
     );
-};
-
-export default ContactForm;
+}

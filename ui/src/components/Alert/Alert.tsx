@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { JSX } from 'react';
 import classNames from 'classnames';
 import styled from '@emotion/styled';
-import StyledButton from '../StyledButton';
+import { StyledButton } from '../StyledButton';
 
 const Wrapper = styled.div`
     opacity: 0;
@@ -59,20 +59,20 @@ type Props = {
     onCloseRequest: () => any,
 };
 
-const Alert = ({ children, onCloseRequest, show }: Props): JSX.Element => (
-    <Wrapper className={classNames({ show })}>
-        <Container>
-            <div>{children}</div>
-            <StyledButton type="button" onClick={onCloseRequest}>OK</StyledButton>
-        </Container>
-        <Overlay
-            role="button"
-            onClick={show ? onCloseRequest : undefined}
-            onKeyPress={show ? onCloseRequest : undefined}
-            tabIndex={0}
-            aria-label="Close"
-        />
-    </Wrapper>
-);
-
-export default Alert;
+export function Alert({ children, onCloseRequest, show }: Props): JSX.Element {
+    return (
+        <Wrapper className={classNames({ show })}>
+            <Container>
+                <div>{children}</div>
+                <StyledButton type="button" onClick={onCloseRequest}>OK</StyledButton>
+            </Container>
+            <Overlay
+                role="button"
+                onClick={show ? onCloseRequest : undefined}
+                onKeyPress={show ? onCloseRequest : undefined}
+                tabIndex={0}
+                aria-label="Close"
+            />
+        </Wrapper>
+    );
+}

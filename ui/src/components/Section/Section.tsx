@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-const Section = styled.div`
+export const Section = styled.div`
     position: relative;
     width: 100vw;
     height: 100vh;
@@ -29,5 +29,3 @@ const Section = styled.div`
         }
     }
 `;
-
-export default Section;

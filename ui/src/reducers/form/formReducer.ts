@@ -2,9 +2,8 @@ import initialState from './formInitialState';
 import type { FormState } from './formInitialState';
 import type { FormAction } from './formActions';
 
-export default function form(
-    state: FormState = initialState, action: FormAction,
-): FormState {
+// eslint-disable-next-line default-param-last
+export function form(state: FormState | undefined = initialState, action: FormAction): FormState {
     switch (action.type) {
         case 'FORM_REQUEST':
             return {

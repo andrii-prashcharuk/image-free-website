@@ -42,10 +42,8 @@ export const BaseInput = styled.input`
     }
 `;
 
-const StyledButton = styled(BaseInput)`
+export const StyledInput = styled(BaseInput)`
     border-top: none;
     border-left: none;
     border-right: none;
 `;
-
-export default StyledButton;

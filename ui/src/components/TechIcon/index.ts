@@ -1,1 +1,1 @@
-export { default } from './TechIcon';
+export * from './TechIcon';

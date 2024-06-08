@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { JSX } from 'react';
 import { useLocation } from 'react-router';
 import styled from '@emotion/styled';
-import NavLink from '../NavLink';
+import { NavLink } from '../NavLink';
 
 const StyledNavLink = styled(NavLink)`
     display: block;
@@ -47,7 +47,7 @@ type Props = {
     onClick?: (offsetTop: number) => any,
 };
 
-const NavItem = ({ onClick, id, label }: Props): JSX.Element => {
+export function NavItem({ onClick, id, label }: Props): JSX.Element {
     const location = useLocation();
 
     return (label ? (
@@ -63,6 +63,4 @@ const NavItem = ({ onClick, id, label }: Props): JSX.Element => {
     ) : (
         <LogoPlaceholder key="placeholder" />
     ));
-};
-
-export default NavItem;
+}

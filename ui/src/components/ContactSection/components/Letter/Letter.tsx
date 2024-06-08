@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { JSX } from 'react';
 import styled from '@emotion/styled';
-import Envelope from '../Envelope';
-import MainBg from '../LetterMainBg';
-import Paper from '../LetterPaper';
+import { Envelope } from '../Envelope';
+import { LetterMainBg } from '../LetterMainBg';
+import { LetterPaper as Paper } from '../LetterPaper';
 import { TopOpened, TopClosed } from '../LetterTop';
 import { envelopeTransformCSS } from '../../styles';
 
@@ -83,19 +83,19 @@ export type Props = {
     children: JSX.Element,
 };
 
-const Letter = ({ children }: Props): JSX.Element => (
-    <LetterWrap>
-        <EnvelopeTop>
-            <TopOpened />
-            <TopClosed />
-        </EnvelopeTop>
-        <LetterPaper>
-            <Paper />
-            {children}
-        </LetterPaper>
-        <MainBg />
-        <Envelope />
-    </LetterWrap>
-);
-
-export default Letter;
+export function Letter({ children }: Props): JSX.Element {
+    return (
+        <LetterWrap>
+            <EnvelopeTop>
+                <TopOpened />
+                <TopClosed />
+            </EnvelopeTop>
+            <LetterPaper>
+                <Paper />
+                {children}
+            </LetterPaper>
+            <LetterMainBg />
+            <Envelope />
+        </LetterWrap>
+    );
+}

@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { JSX } from 'react';
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
-import Section from '../Section';
-import Chevron from '../Chevron';
+import { Section } from '../Section';
+import { Chevron } from '../Chevron';
 
 const StyledSection = styled(Section)`
     padding-left: 50%;
@@ -64,19 +64,19 @@ const ScrollDown = styled.div`
     animation: ${upDown} 2s infinite;
 `;
 
-const IntroSection = (): JSX.Element => (
-    <StyledSection id="intro" className="IntroSection">
-        <h3>Welcome</h3>
-        <p>
-            My name is Andrii Prashcharuk and this is my personal website!
-            <br />
-            Scroll down to learn more.
-        </p>
-        <ScrollDown>
-            <Chevron />
-            <Chevron />
-        </ScrollDown>
-    </StyledSection>
-);
-
-export default IntroSection;
+export function IntroSection(): JSX.Element {
+    return (
+        <StyledSection id="intro" className="IntroSection">
+            <h3>Welcome</h3>
+            <p>
+                My name is Andrii Prashcharuk and this is my personal website!
+                <br />
+                Scroll down to learn more.
+            </p>
+            <ScrollDown>
+                <Chevron />
+                <Chevron />
+            </ScrollDown>
+        </StyledSection>
+    );
+}

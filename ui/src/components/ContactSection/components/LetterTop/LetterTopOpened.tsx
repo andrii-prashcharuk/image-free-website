@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { JSX } from 'react';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
@@ -48,21 +48,25 @@ const TopCloseContainer = styled.svg`
     }
 `;
 
-export const TopOpened = (): JSX.Element => (
-    <TopOpenContainer
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 496 161.6"
-        preserveAspectRatio="none"
-    >
-        <g>
-            <polyline className="cls-1" points="0 161.6 248 0 496 161.6" />
-            <polyline className="cls-2" points="248 0 496 161.6 248 161.6" />
-        </g>
-    </TopOpenContainer>
-);
+export function TopOpened(): JSX.Element {
+    return (
+        <TopOpenContainer
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 496 161.6"
+            preserveAspectRatio="none"
+        >
+            <g>
+                <polyline className="cls-1" points="0 161.6 248 0 496 161.6" />
+                <polyline className="cls-2" points="248 0 496 161.6 248 161.6" />
+            </g>
+        </TopOpenContainer>
+    );
+}
 
-export const TopClosed = (): JSX.Element => (
-    <TopCloseContainer xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 158" preserveAspectRatio="none">
-        <polygon className="cls-1" points="0 0 248 158 496 0 494.4 0 1.6 0 0 0" />
-    </TopCloseContainer>
-);
+export function TopClosed(): JSX.Element {
+    return (
+        <TopCloseContainer xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 158" preserveAspectRatio="none">
+            <polygon className="cls-1" points="0 0 248 158 496 0 494.4 0 1.6 0 0 0" />
+        </TopCloseContainer>
+    );
+}

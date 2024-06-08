@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { JSX } from 'react';
 import styled from '@emotion/styled';
 
 const YEAR = (new Date()).getFullYear();
@@ -17,12 +17,12 @@ const PStyled = styled.p`
     }
 `;
 
-const CopyrightText = (): JSX.Element => (
-    <PStyled>
-        Copyright &copy;&nbsp;
-        {YEAR}
+export function CopyrightText(): JSX.Element {
+    return (
+        <PStyled>
+            Copyright &copy;&nbsp;
+            {YEAR}
         &nbsp;Andrii Prashcharuk
-    </PStyled>
-);
-
-export default CopyrightText;
+        </PStyled>
+    );
+}

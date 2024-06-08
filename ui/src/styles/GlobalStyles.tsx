@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import React from 'react';
+import React, { JSX } from 'react';
 import {
     jsx,
     css,
@@ -8,7 +8,7 @@ import {
 } from '@emotion/react';
 import emotionNormalize from 'emotion-normalize';
 
-const GlobalStyles = (): JSX.Element => {
+export function GlobalStyles(): JSX.Element {
     const { color } = useTheme();
 
     return (
@@ -40,6 +40,4 @@ const GlobalStyles = (): JSX.Element => {
           `}
         />
     );
-};
-
-export default GlobalStyles;
+}

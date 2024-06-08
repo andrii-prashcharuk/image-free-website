@@ -1,11 +1,11 @@
 /** @jsx jsx */
-import React from 'react';
+import React, { JSX } from 'react';
 import styled from '@emotion/styled';
 import { jsx, css } from '@emotion/react';
-import Section from '../Section';
-import FakePopup from '../FakePopup';
-import Character from '../Character';
-import Logo from '../Logo';
+import { Section } from '../Section';
+import { FakePopup } from '../FakePopup';
+import { Character } from '../Character';
+import { Logo } from '../Logo';
 import { getYearsOfExperience } from '../../utils';
 
 const experience = getYearsOfExperience();
@@ -64,7 +64,7 @@ const fakePopupBodyCss = css`
 
     @media only screen and (min-width: 1920px) {
         & {
-            padding: 24px;
+            padding: 32px;
         }
     }
 `;
@@ -85,7 +85,7 @@ const StyledLogo = styled(Logo)`
     @media only screen and (min-width: 1920px) {
         & {
             flex: 0 0 110px;
-            margin-right: 24px;
+            margin-right: 36px;
         }
     }
 `;
@@ -109,23 +109,23 @@ const StyledCharacter = styled(Character)`
     }
 `;
 
-const AboutMeSection = (): JSX.Element => (
-    <StyledSection id="about-me">
-        <StyledFakePopup header="Hi there!" bodyCss={fakePopupBodyCss}>
-            <StyledLogo />
-            <p>
-                I’m a Professional Software Engineer from Ukraine with more than&nbsp;
-                {experience}
+export function AboutMeSection(): JSX.Element {
+    return (
+        <StyledSection id="about-me">
+            <StyledFakePopup header="Hi there!" bodyCss={fakePopupBodyCss}>
+                <StyledLogo />
+                <p>
+                    I’m a Professional Software Engineer from Ukraine with more than&nbsp;
+                    {experience}
                 &nbsp;years of experience in Front-End development.
-                <br />
-                <br />
-                As a Front-end Engineer, I believe software development is a type of modern art and
-                I’m interested in using the latest tools and technologies to breathe life into web
-                applications, make them animated, responsive, and dynamic.
-            </p>
-        </StyledFakePopup>
-        <StyledCharacter />
-    </StyledSection>
-);
-
-export default AboutMeSection;
+                    <br />
+                    <br />
+                    As a Front-end Engineer, I believe software development is a type of modern art
+                    and I’m interested in using the latest tools and technologies to breathe life
+                    into web applications, make them animated, responsive, and dynamic.
+                </p>
+            </StyledFakePopup>
+            <StyledCharacter />
+        </StyledSection>
+    );
+}

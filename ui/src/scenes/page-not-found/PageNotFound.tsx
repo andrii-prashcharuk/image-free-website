@@ -1,11 +1,11 @@
 /** @jsx jsx */
-import React from 'react';
+import React, { JSX } from 'react';
 import { jsx, css } from '@emotion/react';
 import styled from '@emotion/styled';
-import Logo from '../../components/Logo';
-import StyledButton from '../../components/StyledButton';
+import { Logo } from '../../components/Logo';
+import { StyledButton } from '../../components/StyledButton';
 import { StyledLink } from '../../components/StyledA';
-import InvertedColorsContainer from '../../components/InvertedColorsContainer';
+import { InvertedColorsContainer } from '../../components/InvertedColorsContainer';
 
 const ErrorCode = styled.div`
     font-size: 130px;
@@ -29,26 +29,26 @@ const Text = styled.div`
     }
 `;
 
-const PageNotFound = (): JSX.Element => (
-    <InvertedColorsContainer
-        css={css`
+export function PageNotFound(): JSX.Element {
+    return (
+        <InvertedColorsContainer
+            css={css`
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
         `}
-    >
-        <ErrorCode>
-            4
-            <Logo />
-            4
-        </ErrorCode>
-        <Text>The page you’re trying to reach does not exist :(</Text>
-        <StyledLink to="/">
-            <StyledButton type="button">Back to Home Page</StyledButton>
-        </StyledLink>
-    </InvertedColorsContainer>
-);
-
-export default PageNotFound;
+        >
+            <ErrorCode>
+                4
+                <Logo />
+                4
+            </ErrorCode>
+            <Text>The page you’re trying to reach does not exist :(</Text>
+            <StyledLink to="/">
+                <StyledButton type="button">Back to Home Page</StyledButton>
+            </StyledLink>
+        </InvertedColorsContainer>
+    );
+}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { JSX } from 'react';
 import classNames from 'classnames';
 import styled from '@emotion/styled';
 import fullText from './code.txt';
@@ -54,7 +54,7 @@ type Props = {
     className?: string,
 };
 
-const CodeBackground = ({ blur, className }: Props): JSX.Element => {
+export function CodeBackground({ blur, className }: Props): JSX.Element {
     const wordsToPrint = usePrintedWords(fullText);
 
     return (
@@ -74,6 +74,4 @@ const CodeBackground = ({ blur, className }: Props): JSX.Element => {
             </PaddingWrap>
         </Container>
     );
-};
-
-export default CodeBackground;
+}

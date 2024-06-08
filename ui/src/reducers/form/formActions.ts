@@ -1,3 +1,4 @@
+import { AxiosError } from 'axios';
 import {
     StrictEffect,
     all,
@@ -5,6 +6,7 @@ import {
     put,
     takeEvery,
 } from 'redux-saga/effects';
+import type { Error } from '../../types';
 import api from '../../utils/api';
 import { getErrorFromRequest } from '../../utils';
 
@@ -69,7 +71,7 @@ export function* sendMessageRequest(
         yield call(api.sendMessage, name, email, message);
         yield put(formSuccess());
     } catch (error) {
-        yield put(formFailure(getErrorFromRequest(error)));
+        yield put(formFailure(getErrorFromRequest(error as unknown as AxiosError<Error>)));
     }
 }
 

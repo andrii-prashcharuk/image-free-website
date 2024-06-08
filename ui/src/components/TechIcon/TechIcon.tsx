@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { JSX } from 'react';
 import styled from '@emotion/styled';
 import LOGOS from './logos';
 import type { LogoType } from './logos';
@@ -47,7 +47,7 @@ type Props = {
     type: LogoType,
 };
 
-const TechIcon = ({ type }: Props): JSX.Element => {
+export function TechIcon({ type }: Props): JSX.Element {
     const { title, Component } = LOGOS[type];
 
     return (
@@ -56,6 +56,4 @@ const TechIcon = ({ type }: Props): JSX.Element => {
             <Component />
         </Figure>
     );
-};
-
-export default TechIcon;
+}

@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { JSX } from 'react';
 import styled from '@emotion/styled';
-import FooterLinks from '../FooterLinks';
-import CopyrightText from '../CopyrightText';
+import { FooterLinks } from '../FooterLinks';
+import { CopyrightText } from '../CopyrightText';
 
 const Container = styled.footer`
     position: relative;
@@ -19,11 +19,11 @@ const Container = styled.footer`
     }
 `;
 
-const Footer = (): JSX.Element => (
-    <Container>
-        <FooterLinks />
-        <CopyrightText />
-    </Container>
-);
-
-export default Footer;
+export function Footer(): JSX.Element {
+    return (
+        <Container>
+            <FooterLinks />
+            <CopyrightText />
+        </Container>
+    );
+}

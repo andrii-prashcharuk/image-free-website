@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { JSX } from 'react';
 import styled from '@emotion/styled';
 import { envelopeTransformCSS } from '../../styles';
 
@@ -19,17 +19,17 @@ const MainBgContainer = styled.svg`
     }
 `;
 
-const LetterMainBg = (): JSX.Element => (
-    <MainBgContainer
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 496 320"
-        preserveAspectRatio="none"
-    >
-        <g>
-            <polyline className="cls-1" points="496 0 496 320 0 320 0 0" />
-            <polyline className="cls-2" points="248 0 496 0 496 320 248 320" />
-        </g>
-    </MainBgContainer>
-);
-
-export default LetterMainBg;
+export function LetterMainBg(): JSX.Element {
+    return (
+        <MainBgContainer
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 496 320"
+            preserveAspectRatio="none"
+        >
+            <g>
+                <polyline className="cls-1" points="496 0 496 320 0 320 0 0" />
+                <polyline className="cls-2" points="248 0 496 0 496 320 248 320" />
+            </g>
+        </MainBgContainer>
+    );
+}

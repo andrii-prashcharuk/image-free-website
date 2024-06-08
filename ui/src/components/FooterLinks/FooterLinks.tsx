@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { JSX } from 'react';
 import styled from '@emotion/styled';
 import { LinkedInIcon, GithubIcon, FacebookIcon } from '../icons';
 import { LINKEDIN_LINK, GITHUB_LINK, FACEBOOK_LINK } from '../../constants';
@@ -27,18 +27,18 @@ const Container = styled.div`
     }
 `;
 
-const FooterLinks = (): JSX.Element => (
-    <Container>
-        <StyledA href={FACEBOOK_LINK} title="Facebook" target="_blank" rel="me noopener noreferrer">
-            <FacebookIcon />
-        </StyledA>
-        <StyledA href={GITHUB_LINK} title="Github" target="_blank" rel="me noopener noreferrer">
-            <GithubIcon />
-        </StyledA>
-        <StyledA href={LINKEDIN_LINK} title="LinkedIn" target="_blank" rel="me noopener noreferrer">
-            <LinkedInIcon />
-        </StyledA>
-    </Container>
-);
-
-export default FooterLinks;
+export function FooterLinks(): JSX.Element {
+    return (
+        <Container>
+            <StyledA href={FACEBOOK_LINK} title="Facebook" target="_blank" rel="me noopener noreferrer">
+                <FacebookIcon />
+            </StyledA>
+            <StyledA href={GITHUB_LINK} title="Github" target="_blank" rel="me noopener noreferrer">
+                <GithubIcon />
+            </StyledA>
+            <StyledA href={LINKEDIN_LINK} title="LinkedIn" target="_blank" rel="me noopener noreferrer">
+                <LinkedInIcon />
+            </StyledA>
+        </Container>
+    );
+}

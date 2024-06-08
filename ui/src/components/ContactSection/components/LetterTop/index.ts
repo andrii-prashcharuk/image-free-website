@@ -1,1 +1,1 @@
-export { TopOpened, TopClosed } from './LetterTopOpened';
+export * from './LetterTopOpened';

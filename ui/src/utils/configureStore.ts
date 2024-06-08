@@ -1,14 +1,17 @@
-import { createStore, applyMiddleware } from 'redux';
-import createSagaMiddleware from 'redux-saga';
+import createSagaMiddleware from '@redux-saga/core';
+import { configureStore, Tuple } from '@reduxjs/toolkit';
+
 import reducer, { sagas } from '../reducers';
-import type { AppStore, State } from '../types';
+import type { Action, AppStore, State } from '../types';
 
-export const sagaMiddleware = createSagaMiddleware();
-
-const createStoreWithMiddleware = applyMiddleware(sagaMiddleware)(createStore);
+const sagaMiddleware = createSagaMiddleware();
 
 export default (initialState: State): AppStore => {
-    const store: AppStore = createStoreWithMiddleware(reducer, initialState);
+    const store: AppStore = configureStore<State, Action>({
+        reducer,
+        middleware: () => new Tuple(sagaMiddleware),
+        preloadedState: initialState,
+    });
 
     sagaMiddleware.run(sagas);
 

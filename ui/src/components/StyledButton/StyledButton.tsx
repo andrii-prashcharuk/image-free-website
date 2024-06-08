@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-const StyledButton = styled.button`
+export const StyledButton = styled.button`
     background: ${({ theme }) => theme.color.blue};
     color: ${({ theme }) => theme.color.black};
     padding: 8px 16px;
@@ -22,5 +22,3 @@ const StyledButton = styled.button`
         }
     }
 `;
-
-export default StyledButton;

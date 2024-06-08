@@ -1,1 +1,1 @@
-export { default } from './LetterMainBg';
+export * from './LetterMainBg';

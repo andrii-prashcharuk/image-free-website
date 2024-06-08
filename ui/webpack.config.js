@@ -50,9 +50,9 @@ module.exports = (env, argv) => {
         },
         devServer: {
             historyApiFallback: true,
-            disableHostCheck: true,
+            allowedHosts: 'all',
             hot: true,
-            contentBase: '../dst',
+            static: '../dst',
         },
         plugins: [
             new CleanWebpackPlugin(),
@@ -60,7 +60,7 @@ module.exports = (env, argv) => {
                 filename: 'index.html',
                 template: './src/index.html',
                 title: 'Andrii Prashcharuk | Image-Free Website',
-                description: 'My name is Andrii Prashcharuk and this is my personal website! I’m a Professional Software Engineer from Ukraine with more than 9 years of experience in Front-End development.',
+                description: 'My name is Andrii Prashcharuk and this is my personal website! I’m a Professional Software Engineer from Spain with more 13 years of experience in Front-End development.',
                 keywords: 'Prashcharuk, Andrii Prashcharuk, front-end, developer, engineer, react, redux, html5, css3, css3 animation, typescript, image-free website',
                 url: 'https://prashchar.uk',
                 image: 'https://prashchar.uk/profile_image.jpg',

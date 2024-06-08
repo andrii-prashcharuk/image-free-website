@@ -1,1 +1,1 @@
-export { default } from './DisplayStand';
+export * from './DisplayStand';

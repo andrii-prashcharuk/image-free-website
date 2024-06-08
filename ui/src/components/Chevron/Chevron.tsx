@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-const Chevron = styled.div`
+export const Chevron = styled.div`
     position: relative;
     width: 44px;
     height: 12px;
@@ -41,5 +41,3 @@ const Chevron = styled.div`
         }
     }
 `;
-
-export default Chevron;

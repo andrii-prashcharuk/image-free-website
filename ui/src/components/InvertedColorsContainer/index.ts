@@ -1,1 +1,1 @@
-export { default } from './InvertedColorsContainer';
+export * from './InvertedColorsContainer';

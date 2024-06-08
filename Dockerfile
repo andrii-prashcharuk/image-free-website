@@ -1,5 +1,5 @@
 # stage 1 - build react app first
-FROM node:14.15.4-alpine as ui-build
+FROM node:18-alpine as ui-build
 WORKDIR /app
 COPY ui/ ./ui/
 WORKDIR /app/ui
@@ -7,7 +7,7 @@ RUN npm install
 RUN npm run build
 
 # stage 2 - prepare and run node.js server
-FROM node:14.15.4-alpine as api-build
+FROM node:18-alpine as api-build
 WORKDIR /app
 COPY api/ ./
 COPY --from=ui-build /app/ui/dst ./public

@@ -1,8 +1,10 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, {
+    JSX, useEffect, useState, useCallback,
+} from 'react';
 import classNames from 'classnames';
 import styled from '@emotion/styled';
-import Nav from '../Nav';
-import Logo from '../Logo';
+import { Nav } from '../Nav';
+import { Logo } from '../Logo';
 import { useIsMobileView, useWindowScrollY } from '../../hooks';
 
 const Container = styled.header`
@@ -88,7 +90,7 @@ const Overlap = styled.header`
     }
 `;
 
-const Header = (): JSX.Element => {
+export function Header(): JSX.Element {
     const isMobileView = useIsMobileView();
     const scrollY = useWindowScrollY(100);
     const [closed, setClosed] = useState(isMobileView || !!scrollY);
@@ -116,6 +118,4 @@ const Header = (): JSX.Element => {
             <Overlap onTouchStart={closeOnMobile} />
         </Container>
     );
-};
-
-export default Header;
+}

@@ -4,12 +4,12 @@ import {
     useState,
     useCallback,
 } from 'react';
-import { useHistory } from 'react-router';
+import { useNavigate } from 'react-router';
 import { debounce } from 'throttle-debounce';
 import { getActiveDOMSection, NAV_ITEMS } from './utils';
 
 export const useHistoryUpdate = (): void => {
-    const history = useHistory();
+    const navigate = useNavigate();
     const [activeSection, setActiveSection] = useState(NAV_ITEMS[0].id);
     const handleScrollResize: () => void = useCallback(debounce(
         300,
@@ -28,7 +28,7 @@ export const useHistoryUpdate = (): void => {
     }, [handleScrollResize]);
 
     useEffect(() => {
-        history.push({
+        navigate({
             hash: activeSection,
         });
     }, [history, activeSection]);

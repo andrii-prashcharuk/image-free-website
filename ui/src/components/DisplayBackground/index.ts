@@ -1,1 +1,1 @@
-export { default } from './DisplayBackground';
+export * from './DisplayBackground';

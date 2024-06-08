@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { JSX } from 'react';
 import type { MouseEvent } from 'react';
 import classNames from 'classnames';
 import styled from '@emotion/styled';
-import { scrollTo } from '../../utils';
 import { StyledA } from '../StyledA';
 
 const A = styled(StyledA)`
@@ -27,7 +26,7 @@ type Props = {
     active?: boolean,
 };
 
-const NavLink = (props: Props): JSX.Element => {
+export function NavLink(props: Props): JSX.Element {
     const {
         className,
         active,
@@ -39,7 +38,7 @@ const NavLink = (props: Props): JSX.Element => {
         const scrollTarget = window.document.getElementById(to);
 
         if (scrollTarget) {
-            scrollTo(scrollTarget.offsetTop);
+            scrollTarget.scrollIntoView({ behavior: 'smooth' });
             e.preventDefault();
         }
 
@@ -57,6 +56,4 @@ const NavLink = (props: Props): JSX.Element => {
             {children}
         </A>
     );
-};
-
-export default NavLink;
+}

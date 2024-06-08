@@ -1,2 +1,1 @@
-export { default } from './ContactForm';
-export type { FieldName, Form } from './utils';
+export * from './ContactForm';

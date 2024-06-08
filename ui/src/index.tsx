@@ -1,11 +1,12 @@
 import React from 'react';
-import { render } from 'react-dom';
-import AppLayout from './scenes/AppLayout';
+import ReactDOM from 'react-dom/client';
+import { AppLayout } from './scenes/AppLayout';
 
-const root = document.getElementById('root');
+const rootElement = document.getElementById('root');
 
-if (root) {
-    render((<AppLayout />), root);
+if (rootElement) {
+    const root = ReactDOM.createRoot(rootElement);
+    root.render((<AppLayout />));
 }
 
 if (module.hot) {

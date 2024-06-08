@@ -1,1 +1,1 @@
-export { default } from './FakePopup';
+export * from './FakePopup';
