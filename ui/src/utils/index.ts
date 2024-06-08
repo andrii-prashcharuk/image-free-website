@@ -10,7 +10,7 @@ export function isEmailValid(email: string): boolean {
 }
 
 export function getYearsOfExperience(): number {
-    const careerStartMonth = 6; // July
+    const careerStartMonth = 5; // June
     const careerStartYear = 2011;
     const now = new Date();
     const experience = now.getFullYear() - careerStartYear;

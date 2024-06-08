@@ -115,7 +115,7 @@ export function AboutMeSection(): JSX.Element {
             <StyledFakePopup header="Hi there!" bodyCss={fakePopupBodyCss}>
                 <StyledLogo />
                 <p>
-                    I’m a Professional Software Engineer from Ukraine with more than&nbsp;
+                    I’m a Professional Software Engineer from Spain with &nbsp;
                     {experience}
                 &nbsp;years of experience in Front-End development.
                     <br />
