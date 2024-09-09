@@ -1,5 +1,5 @@
 # Image-Free Website Server
-NodeJS Server for [Image Free Website](https://github.com/monext/image-free-website).
+NodeJS Server for [Image Free Website](https://github.com/andrii-prashcharuk/image-free-website).
 
 ## Getting Started
 

@@ -4,7 +4,7 @@ import { Section } from '../Section';
 import { TechIcon } from '../TechIcon';
 import { StyledA } from '../StyledA';
 
-const CLIENT_URL = 'https://github.com/monext/image-free-website';
+const CLIENT_URL = 'https://github.com/andrii-prashcharuk/image-free-website';
 
 const StyledSection = styled(Section)`
     overflow: hidden;

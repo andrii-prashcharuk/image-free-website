@@ -1,5 +1,5 @@
 # Image-Free Website UI
-UI for [Image Free Website](https://github.com/monext/image-free-website).
+UI for [Image Free Website](https://github.com/andrii-prashcharuk/image-free-website).
 
 ## Getting Started
 

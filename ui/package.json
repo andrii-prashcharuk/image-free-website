@@ -6,7 +6,7 @@
   "main": "src/index.tsx",
   "repository": {
     "type": "git",
-    "url": "https://github.com/monext/image-free-website.git",
+    "url": "https://github.com/andrii-prashcharuk/image-free-website.git",
     "directory": "ui"
   },
   "private": true,
